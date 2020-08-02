@@ -3,3 +3,6 @@ dash_core_components
 dash_html_components
 dash_daq
 dash_bootstrap_components
+pandas
+numpy
+functools
