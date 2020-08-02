@@ -8,6 +8,7 @@ from dash.dependencies import Input, Output
 
 
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div( className='wrapper', children=[
     html.Div(
