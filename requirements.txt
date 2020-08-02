@@ -5,4 +5,3 @@ dash_daq
 dash_bootstrap_components
 pandas
 numpy
-functools
