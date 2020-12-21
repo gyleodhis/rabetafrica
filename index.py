@@ -2,15 +2,17 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
-import data
+# import data
+import about
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
 
 app = dash.Dash(__name__)
 server = app.server
+app.title = 'RabetAfrica'
 
-app.layout = html.Div( className='wrapper', children=[
+app.layout = html.Div(className='wrapper', children=[
     html.Div(
         className="main-header navbar navbar-expand navbar-white navbar-light",
         # Left navbar links
@@ -28,11 +30,7 @@ app.layout = html.Div( className='wrapper', children=[
                                 ]),
                         html.Li(className='nav-item d-none d-sm-inline-block',
                                 children=[
-                                    html.A('About Me', className='nav-link', href='#')
-                                ]),
-                        html.Li(className='nav-item d-none d-sm-inline-block',
-                                children=[
-                                    html.A('Contact Me', className='nav-link', href='#')
+                                    html.A('Profile', className='nav-link', href='/profile')
                                 ])
                     ]),
             html.Form(
@@ -71,11 +69,11 @@ app.layout = html.Div( className='wrapper', children=[
                                              html.Div(className='image',
                                                       children=[
                                                           html.Img(className='img-circle elevation-2', alt='Gyleodhis',
-                                                                   src='https://pbs.twimg.com/profile_images/1271865573010522112/G11XJjmR_400x400.jpg')
+                                                                   src='assets/img/gyle.jpg')
                                                       ]),
                                              html.Div(className='info',
                                                       children=[
-                                                          html.A('Gyleodhis', className='d-block', href='#')
+                                                          html.A('Gyleodhis', className='d-block', href='https://www.linkedin.com/in/gyle-odhiambo-992990150/')
                                                       ])
                                          ]),
                                 # Sidebar Menu
@@ -88,16 +86,11 @@ app.layout = html.Div( className='wrapper', children=[
                                                      children=[
                                                          html.Li(className='nav-item has-treeview menu-open',
                                                                  children=[
-                                                                    html.A(className='nav-link active', href='#',
+                                                                    html.A(className='nav-link', href='#',
                                                                            children=[
-                                                                               html.I(className='nav-icon fas fa-tachometer-alt'),
-                                                                               dbc.FormGroup([
-                                                                                   html.H4("Select Country"),
-                                                                                   dcc.Dropdown(id='country_drop_down',
-                                                                                                options=[{'label': i, 'value': i} for i in data.df_final['Country/Region']],
-                                                                                                value='Kenya')
-                                                                               ]),
-                                                                               html.I(className='right fas fa-angle-left')
+                                                                               html.I(className='nav-icon fas fa-globe-africa text-success'),
+                                                                               html.I(className='right fas fa-angle-left'),
+                                                                               html.P('Africa')
                                                                            ]),
                                                                      html.Ul(className='nav nav-treeview',
                                                                              children=[
@@ -105,24 +98,24 @@ app.layout = html.Div( className='wrapper', children=[
                                                                                          children=[
                                                                                              html.A(className='nav-link active', href='#',
                                                                                                     children=[
-                                                                                                        html.I(className='far fa-circle nav-icon'),
-                                                                                                        html.P('Dasboard V1')
+                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
+                                                                                                        html.P('Kenya')
                                                                                                     ])
                                                                                          ]),
                                                                                  html.Li(className='nav-item',
                                                                                          children=[
                                                                                              html.A(className='nav-link', href='#',
                                                                                                     children=[
-                                                                                                        html.I(className='far fa-circle nav-icon'),
-                                                                                                        html.P('Dasboard V2')
+                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
+                                                                                                        html.P('Vision 2030')
                                                                                                     ])
                                                                                          ]),
                                                                                  html.Li(className='nav-item',
                                                                                          children=[
                                                                                              html.A(className='nav-link', href='#',
                                                                                                     children=[
-                                                                                                        html.I(className='far fa-circle nav-icon'),
-                                                                                                        html.P('Dasboard V3')
+                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
+                                                                                                        html.P('SDGs')
                                                                                                     ])
                                                                                          ])
                                                                              ])
@@ -131,10 +124,20 @@ app.layout = html.Div( className='wrapper', children=[
                                                                  children=[
                                                                      html.A(className='nav-link', href='#',
                                                                             children=[
-                                                                                html.I(className='nav-icon fas fa-th'),
-                                                                                html.P('Widgets'),
-                                                                                html.Span('New', className='right badge badge-danger')
-                                                                            ])
+                                                                                html.I(className='nav-icon fa fa-money'),
+                                                                                html.P('World Bank'),
+                                                                                html.Span('New', className='right badge badge-primary')
+                                                                            ]),
+                                                                     html.A(className='nav-link', href ='#', children=[
+                                                                         html.I(className='nav-icon fa fa-medkit'),
+                                                                         html.P('WHO'),
+                                                                         html.Span('Coming Soon', className='right badge badge-success')
+                                                                     ]),
+                                                                     html.A(className='nav-link', href='#',children=[
+                                                                         html.I(className='nav-icon fa fa-sun-o'),
+                                                                         html.P('Climate'),
+                                                                         html.Span('Coming Up', className='right badge badge-danger')
+                                                                     ])
                                                                  ])
                                                      ])
                                          ])
@@ -143,132 +146,7 @@ app.layout = html.Div( className='wrapper', children=[
     # Content Wrapper. Contains page content
     html.Div(className='content-wrapper',
              # Content Header (Page header)
-             children=[
-                    html.Div(className='content-header',
-                             children=[
-                                 html.Div(className='container-fluid',
-                                          children=[
-                                              html.Div(className='row mb-2', children=[
-                                                  html.Div(className='col-sm-6', children=[
-                                                      html.H1(data.df_final.iloc[4]['Country/Region'], className='m-0 text-dark')
-                                                  ]),
-                                                  html.Div(className='col-sm-6', children=[
-                                                      html.Ol(className='breadcrumb float-sm-right', children=[
-                                                          html.Li(className='breadcrumb-item', children=[
-                                                              html.A('Home', href='#')
-                                                          ]),
-                                                          html.Li(className='breadcrumb-item active', children=[
-                                                              html.A('COVID_19', href='#')
-                                                          ])
-                                                      ])
-                                                  ])
-                                              ])
-                                          ])
-                             ]),
-                 # Main content
-                 html.Div(className='content', children=[
-                     html.Div(className='container-fluid', children=[
-                         # Small boxes (Stat box)
-                         html.Div(className='row', children=[
-                             html.Div(className='col-lg-3 col-6', children=[
-                                 html.Div(className='small-box bg-info', children=[
-                                     html.Div(className='inner', children=[
-                                         html.H3(data.df_final.iloc[4]['Country/Region'])
-                                     ]),
-                                     html.Div(className='icon', children=[
-                                         html.I(className='ion ion-bag')
-                                     ]),
-                                     html.A('Total Cases:', className='small-box-footer', href='#'),
-                                     html.A(data.df_final.iloc[4]['Total_Cases'], className='small-box-footer', href='#')
-                                     # html.I(className='fas fa-arrow-circle-right')
-                                 ])
-                             ]),
-                             html.Div(className='col-lg-3 col-6', children=[
-                                 html.Div(className='small-box bg-success', children=[
-                                     daq.Gauge(
-                                         color={"gradient": True,
-                                                "ranges": {"green": [0, 6], "yellow": [6, 8], "red": [8, 10]}},
-                                         value=data.df_final.iloc[4]['Total_Recoveries'],
-                                         logarithmic=False,
-                                         label='Recoveries',
-                                         max=1000,
-                                         min=0,
-                                         size=150,
-                                     ),
-                                     html.Div(className='icon', children=[
-                                         html.I(className='ion ion-stats-bars')
-                                     ]),
-                                     html.A('Total Recoveries', className='small-box-footer', href='#'),
-                                     html.I(className='fas fa-arrow-circle-right')
-                                 ])
-                             ]),
-                             html.Div(className='col-lg-3 col-6', children=[
-                                 html.Div(className='small-box bg-warning', children=[
-                                     daq.Gauge(
-                                         color="#D2691E",
-                                         value=300,
-                                         label='Hello world',
-                                         max=1000,
-                                         min=0,
-                                         size=150,
-                                     ),
-                                     html.Div(className='icon', children=[
-                                         html.I(className='ion ion-person-add')
-                                     ]),
-                                     html.A('New Infections', className='small-box-footer', href='#'),
-                                     html.I(className='fas fa-arrow-circle-right')
-                                 ])
-                             ]),
-                             html.Div(className='col-lg-3 col-6', children=[
-                                 html.Div(className='small-box bg-danger', children=[
-                                     daq.Gauge(
-                                         color="#000000",
-                                         value=375,
-                                         label='Total Deaths',
-                                         max=500,
-                                         min=0,
-                                         size=150,
-                                     ),
-                                     html.Div(className='icon', children=[
-                                         html.I(className='ion ion-pie-graph')
-                                     ]),
-                                     html.A('More info', className='small-box-footer', href='#'),
-                                     html.I(className='fas fa-arrow-circle-right')
-                                 ])
-                             ])
-                         ]),
-                         # End of Row
-                         # Main row
-                         html.Div(className='row', children=[
-                             html.Section(className='col-lg-7 connectedSortable', children=[
-                                 # Custom tabs (Charts with tabs)
-                                 html.Div(className='card', children=[
-                                     html.Div(className='card-header', children=[
-                                         html.H3(className='card-title', children=['Covid_19 Statistics',
-                                             html.I(className='fas fa-universal-access ')
-                                         ]),
-                                         html.Div(className='card-tools', children=[
-                                             html.Ul(className='nav nav-pills ml-auto', children=[
-                                                 html.Li(className='nav-item', children=[
-                                                     html.A('Area', className='nav-link active', href='#', **{'data-toggle': 'tab'}),
-                                                     html.Div(id='hello', children=[
-                                                         # dcc.Graph(id='covid_per_country'),
-                                                         # dcc.Graph(id='values')
-                                                     ])
-                                                 ]),
-                                                 html.Li(className='nav-item', children=[
-                                                     html.A('Donut', className='nav-link', href='#', **{'data-toggle': 'tab'})
-                                                 ])
-                                             ])
-                                         ])
-                                     ])
-                                 ])
-                             ])
-                         ])
-
-                     ])
-                 ])
-             ]),
+             children=[]),
     html.Footer(className='main-footer', children=[
         html.Strong('Copyright 2020 RabetAfrica')
     ])
