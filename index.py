@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
 # import data
-import about
+from about import profile_page
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
@@ -152,140 +152,9 @@ app.layout = html.Div(className='wrapper', children=[
                  html.Div(id='page-content')
              ]),
     html.Footer(className='main-footer', children=[
-        html.Strong('Copyright 2020 RabetAfrica')
+        html.Strong('Copyright 2021 RabetAfrica')
     ])
 ])
-
-profile_page = html.Div([
-    html.Section(className='content-header', children=[
-        html.Div(className='container-fluid', children=[
-            html.Div(className='row mb-2', children=[
-                html.Div(className='col-sm-6', children=[
-                    html.H1('Profile')
-                ]),
-                html.Div(className='col-sm-6',children=[
-                    html.Ol(className='breadcrumb float-sm-right', children=[
-                        html.Li(className='breadcrumb-item', children=[
-                            html.A('Home', href='/')
-                        ]),
-                        html.Li('My Profile', className='breadcrumb-item active')
-                    ])
-                ])
-            ])
-        ])
-    ]),
-    html.Section(className='content', children=[
-        html.Div(className='container-fluid',children=[
-            html.Div(className='row', children=[
-                html.Div(className='col-md-3', children=[
-                    # Profile Image
-                    html.Div(className='card card-primary card-outline', children=[
-                        html.Div(className='card-body box-profile', children=[
-                            html.Div(className='text-center', children=[
-                                html.Img(className='profile-user-img img-fluid img-circle', src='assets/img/gyle.jpg',
-                                         alt='Profile picture')
-                            ]),
-                            html.H3('Gyle Odhiambo', className='profile-username text-center'),
-                            html.P('Data Engineer', className='text-muted text-center'),
-                            html.Ul(className='list-group list-group-unbordered mb-3', children=[
-                                html.Li(className='list-group-item', children=[
-                                    html.B('Twitter'),
-                                    html.A('300', className='float-right')
-                                ]),
-                                html.Li(className='list-group-item', children=[
-                                    html.B('LinkedIn'),
-                                    html.A('+1000', className='float-right')
-                                ]),
-                                html.Li(className='list-group-item', children=[
-                                    html.B('Github'),
-                                    html.A('12', className='float-right')
-                                ])
-                            ]),
-                            html.A(className='btn btn-primary btn-block', href='https://twitter.com/gyleodhis',
-                                   target='_blank', children=[
-                                    html.B('Follow')
-                                ])
-                        ]) # card body
-                    ]), #card
-                    # About Me Box
-                    html.Div(className='card card-primary', children=[
-                        html.Div(className='card-header', children=[
-                            html.H3('About Me', className='card-title')
-                        ]),
-                    # card-header
-                        html.Div(className='card-body',children=[
-                            html.Strong(children=[
-                                html.I(className='fas fa-book mr-1'), ' Education'
-                            ]),
-                            html.P('B.S. in Computer Science from Jomo Kenyatta University of Agriculture and Technology',
-                                   className='text-muted'),
-                            html.Hr(),
-                            html.Strong(children=[
-                                html.I(className='fas fa-map-marker-alt mr-1'), ' Location'
-                            ]),
-                            html.P('Nairobi, Kenya',
-                                   className='text-muted'),
-                            html.Hr(),
-                            html.Strong(children=[
-                                html.I(className='fas fa-pencil-alt mr-1'), ' Skills'
-                            ]),
-                            html.P(className='text-muted', children=[
-                                html.Span('Data Science ', className='tag tag-success'),
-                                html.Span('Machine Learning ', className='tag tag-success'),
-                                html.Span('Data Engineering ', className='tag tag-success'),
-                                html.Span('Apache Spark ', className='tag tag-success'),
-                                html.Span('Big Data ', className='tag tag-success'),
-                                html.Span('Python ', className='tag tag-info'),
-                                html.Span('Qlik Sense ', className='tag tag-info')
-                            ]),
-                            html.Hr(),
-                            html.Strong(children=[
-                                html.I(className='fas fa-envelope-open-text mr-1'), ' Contact'
-                            ]),
-                            html.P(className='text-muted', children=[
-                                html.Span('gaylordodhiambo@gmail.com ', className='tag tag-info'),
-                                html.Br(),
-                                html.Span('gyleodhis@outlook.com', className='tag tag-info')
-                            ])
-                        ]) #card-body
-                    ]) #Card
-                ]), #Col-md-3
-                html.Div(className='col-md-9',children=[
-                    html.Div(className='card', children=[
-                        html.Div(className='card-header p-2',children=[
-                            html.Ul(className='nav nav-pills',children=[
-                                html.Li(className='nav-item',children=[
-                                    html.A('Activity', className='nav-link active',href='#activity', **{'data-toggle': 'tab'})
-                                ]),
-                                html.Li(className='nav-item',children=[
-                                    html.A('Bucket List', className='nav-link',href='#bucket_list', **{'data-toggle': 'tab'})
-                                ]),
-                                html.Li(className='nav-item',children=[
-                                    html.A('Timeline', className='nav-link',href='#timeline', **{'data-toggle': 'tab'})
-                                ])
-                            ])
-                        ])
-                    ])
-                ])
-            ])
-        ])
-    ]),
-    dcc.Dropdown(id='profile-2-dropdown',
-                 options=[{'label': i, 'value': i} for i in ['NRB','MBS','KSM','KAK']],
-                 value='NRB'),
-    html.Div(id='profile-2-content'),
-    html.Br(),
-    dcc.Link('Go to Profile', href='/profile'),
-    html.Br(),
-    dcc.Link('Home',href='/')
-
-])
-
-
-@app.callback(dash.dependencies.Output('profile-2-content','children'),
-              [dash.dependencies.Input('profile-2-dropdown', 'value')])
-def profile_2_dropdown(value):
-    return 'You have selected' "{}".format(value)
 
 # Updating the index callback
 
