@@ -2,7 +2,7 @@ html.Div(className='content', children=[
     html.Div(className='container-fluid', children=[
         # Small boxes (Stat box)
         html.Div(className='row', children=[
-            html.Div(className='col-lg-3 col-6', children=[
+            html.Div(className='col-lg-3 col-md-3 col-sm-6', children=[
                 html.Div(className='small-box bg-info', children=[
                     html.Div(className='inner', children=[
                         html.H3(data.df_final.iloc[4]['Country/Region'])
@@ -15,7 +15,7 @@ html.Div(className='content', children=[
                     # html.I(className='fas fa-arrow-circle-right')
                 ])
             ]),
-            html.Div(className='col-lg-3 col-6', children=[
+            html.Div(className='col-lg-3 col-md-3 col-sm-6', children=[
                 html.Div(className='small-box bg-success', children=[
                     daq.Gauge(
                         color={"gradient": True,

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Rabet.iml" filepath="$PROJECT_DIR$/.idea/Rabet.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/charming_data/.idea/charming_data.iml" filepath="$USER_HOME$/PycharmProjects/charming_data/.idea/charming_data.iml" />
     </modules>
   </component>
 </project>
