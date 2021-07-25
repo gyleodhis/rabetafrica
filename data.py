@@ -3,8 +3,8 @@ import datetime as dt
 from functools import reduce
 
 this_month = dt.datetime.today().month
-# covid_data = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
-covid_data = 'assets/covid_data.csv' # offline csv version
+covid_data = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
+# covid_data = 'assets/covid_data.csv' # offline csv version
 
 df_covid_data_v1 = pd.read_csv(covid_data)
 df_covid_data_v1['date'] = pd.to_datetime(df_covid_data_v1['date']) #converting date column to type date
