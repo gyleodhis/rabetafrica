@@ -2,6 +2,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
+from plotly import graph_objects as go
 import dash_daq as daq
 from data import df_covid_data, df_africa
 from about import profile_page
@@ -37,6 +38,27 @@ app.title = 'RabetAfrica'
 
 fig= px.bar(df_africa.nlargest(10, 'new_cases'), x="location",template="simple_white",
             labels={"location":"Country","new_cases":"New Cases"}, y="new_cases", barmode="group")
+
+fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
+                 labels={"new_vaccinations":"New Vaccinations","location":"Country"})
+
+fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
+                       labels={"positive_rate":"New Positivity Rate","location":"Country"})
+# fig_funnel = go.Figure()
+# fig_funnel.add_trace(go.Funnel(
+#     name='Positivity Rate',
+#     x=df_africa.nlargest(10, 'positive_rate'),
+#     y=df_africa.location,
+#     textposition="inside"
+# ))
+
+# fig_funnel.add_trace(go.Funnel(
+#     name='Test Per Thousand',
+#     y=df_africa.location,
+#     x=df_africa.nlargest(10, 'new_tests_per_thousand'),
+#     textposition='inside'
+# ))
+
 app.layout = html.Div(className='wrapper', children=[
     dcc.Location(id='url',refresh=False),
     html.Div(
@@ -331,14 +353,14 @@ covid_page = html.Div([
                     html.Div(className='card', children=[
                            html.Div(className='card-header border-0', children=[
                                html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
+                                   html.H3('Top Countries in Vaccinations', className='card-title')
                                ])
                            ]),
                         html.Div(className='card-body', children=[
                             html.Div(className='d-flex', children=[
                                 html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
+                                    html.Span(df_africa['new_vaccinations'].sum(), className='text-bold text-lg'),
+                                    html.Span('Total Vaccinations')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
@@ -349,8 +371,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
+                                dcc.Graph(className='md-12',id='example_graph', figure=fig_pie)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
@@ -365,14 +386,15 @@ covid_page = html.Div([
                     html.Div(className='card', children=[
                            html.Div(className='card-header border-0', children=[
                                html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
+                                   html.H3('Positivity Rate', className='card-title')
                                ])
                            ]),
                         html.Div(className='card-body', children=[
                             html.Div(className='d-flex', children=[
                                 html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
+                                    html.Span(round((df_africa['positive_rate'].dropna(how='any').mean())*100,3),
+                                              className='text-bold text-lg'),
+                                    html.Span('Average Positivity Rate')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
@@ -383,8 +405,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
+                                dcc.Graph(className='md-12',id='example_graph', figure=fig_funnel)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
