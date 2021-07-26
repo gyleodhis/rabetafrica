@@ -2,6 +2,7 @@ import pandas as pd
 import datetime as dt
 from functools import reduce
 
+
 this_month = dt.datetime.today().month
 covid_data = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 # covid_data = 'assets/covid_data.csv' # offline csv version

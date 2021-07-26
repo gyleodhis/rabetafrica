@@ -2,6 +2,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
+import numpy as np
 from plotly import graph_objects as go
 import dash_daq as daq
 from data import df_covid_data, df_africa
@@ -44,20 +45,11 @@ fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', v
 
 fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
                        labels={"positive_rate":"New Positivity Rate","location":"Country"})
-# fig_funnel = go.Figure()
-# fig_funnel.add_trace(go.Funnel(
-#     name='Positivity Rate',
-#     x=df_africa.nlargest(10, 'positive_rate'),
-#     y=df_africa.location,
-#     textposition="inside"
-# ))
 
-# fig_funnel.add_trace(go.Funnel(
-#     name='Test Per Thousand',
-#     y=df_africa.location,
-#     x=df_africa.nlargest(10, 'new_tests_per_thousand'),
-#     textposition='inside'
-# ))
+
+fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'), x='people_vaccinated_per_hundred',
+                               y='location', color='location',
+                               labels={"people_vaccinated_per_hundred":"New Positivity Rate","location":"Country"})
 
 app.layout = html.Div(className='wrapper', children=[
     dcc.Location(id='url',refresh=False),
@@ -258,27 +250,30 @@ covid_page = html.Div([
                            html.Div(className='col-md-3', children=[
                                html.Div(className='small-box bg-info', children=[
                                    html.Div(className='inner', children=[
-                                       html.H4(df_covid_data.iloc[46]['location'])
+                                       # html.H4(df_covid_data.iloc[46]['location']),
+                                       html.H4('New Cases')
                                    ]),
                                    html.Div(className='icon', children=[
                                        html.I(className='ion ion-bag')
                                    ]),
-                                   html.A('New Cases:', className='small-box-footer', href='#'),
-                                   html.A(df_africa.iloc[46]['new_cases'], className='small-box-footer',
-                                          href='#')
+                                   html.A('Africa: ', className='small-box-footer', href='#'),
+                                   html.A(df_africa['new_cases'].sum(), className='small-box-footer', href='#')
+                                   # html.A('Worldwide: ' + str(df_covid_data['new_cases'].sum()),
+                                   #        className='small-box-footer', href='#'),
                                    # html.I(className='fas fa-arrow-circle-right')
                                ])
                            ]),
                            html.Div(className='col-md-3', children=[
                                html.Div(className='small-box bg-success', children=[
                                    html.Div(className='inner', children=[
-                                       html.H4(df_covid_data.iloc[46]['location'])
+                                       # html.H4(df_covid_data.iloc[46]['location']),
+                                       html.H4('Positivity Rate')
                                    ]),
                                    html.Div(className='icon', children=[
                                        html.I(className='ion ion-bars')
                                    ]),
-                                   html.A('Positivity Rate:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[46]['positive_rate'].round(3), className='small-box-footer',
+                                   html.A('Africa:', className='small-box-footer', href='#'),
+                                   html.A(np.round(df_covid_data['positive_rate'].mean(),3), className='small-box-footer',
                                           href='#')
                                    # html.I(className='fas fa-arrow-circle-right')
                                ])
@@ -286,13 +281,14 @@ covid_page = html.Div([
                            html.Div(className='col-md-3', children=[
                                html.Div(className='small-box bg-danger', children=[
                                    html.Div(className='inner', children=[
-                                       html.H4(df_covid_data.iloc[46]['location'])
+                                       # html.H4(df_covid_data.iloc[46]['location']),
+                                       html.H4('Total Death')
                                    ]),
                                    html.Div(className='icon', children=[
                                        html.I(className='ion ion-pie-graph')
                                    ]),
-                                   html.A('Total Deaths:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[46]['new_deaths'], className='small-box-footer',
+                                   html.A('Africa:', className='small-box-footer', href='#'),
+                                   html.A(df_covid_data['new_deaths'].sum(), className='small-box-footer',
                                           href='#')
                                    # html.I(className='fas fa-arrow-circle-right')
                                ])
@@ -300,13 +296,14 @@ covid_page = html.Div([
                            html.Div(className='col-md-3', children=[
                                html.Div(className='small-box bg-warning', children=[
                                    html.Div(className='inner', children=[
-                                       html.H4(df_covid_data.iloc[46]['location'])
+                                       # html.H4(df_covid_data.iloc[46]['location']),
+                                       html.H5('Patients in ICU')
                                    ]),
                                    html.Div(className='icon', children=[
                                        html.I(className='ion ion-bag')
                                    ]),
-                                   html.A('Patients in ICU:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[46]['icu_patients'], className='small-box-footer',
+                                   html.A('Africa:', className='small-box-footer', href='#'),
+                                   html.A(df_covid_data['icu_patients'].sum(), className='small-box-footer',
                                           href='#')
                                    # html.I(className='fas fa-arrow-circle-right')
                                ])
@@ -420,14 +417,15 @@ covid_page = html.Div([
                     html.Div(className='card', children=[
                            html.Div(className='card-header border-0', children=[
                                html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
+                                   html.H3('Vaccinations Per 100 Persons', className='card-title')
                                ])
                            ]),
                         html.Div(className='card-body', children=[
                             html.Div(className='d-flex', children=[
                                 html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
+                                    html.Span(round(df_africa['people_vaccinated_per_hundred'].dropna(how='any').mean(),3),
+                                              className='text-bold text-lg'),
+                                    html.Span('Avg Vaccination Per 100')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
@@ -438,8 +436,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
+                                dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
