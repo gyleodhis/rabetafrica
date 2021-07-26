@@ -37,6 +37,8 @@ app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=devi
 server = app.server
 app.title = 'RabetAfrica'
 
+config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
+
 fig= px.bar(df_africa.nlargest(10, 'new_cases'), x="location",template="simple_white",
             labels={"location":"Country","new_cases":"New Cases"}, y="new_cases", barmode="group")
 
@@ -49,7 +51,7 @@ fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate
 
 fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'), x='people_vaccinated_per_hundred',
                                y='location', color='location',
-                               labels={"people_vaccinated_per_hundred":"New Positivity Rate","location":"Country"})
+                               labels={"people_vaccinated_per_hundred":"Vaccination per 100","location":"Country"})
 
 app.layout = html.Div(className='wrapper', children=[
     dcc.Location(id='url',refresh=False),
@@ -335,7 +337,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                dcc.Graph(id='example_graph', figure=fig)
+                                dcc.Graph(id='example_graph', figure=fig, config=config)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
@@ -368,7 +370,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                dcc.Graph(className='md-12',id='example_graph', figure=fig_pie)
+                                dcc.Graph(className='md-12',id='example_graph', figure=fig_pie, config=config)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
@@ -402,7 +404,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                dcc.Graph(className='md-12',id='example_graph', figure=fig_funnel)
+                                dcc.Graph(className='md-12',id='example_graph', figure=fig_funnel, config=config)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
@@ -436,7 +438,7 @@ covid_page = html.Div([
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
-                                dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine)
+                                dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine, config=config)
                             ]),
                             html.Div(className='d-flex flex-row justify-content-end', children=[
                                 html.Span(className='mr-2', children=[
