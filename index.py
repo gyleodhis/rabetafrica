@@ -3,6 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 import numpy as np
+from _datetime import datetime as dt
 from plotly import graph_objects as go
 import dash_daq as daq
 from data import df_covid_data, df_africa
@@ -48,10 +49,10 @@ fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', v
 fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
                        labels={"positive_rate":"New Positivity Rate","location":"Country"})
 
-
 fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'), x='people_vaccinated_per_hundred',
                                y='location', color='location',
                                labels={"people_vaccinated_per_hundred":"Vaccination per 100","location":"Country"})
+fig_funnel_vaccine.update_yaxes(showticklabels=False)
 
 app.layout = html.Div(className='wrapper', children=[
     dcc.Location(id='url',refresh=False),
@@ -201,7 +202,7 @@ covid_page = html.Div([
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Covid 19 Tracker')
+                    html.H1('Covid 19 Tracker: ' + str(dt.date(dt.now())))
                 ]),
                 html.Div(className='col-sm-6',children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
@@ -228,24 +229,24 @@ covid_page = html.Div([
                     #         html.Div(className='dropdown_item', id='continent_out_put')
                     #     ])
                     # ]),
-                    html.Div(className='card card-primary card-outline', children=[
-                        # Country Dropdown menu
-                        html.Div(className='dropdown', children=[
-                            dcc.Dropdown(id='continent_drop_down', className='dropdown-menu',
-                                         options=[{'label': i, 'value': i} for i in df_africa['location']],
-                                         value=df_africa.iloc[46]['location'], multi=True),
-                            html.Div(id='continent_out_put', className='dropdown_item')
-                        ]),
-                        # Country Drop Down
-                        html.Div(className='dropdown', children=[
-                            html.A('Select Country', className='dropdown-toggle', href='#', role='button',
-                                   **{'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'}),
-                            html.Div(className='dropdown-menu', children=[
-                                html.A('Kenya123', className='dropdown-item', href='#'),
-                                html.A('Uganda255', className='dropdown-item', href='#')
-                            ])
-                        ])
-                    ]),
+                    # html.Div(className='card card-primary card-outline', children=[
+                    #     # Country Dropdown menu
+                    #     html.Div(className='dropdown', children=[
+                    #         dcc.Dropdown(id='continent_drop_down', className='dropdown-menu',
+                    #                      options=[{'label': i, 'value': i} for i in df_africa['location']],
+                    #                      value=df_africa.iloc[46]['location'], multi=True),
+                    #         html.Div(id='continent_out_put', className='dropdown_item')
+                    #     ]),
+                    #     # Country Drop Down
+                    #     html.Div(className='dropdown', children=[
+                    #         html.A('Select Country', className='dropdown-toggle', href='#', role='button',
+                    #                **{'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'}),
+                    #         html.Div(className='dropdown-menu', children=[
+                    #             html.A('Kenya123', className='dropdown-item', href='#'),
+                    #             html.A('Uganda255', className='dropdown-item', href='#')
+                    #         ])
+                    #     ])
+                    # ]),
                 ]),
                    html.Div(className='col-md-9', children=[
                        html.Div(className='row', children=[
