@@ -327,14 +327,14 @@ covid_page = html.Div([
                             html.Div(className='d-flex', children=[
                                 html.P(className='d-flex flex-column', children=[
                                     html.Span(df_africa['new_cases'].sum(), className='text-bold text-lg'),
-                                    html.Span('Total New Cases')
+                                    html.Span('New Cases Today')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
+                                        html.I(str((round(df_africa['new_cases'].sum()/df_covid_data['new_cases'].sum(),4))*100) + '%',
+                                               className='fas fa-arrow-down')
                                     ]),
-                                    html.Span('Since last month', className='text-muted')
+                                    html.Span('Africa`s % of the world', className='text-muted')
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
@@ -360,14 +360,14 @@ covid_page = html.Div([
                             html.Div(className='d-flex', children=[
                                 html.P(className='d-flex flex-column', children=[
                                     html.Span(df_africa['new_vaccinations'].sum(), className='text-bold text-lg'),
-                                    html.Span('Total Vaccinations')
+                                    html.Span('New Vaccinations Today')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
+                                        html.I(str((round(df_africa['new_vaccinations'].sum()/df_covid_data['new_vaccinations'].sum(),4))*100) + '%',
+                                               className='fas fa-arrow-down')
                                     ]),
-                                    html.Span('Since last month', className='text-muted')
+                                    html.Span('Africas % to the World', className='text-muted')
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
@@ -394,14 +394,14 @@ covid_page = html.Div([
                                 html.P(className='d-flex flex-column', children=[
                                     html.Span(round((df_africa['positive_rate'].dropna(how='any').mean())*100,3),
                                               className='text-bold text-lg'),
-                                    html.Span('Average Positivity Rate')
+                                    html.Span('Todays Positivity Rate')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
+                                        html.I(str((round(df_africa['positive_rate'].sum()/df_covid_data['positive_rate'].sum(),4))*100) + '%',
+                                               className='fas fa-arrow-down')
                                     ]),
-                                    html.Span('Since last month', className='text-muted')
+                                    html.Span('Africas % of the World', className='text-muted')
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
@@ -428,14 +428,14 @@ covid_page = html.Div([
                                 html.P(className='d-flex flex-column', children=[
                                     html.Span(round(df_africa['people_vaccinated_per_hundred'].dropna(how='any').mean(),3),
                                               className='text-bold text-lg'),
-                                    html.Span('Avg Vaccination Per 100')
+                                    html.Span('Todays Avg Vaccination Per 100')
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
+                                        html.I(str((round(df_africa['people_vaccinated_per_hundred'].sum()/df_covid_data['people_vaccinated_per_hundred'].sum(),4))*100) + '%',
+                                               className='fas fa-arrow-down')
                                     ]),
-                                    html.Span('Since last month', className='text-muted')
+                                    html.Span('Africas % of the World', className='text-muted')
                                 ])
                             ]),
                             html.Div(className='position-relative mb-4', children=[
