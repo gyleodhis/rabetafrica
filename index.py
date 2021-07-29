@@ -130,58 +130,58 @@ app.layout = html.Div(className='wrapper', children=[
                                                      children=[
                                                          html.Li(className='nav-item has-treeview menu-open',
                                                                  children=[
-                                                                    html.A(className='nav-link active', href='/covid',
+                                                                    html.A(className='nav-link active', href='#',
                                                                            children=[
                                                                                html.I(className='nav-icon fas fa-globe-africa text-success'),
-                                                                               html.P(children=['Africa', html.I(className='right fas fa-angle-left')])
-                                                                           ]),
-                                                                     html.Ul(className='nav nav-treeview',
-                                                                             children=[
-                                                                                 html.Li(className='nav-item',
-                                                                                         children=[
-                                                                                             html.A(className='nav-link active', href='#',
-                                                                                                    children=[
-                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
-                                                                                                        html.P('Kenya')
-                                                                                                    ])
-                                                                                         ]),
-                                                                                 html.Li(className='nav-item',
-                                                                                         children=[
-                                                                                             html.A(className='nav-link', href='#',
-                                                                                                    children=[
-                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
-                                                                                                        html.P('Vision 2030')
-                                                                                                    ])
-                                                                                         ]),
-                                                                                 html.Li(className='nav-item',
-                                                                                         children=[
-                                                                                             html.A(className='nav-link', href='#',
-                                                                                                    children=[
-                                                                                                        html.I(className='far fa-circle text-info nav-icon'),
-                                                                                                        html.P('SDGs')
-                                                                                                    ])
-                                                                                         ])
-                                                                             ])
+                                                                               html.P(children=['Covid 19', html.I(className='right fas fa-angle-left')])
+                                                                           ])
+                                                                     # html.Ul(className='nav nav-treeview',
+                                                                     #         children=[
+                                                                     #             html.Li(className='nav-item',
+                                                                     #                     children=[
+                                                                     #                         html.A(className='nav-link active', href='/covid',
+                                                                     #                                children=[
+                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
+                                                                     #                                    html.P('Kenya')
+                                                                     #                                ])
+                                                                     #                     ]),
+                                                                     #             html.Li(className='nav-item',
+                                                                     #                     children=[
+                                                                     #                         html.A(className='nav-link', href='#',
+                                                                     #                                children=[
+                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
+                                                                     #                                    html.P('Vision 2030')
+                                                                     #                                ])
+                                                                     #                     ]),
+                                                                     #             html.Li(className='nav-item',
+                                                                     #                     children=[
+                                                                     #                         html.A(className='nav-link', href='#',
+                                                                     #                                children=[
+                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
+                                                                     #                                    html.P('SDGs')
+                                                                     #                                ])
+                                                                     #                     ])
+                                                                     #         ])
                                                                  ]),
-                                                         html.Li(className='nav-item',
-                                                                 children=[
-                                                                     html.A(className='nav-link', href='#',
-                                                                            children=[
-                                                                                html.I(className='nav-icon fa fa-money'),
-                                                                                html.P('World Bank'),
-                                                                                html.Span('New', className='right badge badge-primary')
-                                                                            ]),
-                                                                     html.A(className='nav-link', href ='#', children=[
-                                                                         html.I(className='nav-icon fa fa-medkit'),
-                                                                         html.P('WHO'),
-                                                                         html.Span('Coming Soon', className='right badge badge-success')
-                                                                     ]),
-                                                                     html.A(className='nav-link', href='#',children=[
-                                                                         html.I(className='nav-icon fa fa-sun-o'),
-                                                                         html.P('Climate'),
-                                                                         html.Span('Coming Up', className='right badge badge-danger')
-                                                                     ])
-                                                                 ])
+                                                         # html.Li(className='nav-item',
+                                                         #         children=[
+                                                         #             html.A(className='nav-link', href='#',
+                                                         #                    children=[
+                                                         #                        html.I(className='nav-icon fa fa-money'),
+                                                         #                        html.P('World Bank'),
+                                                         #                        html.Span('New', className='right badge badge-primary')
+                                                         #                    ]),
+                                                         #             html.A(className='nav-link', href ='#', children=[
+                                                         #                 html.I(className='nav-icon fa fa-medkit'),
+                                                         #                 html.P('WHO'),
+                                                         #                 html.Span('Coming Soon', className='right badge badge-success')
+                                                         #             ]),
+                                                         #             html.A(className='nav-link', href='#',children=[
+                                                         #                 html.I(className='nav-icon fa fa-sun-o'),
+                                                         #                 html.P('Climate'),
+                                                         #                 html.Span('Coming Up', className='right badge badge-danger')
+                                                         #             ])
+                                                         #         ])
                                                      ])
                                          ])
                             ])
@@ -248,7 +248,7 @@ covid_page = html.Div([
                     #     ])
                     # ]),
                 ]),
-                   html.Div(className='col-md-9', children=[
+                   html.Div(className='col-md-12', children=[
                        html.Div(className='row', children=[
                            html.Div(className='col-md-3', children=[
                                html.Div(className='small-box bg-info', children=[
@@ -340,12 +340,12 @@ covid_page = html.Div([
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(id='example_graph', figure=fig, config=config)
                             ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
+                            # html.Div(className='d-flex flex-row justify-content-end', children=[
+                            #     html.Span(className='mr-2', children=[
+                            #         html.I(className='fas fa-square text-primary'),' This Month'
+                            #     ]),
+                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                            # ])
                         ])
                        ])
                 ]),
@@ -373,12 +373,12 @@ covid_page = html.Div([
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12',id='example_graph', figure=fig_pie, config=config)
                             ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
+                            # html.Div(className='d-flex flex-row justify-content-end', children=[
+                            #     html.Span(className='mr-2', children=[
+                            #         html.I(className='fas fa-square text-primary'),' This Month'
+                            #     ]),
+                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                            # ])
                         ])
                        ])
                 ]),
@@ -407,12 +407,12 @@ covid_page = html.Div([
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12',id='example_graph', figure=fig_funnel, config=config)
                             ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
+                            # html.Div(className='d-flex flex-row justify-content-end', children=[
+                            #     html.Span(className='mr-2', children=[
+                            #         html.I(className='fas fa-square text-primary'),' This Month'
+                            #     ]),
+                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                            # ])
                         ])
                        ])
                 ]),
@@ -441,12 +441,12 @@ covid_page = html.Div([
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine, config=config)
                             ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
+                            # html.Div(className='d-flex flex-row justify-content-end', children=[
+                            #     html.Span(className='mr-2', children=[
+                            #         html.I(className='fas fa-square text-primary'),' This Month'
+                            #     ]),
+                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                            # ])
                         ])
                        ])
                 ])
