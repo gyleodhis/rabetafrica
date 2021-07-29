@@ -116,7 +116,7 @@ app.layout = html.Div(className='wrapper', children=[
                                                       ]),
                                              html.Div(className='info',
                                                       children=[
-                                                          html.A('Gyleodhis', className='d-block', href='https://www.linkedin.com/in/gyle-odhiambo-992990150/',
+                                                          html.A('Gyleodhis', className='d-block', href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
                                                                  target='_blank')
                                                       ])
                                          ]),
