@@ -339,7 +339,7 @@ covid_page = html.Div([
                             ]),
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(id='example_graph', figure=fig, config=config)
-                            ]),
+                            ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
                             #     html.Span(className='mr-2', children=[
                             #         html.I(className='fas fa-square text-primary'),' This Month'
@@ -372,7 +372,7 @@ covid_page = html.Div([
                             ]),
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12',id='example_graph', figure=fig_pie, config=config)
-                            ]),
+                            ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
                             #     html.Span(className='mr-2', children=[
                             #         html.I(className='fas fa-square text-primary'),' This Month'
@@ -406,7 +406,7 @@ covid_page = html.Div([
                             ]),
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12',id='example_graph', figure=fig_funnel, config=config)
-                            ]),
+                            ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
                             #     html.Span(className='mr-2', children=[
                             #         html.I(className='fas fa-square text-primary'),' This Month'
@@ -440,7 +440,7 @@ covid_page = html.Div([
                             ]),
                             html.Div(className='position-relative mb-4', children=[
                                 dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine, config=config)
-                            ]),
+                            ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
                             #     html.Span(className='mr-2', children=[
                             #         html.I(className='fas fa-square text-primary'),' This Month'
