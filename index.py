@@ -36,7 +36,7 @@ external_stylesheets = [
 app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
                 external_stylesheets=external_stylesheets)
 server = app.server
-app.title = 'RabetAfrica'
+app.title = 'Rabet'
 
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 
@@ -102,7 +102,7 @@ app.layout = html.Div(className='wrapper', children=[
                           children=[
                               html.Img(className='brand-image img-circle elevation-3', alt='Logo',
                                        src='assets/img/AdminLTELogo.png'),
-                              html.Span('RabetAfrica', className='brand-text font-weight-light')
+                              html.Span('Rabet', className='brand-text font-weight-light')
                           ]),
                    # Sidebar container
                    html.Div(className='sidebar',
@@ -193,7 +193,7 @@ app.layout = html.Div(className='wrapper', children=[
                  html.Div(id='page-content')
              ]),
     html.Footer(className='main-footer', children=[
-        html.Strong('Copyright 2021 RabetAfrica')
+        html.Strong('Copyright 2021 Rabet')
     ])
 ])
 
