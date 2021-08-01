@@ -64,7 +64,7 @@ profile_page = html.Div([
                             html.Strong(children=[
                                 html.I(className='fas fa-book mr-1'), ' Education'
                             ]),
-                            html.P('B.S. in Computer Science from Jomo Kenyatta University of Agriculture and Technology',
+                            html.P('B.S. in Computer Science - Jomo Kenyatta University of Agriculture and Technology',
                                    className='text-muted'),
                             html.Hr(),
                             html.Strong(children=[
@@ -81,6 +81,7 @@ profile_page = html.Div([
                                 html.Span('Machine Learning ', className='tag tag-success'),
                                 html.Span('Data Engineering ', className='tag tag-success'),
                                 html.Span('Apache Spark ', className='tag tag-success'),
+                                html.Span('ETL ', className='tag tag-info'),
                                 html.Span('Big Data ', className='tag tag-success'),
                                 html.Span('Python ', className='tag tag-info'),
                                 html.Span('Qlik Sense ', className='tag tag-info')
@@ -213,6 +214,225 @@ profile_page = html.Div([
                                                'The bill was meant to make mental health act more protective of the most '
                                                'vulnerable; women and youth. The analysis below is how kenyans reacted '
                                                'to it on twitter.')
+                                    ])
+                                ]),
+                                # Tab pane
+                                html.Div(className='tab-pane', id="bucket_list", children=[
+                                    html.Div(className='card', children=[
+                                        html.Div(className='card-header',children=[
+                                            html.H3('The 100 things I would like to do or accomplish. Vitae Corona Fides', className='card-title')
+                                        ]),
+                                        html.Div(className='card-body p-0', children=[
+                                            html.Table(className='table table-striped table-bordered',children=[
+                                                html.Thead(children=[
+                                                    html.Tr(children=[
+                                                        html.Th('#',style={'width': '10px'}),
+                                                        html.Th('Task'),
+                                                        html.Th('Progress'),
+                                                        html.Th('Status',style={'width': '40px'})
+                                                    ])
+                                                ]),
+                                                html.Tbody(children=[html.Tr(children=[
+                                                    html.Td('1.'),
+                                                    html.Td('Become a data engineer'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])
+                                                ]),
+                                                html.Tr(children=[
+                                                    html.Td('2.'),
+                                                    html.Td('Work at Safaricom PLC'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                html.Tr(children=[
+                                                    html.Td('3.'),
+                                                    html.Td('Visit Amboseli National Park'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                html.Tr(children=[
+                                                    html.Td('4.'),
+                                                    html.Td('Live in Another Country'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('5.'),
+                                                    html.Td('Get Married'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('6.'),
+                                                    html.Td('Visit Cape Town'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('7.'),
+                                                    html.Td('Publish a pyhton package'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('8.'),
+                                                    html.Td('Be an awesome person'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '75%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('75%', className='badge bg-warning')])]),
+                                                html.Tr(children=[
+                                                    html.Td('9.'),
+                                                    html.Td('Be a nice person'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '55%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('75%', className='badge bg-warning')])]),
+                                                html.Tr(children=[
+                                                    html.Td('10.'),
+                                                    html.Td('Meet the Pope'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('55%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('11.'),
+                                                    html.Td('Visit South Korea'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-danger',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('12.'),
+                                                    html.Td('Learn how to Drive'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                html.Tr(children=[
+                                                    html.Td('13.'),
+                                                    html.Td('Drive across E.Africa'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('14.'),
+                                                    html.Td('Visit 100 countries'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '2%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('2%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('15.'),
+                                                    html.Td('Sail Across the Caribbean'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('16.'),
+                                                    html.Td('Be a farmer'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '50%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('50%', className='badge bg-warning')])]),
+                                                html.Tr(children=[
+                                                    html.Td('17.'),
+                                                    html.Td('Start a company'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('18.'),
+                                                    html.Td('Witness a rocket launch'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('19.'),
+                                                    html.Td('Start a data science blog (Rabet)'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                html.Tr(children=[
+                                                    html.Td('20.'),
+                                                    html.Td('Ride a hot air balloon'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('21.'),
+                                                    html.Td('Board a plane'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                html.Tr(children=[
+                                                    html.Td('22.'),
+                                                    html.Td('Publish a story in a local dayly'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])])])
+                                            ])
+                                        ])
                                     ])
                                 ])
                             ])

@@ -13,28 +13,27 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
 # external JavaScript files
-external_scripts = [
-    # Though its not working
-    {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js'},
-    {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/demo.min.js'},
-    {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard.min.js'},
-    {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard3.min.js'},
-    {'src':'https://use.fontawesome.com/b7484bca63.js'}
-]
+# external_scripts = [
+#     # Though its not working
+#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js'},
+#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/demo.min.js'},
+#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard.min.js'},
+#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard3.min.js'},
+#     {'src':'https://use.fontawesome.com/b7484bca63.js'}
+# ]
 # external CSS stylesheets
-external_stylesheets = [
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.components.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.core.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.extra-components.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.pages.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.plugins.min.css',
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
-    'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css',
-]
+# external_stylesheets = [
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css',
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.components.min.css',
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.core.min.css',
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.extra-components.min.css',
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.pages.min.css',
+#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.plugins.min.css',
+#     'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+#     'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css',
+# ]
 
-app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
-                external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 server = app.server
 app.title = 'Rabet'
 
@@ -54,7 +53,7 @@ fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hun
                                labels={"people_vaccinated_per_hundred":"Vaccination per 100","location":"Country"})
 fig_funnel_vaccine.update_yaxes(showticklabels=False)
 
-app.layout = html.Div(className='wrapper', children=[
+app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fixed', children=[
     dcc.Location(id='url',refresh=False),
     html.Div(
         className="main-header navbar navbar-expand navbar-white navbar-light",
@@ -193,7 +192,7 @@ app.layout = html.Div(className='wrapper', children=[
                  html.Div(id='page-content')
              ]),
     html.Footer(className='main-footer', children=[
-        html.Strong('Copyright 2021 Rabet')
+        html.Strong('Rabet | Vincit Omnia Veritas')
     ])
 ])
 
@@ -331,7 +330,7 @@ covid_page = html.Div([
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(str((round(df_africa['new_cases'].sum()/df_covid_data['new_cases'].sum(),4))*100) + '%',
+                                        html.I(str((round(df_africa['new_cases'].sum()/df_covid_data['new_cases'].sum(),3))*100) + '%',
                                                className='fas fa-arrow-down')
                                     ]),
                                     html.Span('Africa`s % of the world', className='text-muted')
@@ -364,7 +363,7 @@ covid_page = html.Div([
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(str((round(df_africa['new_vaccinations'].sum()/df_covid_data['new_vaccinations'].sum(),4))*100) + '%',
+                                        html.I(str((round(df_africa['new_vaccinations'].sum()/df_covid_data['new_vaccinations'].sum(),3))*100) + '%',
                                                className='fas fa-arrow-down')
                                     ]),
                                     html.Span('Africas % to the World', className='text-muted')
@@ -398,7 +397,7 @@ covid_page = html.Div([
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(str((round(df_africa['positive_rate'].sum()/df_covid_data['positive_rate'].sum(),4))*100) + '%',
+                                        html.I(str((round(df_africa['positive_rate'].sum()/df_covid_data['positive_rate'].sum(),3))*100) + '%',
                                                className='fas fa-arrow-down')
                                     ]),
                                     html.Span('Africas % of the World', className='text-muted')
@@ -432,7 +431,7 @@ covid_page = html.Div([
                                 ]),
                                 html.P(className='ml-auto d-flex flex-column text-right', children=[
                                     html.Span(className='text-success', children=[
-                                        html.I(str((round(df_africa['people_vaccinated_per_hundred'].sum()/df_covid_data['people_vaccinated_per_hundred'].sum(),4))*100) + '%',
+                                        html.I(str((round(df_africa['people_vaccinated_per_hundred'].sum()/df_covid_data['people_vaccinated_per_hundred'].sum(),3))*100) + '%',
                                                className='fas fa-arrow-down')
                                     ]),
                                     html.Span('Africas % of the World', className='text-muted')
