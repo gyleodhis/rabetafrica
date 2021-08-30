@@ -108,9 +108,9 @@ profile_page = html.Div([
                                 html.Li(className='nav-item',children=[
                                     html.A('Bucket List', className='nav-link',href='#bucket_list', **{'data-toggle': 'tab'})
                                 ]),
-                                html.Li(className='nav-item',children=[
-                                    html.A('Timeline', className='nav-link',href='#timeline', **{'data-toggle': 'tab'})
-                                ])
+                                # html.Li(className='nav-item',children=[
+                                #     html.A('Timeline', className='nav-link',href='#timeline', **{'data-toggle': 'tab'})
+                                # ])
                             ])
                         ]),
                         html.Div(className='card-body',children=[
@@ -220,7 +220,8 @@ profile_page = html.Div([
                                 html.Div(className='tab-pane', id="bucket_list", children=[
                                     html.Div(className='card', children=[
                                         html.Div(className='card-header',children=[
-                                            html.H3('The 100 things I would like to do or accomplish. Vitae Corona Fides', className='card-title')
+                                            html.H3('The 100 things I would like to do or accomplish. '
+                                                    'Please email me if you have something awesome I should add to this list', className='card-title')
                                         ]),
                                         html.Div(className='card-body p-0', children=[
                                             html.Table(className='table table-striped table-bordered',children=[
@@ -310,7 +311,7 @@ profile_page = html.Div([
                                                     html.Td('Be a nice person'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '55%'})
+                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '75%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('75%', className='badge bg-warning')])]),
@@ -322,7 +323,7 @@ profile_page = html.Div([
                                                             html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
                                                         ])
                                                     ]),
-                                                    html.Td(children=[html.Span('55%', className='badge bg-primary')])]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
                                                 html.Tr(children=[
                                                     html.Td('11.'),
                                                     html.Td('Visit South Korea'),
@@ -334,13 +335,13 @@ profile_page = html.Div([
                                                     html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
                                                 html.Tr(children=[
                                                     html.Td('12.'),
-                                                    html.Td('Learn how to Drive'),
+                                                    html.Td('Watch a live match at Old Trafford'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '0%'})
                                                         ])
                                                     ]),
-                                                    html.Td(children=[html.Span('100%', className='badge bg-success')])]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
                                                 html.Tr(children=[
                                                     html.Td('13.'),
                                                     html.Td('Drive across E.Africa'),
@@ -424,7 +425,7 @@ profile_page = html.Div([
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])]),
                                                 html.Tr(children=[
                                                     html.Td('22.'),
-                                                    html.Td('Publish a story in a local dayly'),
+                                                    html.Td('Publish a story in a local daily'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
                                                             html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})

@@ -39,7 +39,7 @@ app.title = 'Rabet'
 
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 
-fig= px.bar(df_africa.nlargest(10, 'new_cases'), x="location",template="simple_white",
+fig= px.bar(df_covid_data.nlargest(10, 'new_cases'), x="location",template="simple_white",
             labels={"location":"Country","new_cases":"New Cases"}, y="new_cases", barmode="group")
 
 fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
@@ -56,7 +56,7 @@ fig_funnel_vaccine.update_yaxes(showticklabels=False)
 app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fixed', children=[
     dcc.Location(id='url',refresh=False),
     html.Div(
-        className="main-header navbar navbar-expand navbar-white navbar-light",
+        className="main-header navbar navbar-expand navbar-dark navbar-light",
         # Left navbar links
         children=[
             html.Ul(className="navbar-nav",
@@ -319,7 +319,15 @@ covid_page = html.Div([
                     html.Div(className='card', children=[
                            html.Div(className='card-header border-0', children=[
                                html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Top 10 Countries', className='card-title')
+                                   html.H3('Top 10 Countries', className='card-title'),
+                                   # html.Div(className='card-tools',children=[
+                                   #     html.Ul(className='nav nav-pills ml-auto',children=[
+                                   #         html.Li(className='nav-item',children=html.A('Africa',className='nav-link active',
+                                   #                                                      href='#africa', **{'data-toggle': 'tab'}))
+                                   #         html.Li(className='nav-item',children=html.A('World',className='nav-link',
+                                   #                                                      href='#world', **{'data-toggle': 'tab'}))
+                                   #     ])
+                                   # ])
                                ])
                            ]),
                         html.Div(className='card-body', children=[
@@ -336,7 +344,7 @@ covid_page = html.Div([
                                     html.Span('Africa`s % of the world', className='text-muted')
                                 ])
                             ]),
-                            html.Div(className='position-relative mb-4', children=[
+                            html.Div(className='position-relative mb-4',id='africa', children=[
                                 dcc.Graph(id='example_graph', figure=fig, config=config)
                             ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
