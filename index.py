@@ -39,7 +39,7 @@ app.title = 'Rabet'
 
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 
-fig= px.bar(df_covid_data.nlargest(10, 'new_cases'), x="location",template="simple_white",
+fig= px.bar(df_africa.nlargest(10, 'new_cases'), x="location",template="simple_white",
             labels={"location":"Country","new_cases":"New Cases"}, y="new_cases", barmode="group")
 
 fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
