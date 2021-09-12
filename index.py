@@ -112,12 +112,12 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
     html.Aside(className='main-sidebar sidebar-dark-primary elevation-4',
                # Logo container
                children=[
-                   html.A(href='#', className='brand-link',
-                          children=[
-                              html.Img(className='brand-image img-circle elevation-3', alt='Logo',
-                                       src='assets/img/AdminLTELogo.png'),
-                              html.Span('Rabet', className='brand-text font-weight-light')
-                          ]),
+                   # html.A(href='#', className='brand-link',
+                   #        children=[
+                   #            html.Img(className='brand-image img-circle elevation-3', alt='Logo',
+                   #                     src='assets/img/AdminLTELogo.png'),
+                   #            html.Span('Rabet', className='brand-text font-weight-light')
+                   #        ]),
                    # Sidebar container
                    html.Div(className='sidebar',
                             children=[
@@ -130,7 +130,7 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
                                                       ]),
                                              html.Div(className='info',
                                                       children=[
-                                                          html.A('Gyleodhis', className='d-block',
+                                                          html.A('Rabet', className='d-block',
                                                                  href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
                                                                  target='_blank')
                                                       ])
