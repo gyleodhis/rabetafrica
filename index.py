@@ -6,7 +6,7 @@ import numpy as np
 from _datetime import datetime as dt
 from plotly import graph_objects as go
 import dash_daq as daq
-from data import df_covid_data, df_africa
+from charts import *
 from about import profile_page
 # from covid import covid_page
 import dash_bootstrap_components as dbc
@@ -37,35 +37,35 @@ app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=devi
 server = app.server
 app.title = 'Rabet'
 
-config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
+# config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 
-fig = px.bar(df_africa.nlargest(10, 'new_cases'), x="location", template="simple_white",
-             labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
-fig_world = px.bar(df_covid_data.nlargest(10, 'new_cases'), x="location", template="simple_white",
-                   labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
+# fig = px.bar(df_africa.nlargest(10, 'new_cases'), x="location", template="simple_white",
+#              labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
+# fig_world = px.bar(df_covid_data.nlargest(10, 'new_cases'), x="location", template="simple_white",
+#                    labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
 
-fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
-                 labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
+# fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
+#                  labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
+#
+# fig_world_pie = px.pie(df_covid_data.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
+#                        labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
 
-fig_world_pie = px.pie(df_covid_data.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
-                       labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
+# fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
+#                        labels={"positive_rate": "New Positivity Rate", "location": "Country"})
+# fig_world_funnel = px.funnel(df_covid_data.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
+#                              labels={"positive_rate": "New Positivity Rate", "location": "Country"})
 
-fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
-                       labels={"positive_rate": "New Positivity Rate", "location": "Country"})
-fig_world_funnel = px.funnel(df_covid_data.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
-                             labels={"positive_rate": "New Positivity Rate", "location": "Country"})
-
-fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'),
-                               x='people_vaccinated_per_hundred',
-                               y='location', color='location',
-                               labels={"people_vaccinated_per_hundred": "Vaccination per 100", "location": "Country"})
-fig_world_funnel_vaccine = px.funnel(df_covid_data.nlargest(10, 'people_vaccinated_per_hundred'),
-                                     x='people_vaccinated_per_hundred',
-                                     y='location', color='location',
-                                     labels={"people_vaccinated_per_hundred": "Vaccination per 100",
-                                             "location": "Country"})
-fig_funnel_vaccine.update_yaxes(showticklabels=False)
-fig_world_funnel_vaccine.update_yaxes(showticklabels=False)
+# fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'),
+#                                x='people_vaccinated_per_hundred',
+#                                y='location', color='location',
+#                                labels={"people_vaccinated_per_hundred": "Vaccination per 100", "location": "Country"})
+# fig_world_funnel_vaccine = px.funnel(df_covid_data.nlargest(10, 'people_vaccinated_per_hundred'),
+#                                      x='people_vaccinated_per_hundred',
+#                                      y='location', color='location',
+#                                      labels={"people_vaccinated_per_hundred": "Vaccination per 100",
+#                                              "location": "Country"})
+# fig_funnel_vaccine.update_yaxes(showticklabels=False)
+# fig_world_funnel_vaccine.update_yaxes(showticklabels=False)
 
 app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fixed', children=[
     dcc.Location(id='url', refresh=False),
@@ -273,8 +273,8 @@ covid_page = html.Div([
                                     # html.H4(df_covid_data.iloc[46]['location']),
                                     html.H4('New Cases')
                                 ]),
-                                html.A('Africa: ', className='small-box-footer', href='#'),
-                                html.A(df_africa['new_cases'].sum(), className='small-box-footer', href='#')
+                                html.A('Africa:', className='small-box-footer', href='#'),
+                                html.A(func_continent()['new_cases'].sum(), className='small-box-footer', href='#')
                                 # html.A('Worldwide: ' + str(df_covid_data['new_cases'].sum()),
                                 #        className='small-box-footer', href='#'),
                                 # html.I(className='fas fa-arrow-circle-right')
@@ -290,7 +290,7 @@ covid_page = html.Div([
                                     html.I(className='ion ion-bars')
                                 ]),
                                 html.A('Africa:', className='small-box-footer', href='#'),
-                                html.A(np.round(df_covid_data['positive_rate'].mean(), 3), className='small-box-footer',
+                                html.A(np.round(func_continent()['positive_rate'].mean(), 3), className='small-box-footer',
                                        href='#')
                                 # html.I(className='fas fa-arrow-circle-right')
                             ])
@@ -305,7 +305,7 @@ covid_page = html.Div([
                                     html.I(className='ion ion-pie-graph')
                                 ]),
                                 html.A('Africa:', className='small-box-footer', href='#'),
-                                html.A(df_covid_data['new_deaths'].sum(), className='small-box-footer',
+                                html.A(func_continent()['new_deaths'].sum(), className='small-box-footer',
                                        href='#')
                                 # html.I(className='fas fa-arrow-circle-right')
                             ])
@@ -320,7 +320,7 @@ covid_page = html.Div([
                                     html.I(className='ion ion-bag')
                                 ]),
                                 html.A('Africa:', className='small-box-footer', href='#'),
-                                html.A(df_covid_data['icu_patients'].sum(), className='small-box-footer',
+                                html.A(func_continent()['icu_patients'].sum(), className='small-box-footer',
                                        href='#')
                                 # html.I(className='fas fa-arrow-circle-right')
                             ])
@@ -340,8 +340,14 @@ covid_page = html.Div([
                                         html.Li(className='nav-item',
                                                 children=html.A('Africa', className='nav-link active',
                                                                 href='#africa', **{'data-toggle': 'tab'})),
-                                        html.Li(className='nav-item', children=html.A('World', className='nav-link',
-                                                                                      href='#world',
+                                        html.Li(className='nav-item', children=html.A('Asia', className='nav-link',
+                                                                                      href='#asia',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('Europe', className='nav-link',
+                                                                                      href='#europe',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('N. America', className='nav-link',
+                                                                                      href='#namerica',
                                                                                       **{'data-toggle': 'tab'}))
                                     ])
                                 ])
@@ -352,13 +358,13 @@ covid_page = html.Div([
                                 html.Div(className='active tab-pane', id='africa', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
-                                            html.Span(df_africa['new_cases'].sum(), className='text-bold text-lg'),
+                                            html.Span(func_continent()['new_cases'].sum(), className='text-bold text-lg'),
                                             html.Span('New Cases Today')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
                                                 html.I(str((round(
-                                                    df_africa['new_cases'].sum() / df_covid_data['new_cases'].sum(),
+                                                    func_continent()['new_cases'].sum() / df_global_data['new_cases'].sum(),
                                                     3)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -366,26 +372,64 @@ covid_page = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(figure=fig, config=config)
+                                        dcc.Graph(figure=fig_bar(), config=config)
                                     ])]),
-                                html.Div(className='tab-pane', id='world', children=[
+                                html.Div(className='tab-pane', id='asia', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
-                                            html.Span(df_covid_data['new_cases'].sum(), className='text-bold text-lg'),
-                                            html.Span('Global New Cases')
+                                            html.Span(func_continent('Asia')['new_cases'].sum(), className='text-bold text-lg'),
+                                            html.Span('Asia New Cases')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
-                                                html.I(round(
-                                                    df_covid_data['new_cases'].sum() / df_covid_data.shape[0],
-                                                    0),
+                                                html.I(str((round(
+                                                    func_continent('Asia')['new_cases'].sum() / df_global_data['new_cases'].sum(),
+                                                    3)) * 100) + '%',
                                                     className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Global Avg Per Country', className='text-muted')
+                                            html.Span('Asia % of the world', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(figure=fig_world, config=config)
+                                        dcc.Graph(figure=fig_bar('Asia'), config=config)
+                                    ])]),
+                                html.Div(className='tab-pane', id='europe', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(func_continent('Europe')['new_cases'].sum(), className='text-bold text-lg'),
+                                            html.Span('Europe New Cases')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-danger', children=[
+                                                html.I(str((round(
+                                                    func_continent('Europe')['new_cases'].sum() / df_global_data['new_cases'].sum(),
+                                                    3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('Europe % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(figure=fig_bar('Europe'), config=config)
+                                    ])]),
+                                html.Div(className='tab-pane', id='namerica', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(func_continent('North America')['new_cases'].sum(), className='text-bold text-lg'),
+                                            html.Span('North America New Cases')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-danger', children=[
+                                                html.I(str((round(
+                                                    func_continent('North America')['new_cases'].sum() / df_global_data['new_cases'].sum(),
+                                                    3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('North America % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(figure=fig_bar('North America'), config=config)
                                     ])])
                             ])
                             # html.Div(className='d-flex flex-row justify-content-end', children=[
@@ -407,8 +451,14 @@ covid_page = html.Div([
                                         html.Li(className='nav-item',
                                                 children=html.A('Africa', className='nav-link active',
                                                                 href='#africa_vax', **{'data-toggle': 'tab'})),
-                                        html.Li(className='nav-item', children=html.A('World', className='nav-link',
-                                                                                      href='#world_vax',
+                                        html.Li(className='nav-item', children=html.A('Asia', className='nav-link',
+                                                                                      href='#asia_vax',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('Europe', className='nav-link',
+                                                                                      href='#europe_vax',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('N.America', className='nav-link',
+                                                                                      href='#namerica_vax',
                                                                                       **{'data-toggle': 'tab'}))
                                     ])
                                 ])
@@ -419,13 +469,13 @@ covid_page = html.Div([
                                 html.Div(className='active tab-pane', id='africa_vax', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
-                                            html.Span(df_africa['new_vaccinations'].sum(),
+                                            html.Span(func_continent()['new_vaccinations'].sum(),
                                                       className='text-bold text-lg'),
                                             html.Span('New Vaccinations Today')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
-                                                html.I(str((round(df_africa['new_vaccinations'].sum() / df_covid_data[
+                                                html.I(str((round(func_continent()['new_vaccinations'].sum() / df_global_data[
                                                     'new_vaccinations'].sum(), 3)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -433,28 +483,28 @@ covid_page = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie, config=config)
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie(), config=config)
                                     ])
                                 ]),
-                                html.Div(className='tab-pane', id='world_vax', children=[
+                                html.Div(className='tab-pane', id='asia_vax', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
-                                            html.Span(df_covid_data['new_vaccinations'].sum(),
+                                            html.Span(func_continent('Asia')['new_vaccinations'].sum(),
                                                       className='text-bold text-lg'),
-                                            html.Span('Global New Vaccinations')
+                                            html.Span('Asia New Vaccinations')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
-                                                html.I(round(
-                                                    df_covid_data['new_vaccinations'].sum() / df_covid_data.shape[0],
-                                                    0),
+                                                html.I(str((round(
+                                                    func_continent('Asia')['new_vaccinations'].sum() / df_global_data['new_vaccinations'].sum(),
+                                                    3)) * 100) + '%',
                                                     className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Global Avg Per Country', className='text-muted')
+                                            html.Span('Asia % of the world', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_world_pie,
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Asia'),
                                                   config=config)
                                     ])
                                 ])
@@ -478,8 +528,14 @@ covid_page = html.Div([
                                         html.Li(className='nav-item',
                                                 children=html.A('Africa', className='nav-link active',
                                                                 href='#africa_pst_rate', **{'data-toggle': 'tab'})),
-                                        html.Li(className='nav-item', children=html.A('World', className='nav-link',
-                                                                                      href='#world_pst_rate',
+                                        html.Li(className='nav-item', children=html.A('Asia', className='nav-link',
+                                                                                      href='#asia_pst_rate',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('Europe', className='nav-link',
+                                                                                      href='#europe_pst_rate',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('N.America', className='nav-link',
+                                                                                      href='#namerica_pst_rate',
                                                                                       **{'data-toggle': 'tab'}))
                                     ])
                                 ])
@@ -491,23 +547,23 @@ covid_page = html.Div([
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span(
-                                                round((df_africa['positive_rate'].dropna(how='any').mean()) * 100, 3),
+                                                round((func_continent()['positive_rate'].dropna(how='any').mean()) * 100, 3),
                                                 className='text-bold text-lg'),
                                             html.Span('Todays Positivity Rate')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-warning', children=[
                                                 html.I(str((round(
-                                                    df_africa['positive_rate'].sum() / df_covid_data[
+                                                    func_continent()['positive_rate'].sum() / df_global_data[
                                                         'positive_rate'].sum(),
                                                     3)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Africas % of the World', className='text-muted')
+                                            html.Span('Africas % of the world', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel,
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel(),
                                                   config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
@@ -517,26 +573,27 @@ covid_page = html.Div([
                                     #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
                                     # ])
                                 ]),
-                                html.Div(className='tab-pane', id='world_pst_rate', children=[
+                                html.Div(className='tab-pane', id='asia_pst_rate', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span(
-                                                round((df_covid_data['positive_rate'].dropna(how='any').mean()) * 100,
+                                                round((func_continent('Asia')['positive_rate'].dropna(how='any').mean()) * 100,
                                                       3),
                                                 className='text-bold text-lg'),
-                                            html.Span('Global Positivity Rate')
+                                            html.Span('Todays Positivity Rate')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-warning', children=[
-                                                html.I(round(
-                                                    df_covid_data['positive_rate'].sum() / df_covid_data.shape[0], 2),
+                                                html.I(str((round(
+                                                    func_continent('Asia')['positive_rate'].sum() / df_global_data[
+                                                        'positive_rate'].sum(), 3)) * 100) + '%',
                                                     className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Global Avg Per Country', className='text-muted')
+                                            html.Span('Asia % of the world', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_world_funnel,
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('asia'),
                                                   config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
@@ -560,8 +617,14 @@ covid_page = html.Div([
                                         html.Li(className='nav-item',
                                                 children=html.A('Africa', className='nav-link active',
                                                                 href='#africa_vax_100', **{'data-toggle': 'tab'})),
-                                        html.Li(className='nav-item', children=html.A('World', className='nav-link',
-                                                                                      href='#world_vax_100',
+                                        html.Li(className='nav-item', children=html.A('Asia', className='nav-link',
+                                                                                      href='#asia_vax_100',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('Europe', className='nav-link',
+                                                                                      href='#europe_vax_100',
+                                                                                      **{'data-toggle': 'tab'})),
+                                        html.Li(className='nav-item', children=html.A('N.America', className='nav-link',
+                                                                                      href='#namerica_vax_100',
                                                                                       **{'data-toggle': 'tab'}))
                                     ])
                                 ])
@@ -574,7 +637,7 @@ covid_page = html.Div([
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span(
                                                 round(
-                                                    df_africa['people_vaccinated_per_hundred'].dropna(how='any').mean(),
+                                                    func_continent()['people_vaccinated_per_hundred'].dropna(how='any').mean(),
                                                     3),
                                                 className='text-bold text-lg'),
                                             html.Span('Todays Avg Vaccination Per 100')
@@ -582,7 +645,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I(str((round(
-                                                    df_africa['people_vaccinated_per_hundred'].sum() / df_covid_data[
+                                                    func_continent()['people_vaccinated_per_hundred'].sum() / df_global_data[
                                                         'people_vaccinated_per_hundred'].sum(), 3)) * 100) + '%',
                                                        className='fas fa-arrow-down')
                                             ]),
@@ -590,7 +653,7 @@ covid_page = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine,
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine(),
                                                   config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
@@ -600,28 +663,28 @@ covid_page = html.Div([
                                     #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
                                     # ])
                                 ]),
-                                html.Div(className='tab-pane', id='world_vax_100', children=[
+                                html.Div(className='tab-pane', id='asia_vax_100', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span(
                                                 round(
-                                                    df_covid_data['people_vaccinated_per_hundred'].dropna(how='any').mean(),
+                                                    func_continent('Asia')['people_vaccinated_per_hundred'].dropna(how='any').mean(),
                                                     3),
                                                 className='text-bold text-lg'),
                                             html.Span('Global Vaccinations Per 100')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
-                                                html.I(round(
-                                                    df_covid_data['people_vaccinated_per_hundred'].sum(), 2),
+                                                html.I(str((round(
+                                                    func_continent('Asia')['people_vaccinated_per_hundred'].sum()/ df_global_data[
+                                                        'people_vaccinated_per_hundred'].sum(), 3)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Global Avg Per Country', className='text-muted')
+                                            html.Span('Asia % of the World', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', figure=fig_world_funnel_vaccine,
-                                                  config=config)
+                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Asia'), config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
                                     #     html.Span(className='mr-2', children=[
