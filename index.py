@@ -416,7 +416,7 @@ covid_page = html.Div([
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span(func_continent('North America')['new_cases'].sum(), className='text-bold text-lg'),
-                                            html.Span('North America New Cases')
+                                            html.Span('N. America New Cases')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
@@ -425,7 +425,7 @@ covid_page = html.Div([
                                                     3)) * 100) + '%',
                                                     className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('North America % of the world', className='text-muted')
+                                            html.Span('N. America % of the world', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
@@ -505,6 +505,50 @@ covid_page = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Asia'),
+                                                  config=config)
+                                    ])
+                                ]),
+                                html.Div(className='tab-pane', id='europe_vax', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(func_continent('Europe')['new_vaccinations'].sum(),
+                                                      className='text-bold text-lg'),
+                                            html.Span('Europe New Vaccinations')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-success', children=[
+                                                html.I(str((round(
+                                                    func_continent('Europe')['new_vaccinations'].sum() / df_global_data['new_vaccinations'].sum(),
+                                                    3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('Europe % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Europe'),
+                                                  config=config)
+                                    ])
+                                ]),
+                                html.Div(className='tab-pane', id='namerica_vax', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(func_continent('North America')['new_vaccinations'].sum(),
+                                                      className='text-bold text-lg'),
+                                            html.Span('N. America New Vaccinations')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-success', children=[
+                                                html.I(str((round(
+                                                    func_continent('North America')['new_vaccinations'].sum() / df_global_data['new_vaccinations'].sum(),
+                                                    3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('N. America % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('North America'),
                                                   config=config)
                                     ])
                                 ])
@@ -593,7 +637,7 @@ covid_page = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('asia'),
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Asia'),
                                                   config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
@@ -602,7 +646,67 @@ covid_page = html.Div([
                                     #     ]),
                                     #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
                                     # ])
-                                ])
+                                ]),
+                                html.Div(className='tab-pane', id='europe_pst_rate', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(
+                                                round((func_continent('Europe')['positive_rate'].dropna(how='any').mean()) * 100,
+                                                      3),
+                                                className='text-bold text-lg'),
+                                            html.Span('Todays Positivity Rate')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-warning', children=[
+                                                html.I(str((round(
+                                                    func_continent('Europe')['positive_rate'].sum() / df_global_data[
+                                                        'positive_rate'].sum(), 3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('Europe % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Europe'),
+                                                  config=config)
+                                    ])
+                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
+                                    #     html.Span(className='mr-2', children=[
+                                    #         html.I(className='fas fa-square text-primary'),' This Month'
+                                    #     ]),
+                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                                    # ])
+                                ]),
+                                html.Div(className='tab-pane', id='namerica_pst_rate', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(
+                                                round((func_continent('North America')['positive_rate'].dropna(how='any').mean()) * 100,
+                                                      3),
+                                                className='text-bold text-lg'),
+                                            html.Span('Todays Positivity Rate')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-warning', children=[
+                                                html.I(str((round(
+                                                    func_continent('North America')['positive_rate'].sum() / df_global_data[
+                                                        'positive_rate'].sum(), 3)) * 100) + '%',
+                                                    className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('N. America % of the world', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('North America'),
+                                                  config=config)
+                                    ])
+                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
+                                    #     html.Span(className='mr-2', children=[
+                                    #         html.I(className='fas fa-square text-primary'),' This Month'
+                                    #     ]),
+                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                                    # ])
+                                ]),
                             ])
                         ])
                     ])
@@ -671,7 +775,7 @@ covid_page = html.Div([
                                                     func_continent('Asia')['people_vaccinated_per_hundred'].dropna(how='any').mean(),
                                                     3),
                                                 className='text-bold text-lg'),
-                                            html.Span('Global Vaccinations Per 100')
+                                            html.Span('Asia Vaccinations Per 100')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
@@ -685,6 +789,66 @@ covid_page = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Asia'), config=config)
+                                    ])
+                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
+                                    #     html.Span(className='mr-2', children=[
+                                    #         html.I(className='fas fa-square text-primary'),' This Month'
+                                    #     ]),
+                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                                    # ])
+                                ]),
+                                html.Div(className='tab-pane', id='europe_vax_100', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(
+                                                round(
+                                                    func_continent('Europe')['people_vaccinated_per_hundred'].dropna(how='any').mean(),
+                                                    3),
+                                                className='text-bold text-lg'),
+                                            html.Span('Europe Vaccinations Per 100')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-success', children=[
+                                                html.I(str((round(
+                                                    func_continent('Europe')['people_vaccinated_per_hundred'].sum()/ df_global_data[
+                                                        'people_vaccinated_per_hundred'].sum(), 3)) * 100) + '%',
+                                                       className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('Europe % of the World', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Europe'), config=config)
+                                    ])
+                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
+                                    #     html.Span(className='mr-2', children=[
+                                    #         html.I(className='fas fa-square text-primary'),' This Month'
+                                    #     ]),
+                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                                    # ])
+                                ]),
+                                html.Div(className='tab-pane', id='namerica_vax_100', children=[
+                                    html.Div(className='d-flex', children=[
+                                        html.P(className='d-flex flex-column', children=[
+                                            html.Span(
+                                                round(
+                                                    func_continent('North America')['people_vaccinated_per_hundred'].dropna(how='any').mean(),
+                                                    3),
+                                                className='text-bold text-lg'),
+                                            html.Span('N. America Vaccinations Per 100')
+                                        ]),
+                                        html.P(className='ml-auto d-flex flex-column text-right', children=[
+                                            html.Span(className='text-success', children=[
+                                                html.I(str((round(
+                                                    func_continent('North America')['people_vaccinated_per_hundred'].sum()/ df_global_data[
+                                                        'people_vaccinated_per_hundred'].sum(), 3)) * 100) + '%',
+                                                       className='fas fa-arrow-up')
+                                            ]),
+                                            html.Span('N. America % of the World', className='text-muted')
+                                        ])
+                                    ]),
+                                    html.Div(className='position-relative mb-4', children=[
+                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('North America'), config=config)
                                     ])
                                     # html.Div(className='d-flex flex-row justify-content-end', children=[
                                     #     html.Span(className='mr-2', children=[
