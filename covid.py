@@ -1,24 +1,20 @@
-import dash
-import dash_core_components as dcc
 import dash_html_components as html
-import plotly.express as px
-import dash_bootstrap_components as dbc
 import dash_core_components as dcc
-from data import df_covid_data
+from charts import covid_vaccine_treemap,config
 
-covid_page333 = html.Div([
+covid_vax_page = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Covid 19 Statistics')
+                    html.H1('Covid 19 Vaccinations')
                 ]),
                 html.Div(className='col-sm-6',children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
                         html.Li(className='breadcrumb-item', children=[
                             html.A('Home', href='/')
                         ]),
-                        html.Li('Covid', className='breadcrumb-item active')
+                        html.Li('Vaccine', className='breadcrumb-item active')
                     ])
                 ])
             ])
@@ -28,224 +24,148 @@ covid_page333 = html.Div([
         html.Div(className='container-fluid', children=[
             # The fow for cumulative figures
             html.Div(className='row', children=[
-                html.Div(className='col-md-3', children=[
-                    html.Div(className='card card-primary card-outline', children=[
-                        # Continent Dropdown menu
-                        html.Div(className='dropdown', children=[
-                            dcc.Dropdown(className='dropdown-menu', id='continent_drop_down',
-                                         options=[{'label': i, 'value': i} for i in df_covid_data['location']],
-                                         value='Kenya', multi=True),
-                            html.Div(className='dropdown_item', id='continent_out_put')
+                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                    html.Div(className='info-box', children=[
+                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                            html.I(className='fas fa-users')
                         ]),
-                        # Country Drop Down
-                        html.Div(className='dropdown', children=[
-                            html.A('Select Country', className='dropdown-toggle', href='#', role='button',
-                                   **{'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'}),
-                            html.Div(className='dropdown-menu', children=[
-                                html.A('Kenya', className='dropdown-item', href='#')
-                            ])
+                        html.Div(className='info-box-content', children=[
+                            html.Span('Mordana', className='info-box-text'),
+                            html.Span('1235', className='info-box-number')
                         ])
-                    ]),
+                    ])
                 ]),
-                   html.Div(className='col-md-9', children=[
-                       html.Div(className='row', children=[
-                           html.Div(className='col-md-3', children=[
-                               html.Div(className='small-box bg-info', children=[
-                                   html.Div(className='inner', children=[
-                                       html.H3(df_covid_data.iloc[25]['location'])
-                                   ]),
-                                   html.Div(className='icon', children=[
-                                       html.I(className='ion ion-bag')
-                                   ]),
-                                   html.A('Total Cases:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[25]['total_cases'], className='small-box-footer',
-                                          href='#'),
-                                   html.I(className='fas fa-arrow-circle-right')
-                               ])
-                           ]),
-                           html.Div(className='col-md-3', children=[
-                               html.Div(className='small-box bg-success', children=[
-                                   html.Div(className='inner', children=[
-                                       html.H3(df_covid_data.iloc[25]['location'])
-                                   ]),
-                                   html.Div(className='icon', children=[
-                                       html.I(className='ion ion-bars')
-                                   ]),
-                                   html.A('Total Tests:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[25]['total_tests'], className='small-box-footer',
-                                          href='#'),
-                                   html.I(className='fas fa-arrow-circle-right')
-                               ])
-                           ]),
-                           html.Div(className='col-md-3', children=[
-                               html.Div(className='small-box bg-danger', children=[
-                                   html.Div(className='inner', children=[
-                                       html.H3(df_covid_data.iloc[25]['location'])
-                                   ]),
-                                   html.Div(className='icon', children=[
-                                       html.I(className='ion ion-pie-graph')
-                                   ]),
-                                   html.A('Total Deaths:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[25]['total_deaths'], className='small-box-footer',
-                                          href='#'),
-                                   html.I(className='fas fa-arrow-circle-right')
-                               ])
-                           ]),
-                           html.Div(className='col-md-3', children=[
-                               html.Div(className='small-box bg-warning', children=[
-                                   html.Div(className='inner', children=[
-                                       html.H3(df_covid_data.iloc[25]['location'])
-                                   ]),
-                                   html.Div(className='icon', children=[
-                                       html.I(className='ion ion-bag')
-                                   ]),
-                                   html.A('Patients in ICU:', className='small-box-footer', href='#'),
-                                   html.A(df_covid_data.iloc[25]['icu_patients'], className='small-box-footer',
-                                          href='#'),
-                                   html.I(className='fas fa-arrow-circle-right')
-                               ])
-                           ])
-                       ])
-                   ])
+                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                    html.Div(className='info-box', children=[
+                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                            html.I(className='fas fa-users')
+                        ]),
+                        html.Div(className='info-box-content', children=[
+                            html.Span('Pferzer', className='info-box-text'),
+                            html.Span('34637', className='info-box-number')
+                        ])
+                    ])
+                ]),
+                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                    html.Div(className='info-box', children=[
+                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                            html.I(className='fas fa-users')
+                        ]),
+                        html.Div(className='info-box-content', children=[
+                            html.Span('Johnson', className='info-box-text'),
+                            html.Span('567', className='info-box-number')
+                        ])
+                    ])
+                ]),
+                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                    html.Div(className='info-box', children=[
+                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                            html.I(className='fas fa-users')
+                        ]),
+                        html.Div(className='info-box-content', children=[
+                            html.Span('Sputnic', className='info-box-text'),
+                            html.Span('1235', className='info-box-number')
+                        ])
+                    ])
+                ])
             ]),
             # The row for graphs
-            html.Div(className='row', children=[
-                html.Div(className='col-md-6', children=[
-                    html.Div(className='card', children=[
-                           html.Div(className='card-header border-0', children=[
-                               html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
-                               ])
-                           ]),
-                        html.Div(className='card-body', children=[
-                            html.Div(className='d-flex', children=[
-                                html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
+            html.Div(className='row',children=[
+                html.Div(className='col-md-12',children=[
+                    html.Div(className='card',children=[
+                        html.Div(className='card-header',children=[
+                            html.H5('Monthly Recap Report', className='card-title')
+                        ]),
+                        html.Div(className='card-body',children=[
+                            html.Div(className='row',children=[
+                                html.Div(className='col-md-8',children=[
+                                    html.P( className='text-center',children=[html.Strong('Month on Month Vaccinations')]),
+                                    html.Div(className='position-relative', children=[
+                                        dcc.Graph(figure=covid_vaccine_treemap(), config=config)
+                                    ])
                                 ]),
-                                html.P(className='ml-auto d-flex flex-column text-right', children=[
-                                    html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
+                                html.Div(className='col-md-4',children=[
+                                    html.P(className='text-center',children=[html.Strong('Vaccine Type')]),
+                                    html.Div(className='progress-group',children=[
+                                        html.Span('Mordana'),
+                                        html.Span('30 %',className='float-right'),
+                                        html.Div(className='progress progress-sm',children=[
+                                            html.Div(className='progress-bar bg-primary', style={'width': '30%'})
+                                        ])
                                     ]),
-                                    html.Span('Since last month', className='text-muted')
+                                    html.Div(className='progress-group',children=[
+                                        html.Span('Pfizer'),
+                                        html.Span('25 %',className='float-right'),
+                                        html.Div(className='progress progress-sm',children=[
+                                            html.Div(className='progress-bar bg-success', style={'width': '25%'})
+                                        ])
+                                    ]),
+                                    html.Div(className='progress-group',children=[
+                                        html.Span('Johnson'),
+                                        html.Span('15 %',className='float-right'),
+                                        html.Div(className='progress progress-sm',children=[
+                                            html.Div(className='progress-bar bg-warning', style={'width': '15%'})
+                                        ])
+                                    ]),
+                                    html.Div(className='progress-group',children=[
+                                        html.Span('AstraZeneca'),
+                                        html.Span('10 %',className='float-right'),
+                                        html.Div(className='progress progress-sm',children=[
+                                            html.Div(className='progress-bar bg-warning', style={'width': '10%'})
+                                        ])
+                                    ]),
+                                    html.Div(className='progress-group',children=[
+                                        html.Span('Sputnic V'),
+                                        html.Span('10 %',className='float-right'),
+                                        html.Div(className='progress progress-sm',children=[
+                                            html.Div(className='progress-bar bg-danger', style={'width': '10%'})
+                                        ])
+                                    ])
                                 ])
-                            ]),
-                            html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200', children=[
-                                    dcc.Graph(id = 'example_graph', figure=fig)
-                                ])
-                            ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
+                            ])
+                        ]),
+                        html.Div(className='card-footer',children=[
+                            html.P(className='text-center',children=[html.Strong('This Month vs Last Month')]),
+                            html.Div(className='row',children=[
+                                html.Div(className='col-sm-3 col-6',children=[
+                                    html.Div(className='description-block border-right',children=[
+                                        html.Span(className='description-percentage text-success',children=[
+                                            html.I('17%', className='fas fa-caret-up'),
+                                        ]),
+                                        html.H5('3,521', className='description-header'),
+                                        html.Span('Moderna', className='description-header')
+                                    ])
                                 ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
+                                html.Div(className='col-sm-3 col-6',children=[
+                                    html.Div(className='description-block border-right',children=[
+                                        html.Span(className='description-percentage text-danger',children=[
+                                            html.I('-23%', className='fas fa-caret-down'),
+                                        ]),
+                                        html.H5('1,675', className='description-header'),
+                                        html.Span('AstraZeneca', className='description-header')
+                                    ])
+                                ]),
+                                html.Div(className='col-sm-3 col-6',children=[
+                                    html.Div(className='description-block border-right',children=[
+                                        html.Span(className='description-percentage text-info',children=[
+                                            html.I('20%', className='fas fa-caret-up'),
+                                        ]),
+                                        html.H5('4,751', className='description-header'),
+                                        html.Span('Pfizer', className='description-header')
+                                    ])
+                                ]),
+                                html.Div(className='col-sm-3 col-6',children=[
+                                    html.Div(className='description-block border-right',children=[
+                                        html.Span(className='description-percentage text-warning',children=[
+                                            html.I('02%', className='fas fa-caret-up'),
+                                        ]),
+                                        html.H5('600', className='description-header'),
+                                        html.Span('Sputnic V', className='description-header')
+                                    ])
+                                ])
                             ])
                         ])
-                       ])
-                ]),
-                html.Div(className='col-md-6', children=[
-                    html.Div(className='card', children=[
-                           html.Div(className='card-header border-0', children=[
-                               html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
-                               ])
-                           ]),
-                        html.Div(className='card-body', children=[
-                            html.Div(className='d-flex', children=[
-                                html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
-                                ]),
-                                html.P(className='ml-auto d-flex flex-column text-right', children=[
-                                    html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
-                                    ]),
-                                    html.Span('Since last month', className='text-muted')
-                                ])
-                            ]),
-                            html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
-                            ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
-                        ])
-                       ])
-                ]),
-                html.Div(className='col-md-6', children=[
-                    html.Div(className='card', children=[
-                           html.Div(className='card-header border-0', children=[
-                               html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
-                               ])
-                           ]),
-                        html.Div(className='card-body', children=[
-                            html.Div(className='d-flex', children=[
-                                html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
-                                ]),
-                                html.P(className='ml-auto d-flex flex-column text-right', children=[
-                                    html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
-                                    ]),
-                                    html.Span('Since last month', className='text-muted')
-                                ])
-                            ]),
-                            html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
-                            ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
-                        ])
-                       ])
-                ]),
-                html.Div(className='col-md-6', children=[
-                    html.Div(className='card', children=[
-                           html.Div(className='card-header border-0', children=[
-                               html.Div(className='d-flex justify-content-between', children=[
-                                   html.H3('Africa Statistics', className='card-title')
-                               ])
-                           ]),
-                        html.Div(className='card-body', children=[
-                            html.Div(className='d-flex', children=[
-                                html.P(className='d-flex flex-column', children=[
-                                    html.Span(2000, className='text-bold text-lg'),
-                                    html.Span('Total Infections')
-                                ]),
-                                html.P(className='ml-auto d-flex flex-column text-right', children=[
-                                    html.Span(className='text-success', children=[
-                                        html.I(className='fas fa-arrow-down'),
-                                        '12.5%'
-                                    ]),
-                                    html.Span('Since last month', className='text-muted')
-                                ])
-                            ]),
-                            html.Div(className='position-relative mb-4', children=[
-                                html.Canvas(height='200')
-                                # 'Put Chart here'
-                            ]),
-                            html.Div(className='d-flex flex-row justify-content-end', children=[
-                                html.Span(className='mr-2', children=[
-                                    html.I(className='fas fa-square text-primary'),' This Month'
-                                ]),
-                                html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            ])
-                        ])
-                       ])
+                    ])
                 ])
             ])
         ])

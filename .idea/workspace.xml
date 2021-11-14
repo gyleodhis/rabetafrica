@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c1dbfb-e8a9-4864-a7ab-94ca21b31e43" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/about.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charts.py" beforeDir="false" afterPath="$PROJECT_DIR$/charts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covid.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_book.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dev_book.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Rabet" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -19,6 +28,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/gyleodhis/rabetafrica.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1c0GIb29opsm4naf6BXDHPloM6q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -34,6 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -94,47 +111,58 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1244" height="161" key="GridCell.Tab.0.bottom" timestamp="1626708029858">
+    <state width="1242" height="170" key="GridCell.Tab.0.bottom" timestamp="1636897804149">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1244" height="161" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626708029858" />
-    <state width="1244" height="161" key="GridCell.Tab.0.center" timestamp="1626708029858">
+    <state width="1242" height="170" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1636897804149" />
+    <state width="1242" height="170" key="GridCell.Tab.0.center" timestamp="1636897804149">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1244" height="161" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626708029858" />
-    <state width="1244" height="161" key="GridCell.Tab.0.left" timestamp="1626708029857">
+    <state width="1242" height="170" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1636897804149" />
+    <state width="1242" height="170" key="GridCell.Tab.0.left" timestamp="1636897804149">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1244" height="161" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626708029857" />
-    <state width="1244" height="161" key="GridCell.Tab.0.right" timestamp="1626708029858">
+    <state width="1242" height="170" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1636897804149" />
+    <state width="1242" height="170" key="GridCell.Tab.0.right" timestamp="1636897804149">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1244" height="161" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626708029858" />
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1634979454485">
+    <state width="1242" height="170" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1636897804149" />
+    <state x="141" y="0" key="SettingsEditor" timestamp="1636902848577">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1634979454485" />
+    <state x="141" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1636902848577" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1636903536491">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1636903536491" />
+    <state x="302" y="1" key="search.everywhere.popup" timestamp="1636455129780">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="302" y="1" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1636455129780" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/covid.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/covid.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/covid.py</url>
-          <line>111</line>
+          <line>72</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

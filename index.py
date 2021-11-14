@@ -1,14 +1,14 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import plotly.express as px
+from charts import *
+# import plotly.express as px
 import numpy as np
 from _datetime import datetime as dt
 from plotly import graph_objects as go
 import dash_daq as daq
-from charts import *
 from about import profile_page
-# from covid import covid_page
+from covid import covid_vax_page
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
@@ -37,36 +37,6 @@ app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=devi
 server = app.server
 app.title = 'Rabet'
 
-# config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
-
-# fig = px.bar(df_africa.nlargest(10, 'new_cases'), x="location", template="simple_white",
-#              labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
-# fig_world = px.bar(df_covid_data.nlargest(10, 'new_cases'), x="location", template="simple_white",
-#                    labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
-
-# fig_pie = px.pie(df_africa.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
-#                  labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
-#
-# fig_world_pie = px.pie(df_covid_data.nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
-#                        labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
-
-# fig_funnel = px.funnel(df_africa.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
-#                        labels={"positive_rate": "New Positivity Rate", "location": "Country"})
-# fig_world_funnel = px.funnel(df_covid_data.nlargest(10, 'positive_rate'), x='positive_rate', y='location',
-#                              labels={"positive_rate": "New Positivity Rate", "location": "Country"})
-
-# fig_funnel_vaccine = px.funnel(df_africa.nlargest(10, 'people_vaccinated_per_hundred'),
-#                                x='people_vaccinated_per_hundred',
-#                                y='location', color='location',
-#                                labels={"people_vaccinated_per_hundred": "Vaccination per 100", "location": "Country"})
-# fig_world_funnel_vaccine = px.funnel(df_covid_data.nlargest(10, 'people_vaccinated_per_hundred'),
-#                                      x='people_vaccinated_per_hundred',
-#                                      y='location', color='location',
-#                                      labels={"people_vaccinated_per_hundred": "Vaccination per 100",
-#                                              "location": "Country"})
-# fig_funnel_vaccine.update_yaxes(showticklabels=False)
-# fig_world_funnel_vaccine.update_yaxes(showticklabels=False)
-
 app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fixed', children=[
     dcc.Location(id='url', refresh=False),
     html.Div(
@@ -88,24 +58,7 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
                                 children=[
                                     html.A('Profile', className='nav-link', href='/profile')
                                 ])
-                    ]),
-            html.Form(
-                className='form-inline ml-3',
-                children=[
-                    html.Div(
-                        className='input-group input-group-sm',
-                        children=[
-                            dcc.Input(className='form-control form-control-navbar', type='search',
-                                      placeholder='Search'),
-                            html.Div(className='input-group-append',
-                                     children=[
-                                         html.Button(className='btn btn-navbar', type='submit',
-                                                     children=html.I(className='fas fa-search'))
-                                     ])
-                        ]
-                    )
-                ]
-            )
+                    ])
         ]
     ),
     # Main Sidebar Container
@@ -145,12 +98,11 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
                                                      children=[
                                                          html.Li(className='nav-item has-treeview menu-open',
                                                                  children=[
-                                                                     html.A(className='nav-link active', href='#',
+                                                                     html.A(className='nav-link active', href='/',
                                                                             children=[
                                                                                 html.I(
                                                                                     className='nav-icon fas fa-globe-africa text-success'),
-                                                                                html.P(children=['Covid 19', html.I(
-                                                                                    className='right fas fa-angle-left')])
+                                                                                html.P(children=['Home'])
                                                                             ])
                                                                      # html.Ul(className='nav nav-treeview',
                                                                      #         children=[
@@ -180,25 +132,25 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
                                                                      #                     ])
                                                                      #         ])
                                                                  ]),
-                                                         # html.Li(className='nav-item',
-                                                         #         children=[
-                                                         #             html.A(className='nav-link', href='#',
-                                                         #                    children=[
-                                                         #                        html.I(className='nav-icon fa fa-money'),
-                                                         #                        html.P('World Bank'),
-                                                         #                        html.Span('New', className='right badge badge-primary')
-                                                         #                    ]),
-                                                         #             html.A(className='nav-link', href ='#', children=[
-                                                         #                 html.I(className='nav-icon fa fa-medkit'),
-                                                         #                 html.P('WHO'),
-                                                         #                 html.Span('Coming Soon', className='right badge badge-success')
-                                                         #             ]),
-                                                         #             html.A(className='nav-link', href='#',children=[
-                                                         #                 html.I(className='nav-icon fa fa-sun-o'),
-                                                         #                 html.P('Climate'),
-                                                         #                 html.Span('Coming Up', className='right badge badge-danger')
-                                                         #             ])
-                                                         #         ])
+                                                         html.Li(className='nav-item',
+                                                                 children=[
+                                                                     html.A(className='nav-link', href='/vaccine',
+                                                                            children=[
+                                                                                html.I(className='nav-icon fa fa-syringe'),
+                                                                                html.P('Covid-19 Vaccine'),
+                                                                                html.Span('New', className='right badge badge-success')
+                                                                            ])
+                                                                     # html.A(className='nav-link', href ='#', children=[
+                                                                     #     html.I(className='nav-icon fa fa-medkit'),
+                                                                     #     html.P('WHO'),
+                                                                     #     html.Span('Coming Soon', className='right badge badge-primary')
+                                                                     # ]),
+                                                                     # html.A(className='nav-link', href='#',children=[
+                                                                     #     html.I(className='nav-icon fa fa-sun-o'),
+                                                                     #     html.P('Climate'),
+                                                                     #     html.Span('Coming Up', className='right badge badge-danger')
+                                                                     # ])
+                                                                 ])
                                                      ])
                                          ])
                             ])
@@ -876,18 +828,20 @@ covid_page = html.Div([
 def display_page(pathname):
     if pathname == '/profile':
         return profile_page
-    if pathname == '/':
+    elif pathname == '/':
         return covid_page
+    elif pathname == '/vaccine':
+        return covid_vax_page
 
 
-@app.callback(
-    Output('continent_out_put', 'children'),
-    [Input('continent_drop_down', 'value')]
-)
-def update_continent(value):
-    # final_df = data.df_final[data.df_final['Country/Region'] == selected_coutry]
-    # for i in final_df['Country/Region']():
-    return 'You have selected {}'.format(value)
+# @app.callback(
+#     Output('continent_out_put', 'children'),
+#     [Input('continent_drop_down', 'value')]
+# )
+# def update_continent(value):
+#     # final_df = data.df_final[data.df_final['Country/Region'] == selected_coutry]
+#     # for i in final_df['Country/Region']():
+#     return 'You have selected {}'.format(value)
 
 
 if __name__ == '__main__':

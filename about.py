@@ -1,7 +1,4 @@
-import dash
-import dash_core_components as dcc
 import dash_html_components as html
-import dash_bootstrap_components as dbc
 
 profile_page = html.Div([
     html.Section(className='content-header', children=[
@@ -290,7 +287,7 @@ profile_page = html.Div([
                                                     html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
                                                 html.Tr(children=[
                                                     html.Td('7.'),
-                                                    html.Td('Publish a pyhton package'),
+                                                    html.Td('Publish a python package'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
                                                             html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
@@ -426,6 +423,15 @@ profile_page = html.Div([
                                                 html.Tr(children=[
                                                     html.Td('22.'),
                                                     html.Td('Publish a story in a local daily'),
+                                                    html.Td(children=[
+                                                        html.Div(className='progress progress-xs', children=[
+                                                            html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
+                                                        ])
+                                                    ]),
+                                                    html.Td(children=[html.Span('0%', className='badge bg-primary')])]),
+                                                html.Tr(children=[
+                                                    html.Td('23.'),
+                                                    html.Td('Attend One Young World Summit'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
                                                             html.Div(className='progress-bar progress-bar-primary',style={'width': '0%'})
