@@ -1,6 +1,7 @@
 from data import *
 import plotly.express as px
 import calendar
+import datetime
 
 df_global_data = df_covid_data_v1.sort_values('date').groupby(['continent', 'location']).last().reset_index()
 
@@ -65,3 +66,38 @@ def covid_vaccine_treemap():
     return px.treemap(vax_df1, path=["Month", "location", "vaccine"], values="total_vaccinations",
                       # title='Covid19 Vaccinations',
                       labels={"total_vaccinations": "Vaccinations"})
+
+
+def pct_vaccination():
+    vax_by_pcnt = covid_vaccine()[['vaccine', 'total_vaccinations']].groupby('vaccine').sum().reset_index()
+    vax_by_pcnt['pcnt_vaccination'] = round(vax_by_pcnt.total_vaccinations * 100 / vax_by_pcnt.total_vaccinations.sum(),
+                                            2)
+    return vax_by_pcnt.sort_values(['pcnt_vaccination'], ascending=[0])
+
+
+def df_this_month():
+    vax_by_pcnt = covid_vaccine()[['Month', 'vaccine', 'total_vaccinations']].groupby('Month').sum().reset_index()
+    vax_by_pcnt['pcnt_vaccination'] = round(vax_by_pcnt.total_vaccinations * 100 / vax_by_pcnt.total_vaccinations.sum(),
+                                            2)
+    return vax_by_pcnt.sort_values(['pcnt_vaccination'], ascending=[0])
+
+
+def last_two_months():
+    df_last_60_days_vax = covid_vaccine()[covid_vaccine().date > datetime.datetime.now() - pd.to_timedelta("50day")]
+    df_last_60_days_vax = df_last_60_days_vax[['Month', 'vaccine', 'total_vaccinations']].groupby(
+        ['vaccine', 'Month']).sum().reset_index()
+    df_last_60_days_vax['pcnt_vaccination'] = round(
+        df_last_60_days_vax.total_vaccinations * 100 / df_last_60_days_vax.total_vaccinations.sum(), 2)
+    return df_last_60_days_vax.sort_values(['vaccine'], ascending=[0])
+
+
+def last_two_months_diff(a='Moderna'):
+    last_two = last_two_months()['vaccine'] == a
+    month_a = last_two_months()[last_two]['pcnt_vaccination'].iloc[0]
+    month_b = last_two_months()[last_two]['pcnt_vaccination'].iloc[1]
+    return round(month_a - month_b, 2).astype('str') + '%'
+
+
+def fig_bar_vax():
+    return px.bar(pct_vaccination(), x='vaccine', y='pcnt_vaccination', color='vaccine', template="simple_white",
+                  labels={'pcnt_vaccination': 'Percentage Vaccinations', 'vaccine': 'Vaccine'})
