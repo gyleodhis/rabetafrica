@@ -54,9 +54,9 @@ def covid_vaccine():
     vax_df = pd.read_csv(vax_url, index_col=0, parse_dates=['date'])
     #     vax_df.to_csv('assets/vaccines.csv')
     """Below returns months in numbers"""
-    vax_df['Month'] = int(pd.DatetimeIndex(vax_df['date']).month)
+    vax_df['Month'] = pd.DatetimeIndex(vax_df['date']).month
     """Below returns names of months"""
-    vax_df['Month'] = vax_df['Month'].apply(lambda x: calendar.month_abbr[x])
+    vax_df['Month'] = vax_df['Month'].apply(lambda x: int(calendar.month_abbr[x]))
     return vax_df
 
 
