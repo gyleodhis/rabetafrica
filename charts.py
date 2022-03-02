@@ -56,7 +56,7 @@ def covid_vaccine():
     """Below returns months in numbers"""
     vax_df['Month'] = pd.DatetimeIndex(vax_df['date']).month
     """Below returns names of months"""
-   # vax_df['Month'] = vax_df['Month'].apply(lambda x: calendar.month_abbr[x])
+    vax_df['Month'] = vax_df['Month'].apply(lambda int(x): calendar.month_abbr[x])
     return vax_df
 
 
