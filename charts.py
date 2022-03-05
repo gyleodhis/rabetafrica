@@ -1,6 +1,6 @@
 from data import *
 import plotly.express as px
-import calendar
+# import calendar
 import datetime
 
 df_global_data = df_covid_data_v1.sort_values('date').groupby(['continent', 'location']).last().reset_index()
@@ -15,8 +15,8 @@ def func_continent(a='Africa'):
         df_cont_new.at[101, 'location'] = 'UAE'
     else:
         df_cont_new
-    return df_cont_new[{'date', 'location', 'new_cases', 'new_deaths', 'icu_patients', 'hosp_patients',
-                        'new_tests_per_thousand', 'positive_rate', 'new_vaccinations', 'people_vaccinated_per_hundred'}]
+    return df_cont_new[['date', 'location', 'new_cases', 'new_deaths', 'icu_patients', 'hosp_patients',
+                        'new_tests_per_thousand', 'positive_rate', 'new_vaccinations', 'people_vaccinated_per_hundred']]
 
 
 """Below functions return various charts dynamically"""
@@ -54,15 +54,15 @@ def covid_vaccine():
     vax_df = pd.read_csv(vax_url, index_col=0, parse_dates=['date'])
     #     vax_df.to_csv('assets/vaccines.csv')
     """Below returns months in numbers"""
-    vax_df['Month'] = pd.DatetimeIndex(vax_df['date']).month
-    """Below returns names of months"""
-    #   vax_df['Month'] = vax_df['Month'].apply(lambda x: calendar.month_abbr[x])
+    vax_df['Month'] = pd.DatetimeIndex(vax_df['date']).month_name()
+    """Below returns names of months. This is depircated"""
+    # vax_df['Month'] = vax_df['Month'].apply(lambda x: calendar.month_abbr[x])
     return vax_df
 
 
 def covid_vaccine_treemap():
     vax_df0 = covid_vaccine().sort_values('date').groupby(['Month', 'location', 'vaccine']).last().reset_index()
-    vax_df1 = vax_df0[{'Month', 'location', 'vaccine', 'total_vaccinations'}]
+    vax_df1 = vax_df0[['Month', 'location', 'vaccine', 'total_vaccinations']]
     return px.treemap(vax_df1, path=["Month", "location", "vaccine"], values="total_vaccinations",
                       # title='Covid19 Vaccinations',
                       labels={"total_vaccinations": "Vaccinations"})
