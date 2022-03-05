@@ -1,4 +1,5 @@
-from dash import Dash, html, dcc
+import dash
+from dash import html, dcc
 from charts import *
 # import plotly.express as px
 import numpy as np
@@ -32,7 +33,7 @@ from dash.dependencies import Input, Output
 #     'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css',
 # ]
 
-app = Dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
+app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 server = app.server
 app.title = 'Rabet'
 
