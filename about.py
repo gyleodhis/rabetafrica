@@ -1,4 +1,4 @@
-import dash_html_components as html
+from dash import html
 
 profile_page = html.Div([
     html.Section(className='content-header', children=[
