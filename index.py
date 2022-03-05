@@ -1,6 +1,4 @@
-import dash
-from dash import dcc
-from dash import html
+from dash import Dash, html, dcc
 from charts import *
 # import plotly.express as px
 import numpy as np
@@ -10,7 +8,7 @@ from plotly import graph_objects as go
 import dash_daq as daq
 from about import profile_page
 from covid import covid_vax_page
-import dash_bootstrap_components as dbc
+# import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
 # external JavaScript files
@@ -34,7 +32,7 @@ from dash.dependencies import Input, Output
 #     'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css',
 # ]
 
-app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
+app = Dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 server = app.server
 app.title = 'Rabet'
 
