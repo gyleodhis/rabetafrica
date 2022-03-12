@@ -10,7 +10,7 @@ def carbon_dioxide():
     return cos_sector_df
 
 def emissions_by_year():
-    co2_sector_df=carbon_dioxide().iloc[:,[1,3,5,7,9,11,13,17,25]]
+    co2_sector_df=carbon_dioxide().iloc[:,[0,1,3,5,7,9,11,13,17,24]]
     return co2_sector_df.groupby(['Year']).mean()
 
 def emissions_by_sctor():

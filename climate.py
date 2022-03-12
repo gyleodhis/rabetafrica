@@ -25,33 +25,17 @@ carbon_page = html.Div([
             html.H5('Highest Carbon Dioxide Emitters', className='mt-4 mb-2'),
             html.Div(className='row',children=[
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-success',children=[
+                    html.Div(className='info-box bg-info',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-cogs')
                         ]),
                         html.Div(className='info-box-content',children=[
                             html.Span(es().index[-1],className='info-box-text'),
-                            html.Span(es()['Percentage'][-1],className='nfo-box-number'),
+                            html.Span('%s%s of total' %(es()['Percentage'][-1],'%'),className='nfo-box-number'),
                             html.Div(className='progress',children=[
                                 html.Div(className='progress-bar',style={'width':es()['Percentage'][-1]})
                             ]),
-                            html.Div('%s%s change in 30 years' %(ld()['% Change'][2],'%'),
-                                     className='progress-description')
-                        ])
-                    ])
-                ]),
-                html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-info',children=[
-                        html.Span(className='info-box-icon',children=[
-                            html.I(className='fas fa-broadcast-tower')
-                        ]),
-                        html.Div(className='info-box-content',children=[
-                            html.Span(es().index[-2],className='info-box-text'),
-                            html.Span(es()['Percentage'][-2],className='nfo-box-number'),
-                            html.Div(className='progress',children=[
-                                html.Div(className='progress-bar',style={'width':es()['Percentage'][-2]})
-                            ]),
-                            html.Div('%s%s change in 30 years' %(abs(ld()['% Change'][3]),'%'),
+                            html.Div('%s%s change in 30 years' %(ld()['% Change'][4],'%'),
                                      className='progress-description')
                         ])
                     ])
@@ -59,15 +43,31 @@ carbon_page = html.Div([
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
                     html.Div(className='info-box bg-warning',children=[
                         html.Span(className='info-box-icon',children=[
+                            html.I(className='fas fa-broadcast-tower')
+                        ]),
+                        html.Div(className='info-box-content',children=[
+                            html.Span(es().index[-2],className='info-box-text'),
+                            html.Span('%s%s of total' %(es()['Percentage'][-2],'%'),className='nfo-box-number'),
+                            html.Div(className='progress',children=[
+                                html.Div(className='progress-bar',style={'width':es()['Percentage'][-2]})
+                            ]),
+                            html.Div('%s%s change in 30 years' %(abs(ld()['% Change'][-4]),'%'),
+                                     className='progress-description')
+                        ])
+                    ])
+                ]),
+                html.Div(className='col-md-3 col-sm-6 col-12',children=[
+                    html.Div(className='info-box bg-success',children=[
+                        html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-bus')
                         ]),
                         html.Div(className='info-box-content',children=[
                             html.Span(es().index[-3],className='info-box-text'),
-                            html.Span(es()['Percentage'][-3],className='nfo-box-number'),
+                            html.Span('%s%s of total' %(es()['Percentage'][-3],'%'),className='nfo-box-number'),
                             html.Div(className='progress',children=[
                                 html.Div(className='progress-bar',style={'width':es()['Percentage'][-3]})
                             ]),
-                            html.Div('%s%s change in 30 years' %(ld()['% Change'][-3],'%'),
+                            html.Div('%s%s change in 30 years' %(ld()['% Change'][2],'%'),
                                      className='progress-description')
                         ])
                     ])
@@ -79,11 +79,11 @@ carbon_page = html.Div([
                         ]),
                         html.Div(className='info-box-content',children=[
                             html.Span(es().index[-4],className='info-box-text'),
-                            html.Span(es()['Percentage'][-4],className='nfo-box-number'),
+                            html.Span('%s%s of total' %(es()['Percentage'][-4],'%'),className='nfo-box-number'),
                             html.Div(className='progress',children=[
                                 html.Div(className='progress-bar',style={'width':es()['Percentage'][-4]})
                             ]),
-                            html.Div('%s%s change in 30 years' %(ld()['% Change'][-1],'%'),
+                            html.Div('%s%s change in 30 years' %(ld()['% Change'][-2],'%'),
                                      className='progress-description')
                         ])
                     ])
