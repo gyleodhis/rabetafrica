@@ -9,6 +9,7 @@ from plotly import graph_objects as go
 import dash_daq as daq
 from about import profile_page
 from covid import covid_vax_page
+from climate import carbon_page
 # import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
@@ -149,20 +150,19 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fix
                                                                             children=[
                                                                                 html.I(
                                                                                     className='nav-icon fa fa-syringe'),
-                                                                                html.P('Covid-19 Vaccine'),
-                                                                                html.Span('New',
-                                                                                          className='right badge badge-success')
-                                                                            ])
+                                                                                html.P('Covid-19 Vaccine')
+                                                                                # html.Span('New',className='right badge badge-success')
+                                                                            ]),
                                                                      # html.A(className='nav-link', href ='#', children=[
                                                                      #     html.I(className='nav-icon fa fa-medkit'),
                                                                      #     html.P('WHO'),
                                                                      #     html.Span('Coming Soon', className='right badge badge-primary')
                                                                      # ]),
-                                                                     # html.A(className='nav-link', href='#',children=[
-                                                                     #     html.I(className='nav-icon fa fa-sun-o'),
-                                                                     #     html.P('Climate'),
-                                                                     #     html.Span('Coming Up', className='right badge badge-danger')
-                                                                     # ])
+                                                                     html.A(className='nav-link', href='/climate',children=[
+                                                                         html.I(className='nav-icon fa fa-sun-o'),
+                                                                         html.P('Climate'),
+                                                                         html.Span('Pre-Release', className='right badge badge-danger')
+                                                                     ])
                                                                  ])
                                                      ])
                                          ])
@@ -851,12 +851,14 @@ covid_page = html.Div([
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/profile':
-        return profile_page
-    elif pathname == '/':
+    if pathname == '/':
         return covid_page
+    elif pathname == '/profile':
+        return profile_page
     elif pathname == '/vaccine':
         return covid_vax_page
+    elif pathname == '/climate':
+        return carbon_page
 
 
 # @app.callback(

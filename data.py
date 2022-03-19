@@ -16,3 +16,8 @@ vax_url = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/da
 """Offline version"""
 # vax_url = 'assets/vaccines.csv'
 
+# #Carbon dioxide (CO₂) emissions broken down by sector, measured in tonnes per year.
+co2_sector = 'https://raw.githubusercontent.com/gyleodhis/owid-datasets/master/datasets/CO2%20emissions%20by%20sector%20(CAIT%2C%202021)/CO2%20emissions%20by%20sector%20(CAIT%2C%202021).csv'
+"""Offline version"""
+# co2_sector = ('assets/CO₂_Sector.csv')
+
