@@ -1,7 +1,9 @@
 from dash import html,dcc
 from climate_data import emissions_by_sctor as es
 from climate_data import last_two_decades_emissions as ld
+from climate_data import fig_corbon_line
 
+config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 carbon_page = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
@@ -85,6 +87,24 @@ carbon_page = html.Div([
                             ]),
                             html.Div('%s%s change in 30 years' %(ld()['% Change'][-2],'%'),
                                      className='progress-description')
+                        ])
+                    ])
+                ])
+            ]),
+            html.Div(className='row', children=[
+                html.Div(className='col-md-12', children=[
+                    html.Div(className='card', children=[
+                        html.Div(className='card-header', children=[
+                            html.P(className='text-center',children=[
+                                html.Strong('Emissions Over Time')
+                            ])
+                        ]),
+                        html.Div(className='card-body', children=[
+                            html.Div(className='row', children=[
+                                html.Div(className='col-md-12',children=[
+                                    dcc.Graph(figure=fig_corbon_line(), config=config)
+                                ])
+                            ])
                         ])
                     ])
                 ])

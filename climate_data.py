@@ -1,6 +1,8 @@
 import pandas as pd
-import numpy as np
+# import numpy as np
+import plotly.express as px
 from data import co2_sector
+
 def load_data(a):
     return pd.read_csv(a,index_col=None)
 def carbon_dioxide():
@@ -28,3 +30,12 @@ def last_two_decades_emissions():
     last_two.index = last_two.index.str.replace(' \(per capita\)','')
     last_two.rename(columns={0:'% Change'},inplace = True)
     return last_two.sort_values(by='% Change')
+
+def top_emitters_by_year():
+    top_co2_sector_df=carbon_dioxide().iloc[:,[0,1,3,5,7]]
+    return top_co2_sector_df.groupby(['Year']).mean().reset_index()
+
+def fig_corbon_line():
+    return px.line(top_emitters_by_year(), x='Year', y=top_emitters_by_year().columns,
+                  markers=True,template="simple_white",
+                  labels={'value':'Amt in Tonnes','variable':'Sector'})
