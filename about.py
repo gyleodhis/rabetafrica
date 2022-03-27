@@ -30,7 +30,7 @@ profile_page = html.Div([
                                          alt='Profile picture')
                             ]),
                             html.H3('Gyle Odhiambo', className='profile-username text-center'),
-                            html.P('Data Engineer - Safaricom', className='text-muted text-center'),
+                            html.P('Data Engineer - Coop Bank', className='text-muted text-center'),
                             html.Ul(className='list-group list-group-unbordered mb-3', children=[
                                 html.Li(className='list-group-item', children=[
                                     html.B('Twitter'),
@@ -104,10 +104,7 @@ profile_page = html.Div([
                                 ]),
                                 html.Li(className='nav-item',children=[
                                     html.A('Bucket List', className='nav-link',href='#bucket_list', **{'data-toggle': 'tab'})
-                                ]),
-                                # html.Li(className='nav-item',children=[
-                                #     html.A('Timeline', className='nav-link',href='#timeline', **{'data-toggle': 'tab'})
-                                # ])
+                                ])
                             ])
                         ]),
                         html.Div(className='card-body',children=[

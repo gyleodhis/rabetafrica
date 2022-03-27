@@ -2,16 +2,17 @@ import dash
 from dash import html, dcc
 from charts import *
 # import plotly.express as px
-import numpy as np
+# import numpy as np
 from _datetime import datetime as dt
 import my_functions as mf
-from plotly import graph_objects as go
-import dash_daq as daq
+# from plotly import graph_objects as go
+# import dash_daq as daq
 from about import profile_page
 from covid import covid_vax_page
 from climate import carbon_page
 # import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+from climate_data import fig_top_emitter_by_year
 
 # external JavaScript files
 # external_scripts = [
@@ -38,7 +39,7 @@ app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=devi
 server = app.server
 app.title = 'Rabet'
 
-app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-fixed', children=[
+app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-navbar-fixed', children=[
     dcc.Location(id='url', refresh=False),
     html.Div(
         className="main-header navbar navbar-expand navbar-dark",
@@ -845,11 +846,9 @@ covid_page = html.Div([
 ])
 
 
-# Updating the index callback
 
-
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [dash.dependencies.Input('url', 'pathname')])
+@app.callback(Output('page-content', 'children'),
+              Input('url', 'pathname'))
 def display_page(pathname):
     if pathname == '/':
         return covid_page
@@ -860,15 +859,11 @@ def display_page(pathname):
     elif pathname == '/climate':
         return carbon_page
 
-
-# @app.callback(
-#     Output('continent_out_put', 'children'),
-#     [Input('continent_drop_down', 'value')]
-# )
-# def update_continent(value):
-#     # final_df = data.df_final[data.df_final['Country/Region'] == selected_coutry]
-#     # for i in final_df['Country/Region']():
-#     return 'You have selected {}'.format(value)
+@app.callback(
+    Output('graph', 'figure'),
+    Input('region', 'value'))
+def update_area_chart(region):
+    return fig_top_emitter_by_year(region)
 
 
 if __name__ == '__main__':

@@ -1,14 +1,14 @@
 import pandas as pd
 # import numpy as np
 import plotly.express as px
-from data import co2_sector
+from data import co2_sector,df_covid_data_v1
 
 def load_data(a):
     return pd.read_csv(a,index_col=None)
 def carbon_dioxide():
     cos_sector_df = load_data(co2_sector)
     cos_sector_df.drop(cos_sector_df.columns[[0]], axis=1, inplace=True)
-    # cos_sector_df.to_csv('assets/CO₂_Sector.csv')
+    # cos_sector_df.to_csv('assets/CO₂_Sector.csv',index=False)
     return cos_sector_df
 
 def emissions_by_year():
@@ -39,3 +39,22 @@ def fig_corbon_line():
     return px.line(top_emitters_by_year(), x='Year', y=top_emitters_by_year().columns,
                   markers=True,template="simple_white",
                   labels={'value':'Amt in Tonnes','variable':'Sector'})
+
+def emission_with_continent():
+    cos_with_continent = load_data(co2_sector).iloc[:,[0,1,2,4,6,8,10,12,14,16]]
+    cos_with_continent.rename(columns={'Entity':'location'},inplace = True)
+    df_continent = df_covid_data_v1[['continent','location']]
+    cos_with_continent = cos_with_continent[cos_with_continent['Year']%5==0]
+    return pd.merge(df_continent,cos_with_continent)
+
+def top_emitter_by_year(a='Africa'):
+    """Possible valies for a are Africa,Asia,Europe,North America,Oceania,South America"""
+    top_emitters_year=emission_with_continent().iloc[:,[0,2,6]]
+    df_top_emitters_year = top_emitters_year['continent'] == a
+    top_emitters_year_new = top_emitters_year[df_top_emitters_year]
+    top_emitters_year_new=top_emitters_year_new.groupby(['continent','Year']).mean()
+    return top_emitters_year_new.reset_index()
+
+def fig_top_emitter_by_year(a='Africa'):
+    return px.area(top_emitter_by_year(a), x='Year', y="Energy", color="continent",
+                   markers=True,template="simple_white",labels={'Energy':'Amt in Tonnes'})

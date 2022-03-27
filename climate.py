@@ -1,7 +1,7 @@
 from dash import html,dcc
 from climate_data import emissions_by_sctor as es
 from climate_data import last_two_decades_emissions as ld
-from climate_data import fig_corbon_line
+from climate_data import fig_corbon_line,top_emitter_by_year
 
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 carbon_page = html.Div([
@@ -61,7 +61,7 @@ carbon_page = html.Div([
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
                     html.Div(className='info-box bg-success',children=[
                         html.Span(className='info-box-icon',children=[
-                            html.I(className='fas fa-bus')
+                            html.I(className='fa fa-building')
                         ]),
                         html.Div(className='info-box-content',children=[
                             html.Span(es().index[-3],className='info-box-text'),
@@ -94,15 +94,48 @@ carbon_page = html.Div([
             html.Div(className='row', children=[
                 html.Div(className='col-md-12', children=[
                     html.Div(className='card', children=[
-                        html.Div(className='card-header', children=[
-                            html.P(className='text-center',children=[
-                                html.Strong('Emissions Over Time')
+                        html.Div(className='card-header p-2', children=[
+                            html.Ul(className='nav nav-pills',children=[
+                                html.Li(className='nav-item',children=[
+                                    html.A('Emissions Over Time',className='nav-link active',
+                                           href='#emission', **{'data-toggle': 'tab'})
+                                ]),
+                                html.Li(className='nav-item',children=[
+                                    html.A('Key Emissions',className='nav-link',
+                                           href='#keyemissions', **{'data-toggle': 'tab'})
+                                ])
                             ])
                         ]),
                         html.Div(className='card-body', children=[
                             html.Div(className='row', children=[
                                 html.Div(className='col-md-12',children=[
-                                    dcc.Graph(figure=fig_corbon_line(), config=config)
+                                    html.Div(className='tab-content',children=[
+                                        html.Div(className='active tab-pane', id='emission',children=[
+                                            dcc.Graph(figure=fig_corbon_line(), config=config)
+                                        ]),
+                                        html.Div(className='tab-pane',id='keyemissions',children=[
+                                                html.Div(className='timeline timeline-inverse',children=[
+                                                    html.Div(className='time-label',children=[
+                                                        html.Span('Energy - 2018',className='bg-danger')
+                                                    ]),
+                                                    html.Div(children=[
+                                                        html.I(className='fas fa-cogs bg-primary'),
+                                                        html.Div(className='timeline-item',children=[
+                                                            html.Span(className='time',children=[
+                                                                html.I(' 1990 - 2015',className='far fa-clock')
+                                                            ]),
+                                                            html.H3('Total Emissions: %s' %round(top_emitter_by_year().Energy.sum(),2),className='timeline-header'),
+                                                            html.Div(className='timeline-body',children=[
+                                                                dcc.Graph(id='graph', config=config),
+                                                                dcc.RadioItems(['Africa','Asia','Europe','North America','Oceania','South America'],
+                                                                               value='Africa',
+                                                                               id='region',className='custom-radio')
+                                                            ])
+                                                        ])
+                                                    ])
+                                                ])
+                                            ])
+                                    ])
                                 ])
                             ])
                         ])
