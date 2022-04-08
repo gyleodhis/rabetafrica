@@ -1,5 +1,6 @@
 import pandas as pd
 # import numpy as np
+import dash_daq as daq
 import plotly.express as px
 from data import co2_sector,df_covid_data_v1
 
@@ -48,7 +49,7 @@ def emission_with_continent():
     return pd.merge(df_continent,cos_with_continent)
 
 def top_emitter_by_year(a='Africa'):
-    """Possible valies for a are Africa,Asia,Europe,North America,Oceania,South America"""
+    """Possible valiues for a are Africa,Asia,Europe,North America,Oceania,South America"""
     top_emitters_year=emission_with_continent().iloc[:,[0,2,6]]
     df_top_emitters_year = top_emitters_year['continent'] == a
     top_emitters_year_new = top_emitters_year[df_top_emitters_year]
@@ -58,3 +59,9 @@ def top_emitter_by_year(a='Africa'):
 def fig_top_emitter_by_year(a='Africa'):
     return px.area(top_emitter_by_year(a), x='Year', y="Energy", color="continent",
                    markers=True,template="simple_white",labels={'Energy':'Amt in Tonnes'})
+
+def emission_by_continent(a='Africa'):
+    return round(top_emitter_by_year(a).Energy.sum(),2)
+
+def fig_emission_by_continent(a='Africa'):
+    return daq.Thermometer(min=100,max=2000,value=emission_by_continent(a),showCurrentValue=True,units="Tones")

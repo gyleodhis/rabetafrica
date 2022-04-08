@@ -6,13 +6,12 @@ from charts import *
 from _datetime import datetime as dt
 import my_functions as mf
 # from plotly import graph_objects as go
-# import dash_daq as daq
 from about import profile_page
 from covid import covid_vax_page
 from climate import carbon_page
 # import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from climate_data import fig_top_emitter_by_year
+from climate_data import fig_top_emitter_by_year,emission_by_continent
 
 # external JavaScript files
 # external_scripts = [
@@ -861,10 +860,11 @@ def display_page(pathname):
 
 @app.callback(
     Output('graph', 'figure'),
+    Output('thermo', 'value'),
     Input('region', 'value'))
 def update_area_chart(region):
-    return fig_top_emitter_by_year(region)
+    return fig_top_emitter_by_year(region),emission_by_continent(region)
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=3000)
+    app.run_server(port=3000)
