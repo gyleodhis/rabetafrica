@@ -1,11 +1,12 @@
 from dash import html
+import os
 
 profile_page = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Profile')
+                    html.H1('Profile %s' %os.getlogin())
                 ]),
                 html.Div(className='col-sm-6',children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
@@ -232,7 +233,7 @@ profile_page = html.Div([
                                                     html.Td('Become a data engineer'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar bg-success progress-bar-striped',style={'width': '100%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])
@@ -242,7 +243,7 @@ profile_page = html.Div([
                                                     html.Td('Work at Safaricom PLC'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar  bg-success progress-bar-striped',style={'width': '100%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])]),
@@ -251,7 +252,7 @@ profile_page = html.Div([
                                                     html.Td('Visit Amboseli National Park'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar  bg-success progress-bar-striped',style={'width': '100%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])]),
@@ -296,7 +297,7 @@ profile_page = html.Div([
                                                     html.Td('Be an awesome person'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '75%'})
+                                                            html.Div(className='progress-bar  bg-warning progress-bar-striped',style={'width': '75%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('75%', className='badge bg-warning')])]),
@@ -305,7 +306,7 @@ profile_page = html.Div([
                                                     html.Td('Be a nice person'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '75%'})
+                                                            html.Div(className='progress-bar bg-warning progress-bar-striped',style={'width': '75%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('75%', className='badge bg-warning')])]),
@@ -368,7 +369,7 @@ profile_page = html.Div([
                                                     html.Td('Be a farmer'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-warning',style={'width': '50%'})
+                                                            html.Div(className='progress-bar bg-warning progress-bar-striped',style={'width': '50%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('50%', className='badge bg-warning')])]),
@@ -395,7 +396,7 @@ profile_page = html.Div([
                                                     html.Td('Start a data science blog (Rabet)'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar bg-success progress-bar-striped',style={'width': '100%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])]),
@@ -413,7 +414,7 @@ profile_page = html.Div([
                                                     html.Td('Board a plane'),
                                                     html.Td(children=[
                                                         html.Div(className='progress progress-xs', children=[
-                                                            html.Div(className='progress-bar progress-bar-success',style={'width': '100%'})
+                                                            html.Div(className='progress-bar bg-success progress-bar-striped',style={'width': '100%'})
                                                         ])
                                                     ]),
                                                     html.Td(children=[html.Span('100%', className='badge bg-success')])]),

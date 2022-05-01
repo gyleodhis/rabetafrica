@@ -1,6 +1,7 @@
 import dash
 from dash import html, dcc
 from charts import *
+# import dash_admin_components as dac
 # import plotly.express as px
 # import numpy as np
 from _datetime import datetime as dt
@@ -12,27 +13,6 @@ from climate import carbon_page
 # import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from climate_data import fig_top_emitter_by_year,emission_by_continent
-
-# external JavaScript files
-# external_scripts = [
-#     # Though its not working
-#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js'},
-#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/demo.min.js'},
-#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard.min.js'},
-#     {'src':'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/pages/dashboard3.min.js'},
-#     {'src':'https://use.fontawesome.com/b7484bca63.js'}
-# ]
-# external CSS stylesheets
-# external_stylesheets = [
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css',
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.components.min.css',
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.core.min.css',
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.extra-components.min.css',
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.pages.min.css',
-#     'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/alt/adminlte.plugins.min.css',
-#     'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
-#     'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css',
-# ]
 
 app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}])
 server = app.server
@@ -51,11 +31,11 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-nav
                                     html.A(className='nav-link', href='#', **{'data-widget': 'pushmenu'}, role='button',
                                            children=[html.I(className='fas fa-bars')])
                                 ]),
-                        html.Li(className='nav-item d-none d-sm-inline-block',
+                        html.Li(className='nav-item d-sm-inline-block',
                                 children=[
                                     html.A('Home', className='nav-link', href='/')
                                 ]),
-                        html.Li(className='nav-item d-none d-sm-inline-block',
+                        html.Li(className='nav-item d-sm-inline-block',
                                 children=[
                                     html.A('Profile', className='nav-link', href='/profile')
                                 ])
