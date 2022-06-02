@@ -6,7 +6,7 @@ profile_page = html.Div([
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Profile %s' %os.getlogin())
+                    html.H1('Profile')
                 ]),
                 html.Div(className='col-sm-6',children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[

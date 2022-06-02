@@ -1,5 +1,5 @@
-import dash
-from dash import html, dcc
+# import dash
+from dash import dash,html, dcc
 from charts import *
 # import dash_admin_components as dac
 # import plotly.express as px
@@ -20,8 +20,7 @@ app.title = 'Rabet'
 
 app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-navbar-fixed', children=[
     dcc.Location(id='url', refresh=False),
-    html.Div(
-        className="main-header navbar navbar-expand navbar-dark",
+    html.Div(className="main-header navbar navbar-expand navbar-dark",
         # Left navbar links
         children=[
             html.Ul(className="navbar-nav",
