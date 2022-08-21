@@ -27,7 +27,8 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-nav
                     children=[
                         html.Li(className='nav-item',
                                 children=[
-                                    html.A(className='nav-link', href='#', **{'data-widget': 'pushmenu'}, role='button',
+                                    html.A(className='nav-link', href='#', **{'data-bs-toggle': 'collapse','data-bs-target':'#navbarColor01',
+                                                                              'aria-controls':'navbarColor01','aria-expanded':'true','aria-label':'Toggle navigation'}, role='button',
                                            children=[html.I(className='fas fa-bars')])
                                 ]),
                         html.Li(className='nav-item d-sm-inline-block',
@@ -87,7 +88,7 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-nav
                                                      # Add icons to the links using the .nav-icon class
                                                      # with font-awesome or any other icon font library
                                                      children=[
-                                                         html.Li(className='nav-item has-treeview menu-open',
+                                                         html.Li(className='nav-item active',
                                                                  children=[
                                                                      html.A(className='nav-link active', href='/',
                                                                             children=[
@@ -95,33 +96,6 @@ app.layout = html.Div(className='wrapper hold-transition sidebar-mini layout-nav
                                                                                     className='nav-icon fas fa-globe-africa text-success'),
                                                                                 html.P(children=['Home'])
                                                                             ])
-                                                                     # html.Ul(className='nav nav-treeview',
-                                                                     #         children=[
-                                                                     #             html.Li(className='nav-item',
-                                                                     #                     children=[
-                                                                     #                         html.A(className='nav-link active', href='/covid',
-                                                                     #                                children=[
-                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
-                                                                     #                                    html.P('Kenya')
-                                                                     #                                ])
-                                                                     #                     ]),
-                                                                     #             html.Li(className='nav-item',
-                                                                     #                     children=[
-                                                                     #                         html.A(className='nav-link', href='#',
-                                                                     #                                children=[
-                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
-                                                                     #                                    html.P('Vision 2030')
-                                                                     #                                ])
-                                                                     #                     ]),
-                                                                     #             html.Li(className='nav-item',
-                                                                     #                     children=[
-                                                                     #                         html.A(className='nav-link', href='#',
-                                                                     #                                children=[
-                                                                     #                                    html.I(className='far fa-circle text-info nav-icon'),
-                                                                     #                                    html.P('SDGs')
-                                                                     #                                ])
-                                                                     #                     ])
-                                                                     #         ])
                                                                  ]),
                                                          html.Li(className='nav-item',
                                                                  children=[
@@ -846,4 +820,4 @@ def update_area_chart(region):
 
 
 if __name__ == '__main__':
-    app.run_server(port=3000)
+    app.run_server(port=3000,debug=False)

@@ -4,7 +4,7 @@ from functools import reduce
 
 
 covid_data = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
-"""Offline Vesion."""
+"""Offline Version."""
 # covid_data = 'assets/covid_data.csv'  # offline csv version
 
 df_covid_data_v1 = pd.read_csv(covid_data)

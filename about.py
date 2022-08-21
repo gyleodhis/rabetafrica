@@ -30,8 +30,8 @@ profile_page = html.Div([
                                 html.Img(className='profile-user-img img-fluid img-circle', src='assets/img/gyle.jpg',
                                          alt='Profile picture')
                             ]),
-                            html.H3('Gyle Odhiambo', className='profile-username text-center'),
-                            html.P('Data Engineer - Coop Bank', className='text-muted text-center'),
+                            html.H3('Gaylord Odhiambo', className='profile-username text-center'),
+                            html.P('Data Engineer - Wizeline Inc', className='text-muted text-center'),
                             html.Ul(className='list-group list-group-unbordered mb-3', children=[
                                 html.Li(className='list-group-item', children=[
                                     html.B('Twitter'),
