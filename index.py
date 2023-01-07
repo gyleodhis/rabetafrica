@@ -2,8 +2,8 @@
 from dash import dash,html, dcc
 from charts import *
 # import dash_admin_components as dac
-# import plotly.express as px
-# import numpy as np
+import plotly.express as px
+import numpy as np
 from _datetime import datetime as dt
 import my_functions as mf
 # from plotly import graph_objects as go

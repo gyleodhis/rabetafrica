@@ -1,6 +1,6 @@
 import pandas as pd
-from datetime import datetime as dt
-from functools import reduce
+# from datetime import datetime as dt
+# from functools import reduce
 
 
 covid_data = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'

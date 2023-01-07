@@ -27,7 +27,6 @@ def get_tweets(a=7000):
     twets.sort_values(by=['Tweet Date'], inplace=True)
     return twets.head(a)
 
-
 """Fetch top tweets. Most retweeted tweets."""
 
 
@@ -36,7 +35,6 @@ def getTopTweets(a=10):
     df_twets.sort_values(by=['Retweets'], inplace=True, ascending=False)
     df_twets = df_twets.drop_duplicates()
     return df_twets.head(a)
-
 
 """Fetch users with highest nnumber of followers."""
 
