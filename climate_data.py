@@ -22,13 +22,13 @@ def emissions_by_sctor():
     # i = [0,7,6]
     # for a in i:new_co2=new_co2.drop(new_co2.index[a])
     new_co2['Percentage'] = round(new_co2.Amount*100/new_co2.Amount.sum(),2)
-    new_co2.index = new_co2.index.str.replace(' \(per capita\)','')
+    new_co2.index = new_co2.index.str.replace(' \(per capita\)','', regex=True)
     return new_co2.sort_values(by='Percentage')
 
 def last_two_decades_emissions():
     last_two = round((emissions_by_year().iloc[-1]-emissions_by_year().
                       iloc[0])*100/emissions_by_year().iloc[0]).to_frame()
-    last_two.index = last_two.index.str.replace(' \(per capita\)','')
+    last_two.index = last_two.index.str.replace(' \(per capita\)','', regex=True)
     last_two.rename(columns={0:'% Change'},inplace = True)
     return last_two.sort_values(by='% Change')
 

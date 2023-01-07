@@ -60,12 +60,15 @@ def covid_vaccine():
     return vax_df
 
 
-def covid_vaccine_treemap():
-    vax_df0 = covid_vaccine().sort_values('date').groupby(['Month', 'location', 'vaccine']).last().reset_index()
-    vax_df1 = vax_df0[['Month', 'location', 'vaccine', 'total_vaccinations']]
-    return px.treemap(vax_df1, path=["Month", "location", "vaccine"], values="total_vaccinations",
-                      # title='Covid19 Vaccinations',
-                      labels={"total_vaccinations": "Vaccinations"})
+# """I DO NOT NEED THE TREEMAP. IT WASTES ALOT OF COMPUTE RESOURCES"""
+
+
+# def covid_vaccine_treemap():
+#     vax_df0 = covid_vaccine().sort_values('date').groupby(['Month', 'location', 'vaccine']).last().reset_index()
+#     vax_df1 = vax_df0[['Month', 'location', 'vaccine', 'total_vaccinations']]
+#     return px.treemap(vax_df1, path=["Month", "location", "vaccine"], values="total_vaccinations",
+#                       # title='Covid19 Vaccinations',
+#                       labels={"total_vaccinations": "Vaccinations"})
 
 
 def pct_vaccination():

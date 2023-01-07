@@ -138,20 +138,19 @@ covid_vax_page = html.Div([
                                             html.Div(className='progress-bar bg-danger',
                                                      style={
                                                          'width': pct_vaccination()['pcnt_vaccination'].iloc[4].astype(
-                                                             str) + '%'})
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                            html.Div(className='row', children=[
-                                html.Div(className='col-md-12', children=[
-                                    html.P(className='text-center',
-                                           children=[html.Strong('Month on Month Vaccinations')]),
-                                    html.Div(className='position-relative', children=[
-                                        dcc.Graph(figure=covid_vaccine_treemap(), config=config)
-                                    ])
+                                                             str) + '%'})])])
                                 ])
                             ])
+                            # """I DO NOT NEED TREEMAP. IT WASTES ALOT OF COMPUTE RESOURCES"""
+                            # html.Div(className='row', children=[
+                            #     html.Div(className='col-md-12', children=[
+                            #         html.P(className='text-center',
+                            #                children=[html.Strong('Month on Month Vaccinations')]),
+                            #         html.Div(className='position-relative', children=[
+                            #             dcc.Graph(figure=covid_vaccine_treemap(), config=config)
+                            #         ])
+                            #     ])
+                            # ])
                         ]),
                         html.Div(className='card-footer', children=[
                             html.P(className='text-center', children=[html.Strong('This Month vs Last Month')]),
