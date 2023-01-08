@@ -14,12 +14,12 @@ df_covid_data = df_covid_data_v1.sort_values('date').groupby(['continent','locat
 # df_covid_data.to_csv('temp_assets/covid.csv',index=False)
 
 """Covicd 19 Daily vaccinations data"""
-vax_url = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-manufacturer.csv'
+# vax_url = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-manufacturer.csv'
 """Offline version"""
-# vax_url = 'assets/vaccines.csv'
+vax_url = 'temp_assets/vaccines.csv'
 
 # #Carbon dioxide (CO₂) emissions broken down by sector, measured in tonnes per year.
-# co2_sector = 'https://raw.githubusercontent.com/gyleodhis/owid-datasets/master/datasets/CO2%20emissions%20by%20sector%20(CAIT%2C%202021)/CO2%20emissions%20by%20sector%20(CAIT%2C%202021).csv'
+# co2_sector s= 'https://raw.githubusercontent.com/gyleodhis/owid-datasets/master/datasets/CO2%20emissions%20by%20sector%20(CAIT%2C%202021)/CO2%20emissions%20by%20sector%20(CAIT%2C%202021).csv'
 """Offline version"""
 co2_sector = ('temp_assets/CO₂_Sector.csv')
 
