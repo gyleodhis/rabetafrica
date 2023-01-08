@@ -27,11 +27,14 @@ def get_tweets(a=7000):
     twets.sort_values(by=['Tweet Date'], inplace=True)
     return twets.head(a)
 
+df_get_tweets = get_tweets()
+
+print('done loading mongo')
 """Fetch top tweets. Most retweeted tweets."""
 
 
 def getTopTweets(a=10):
-    df_twets = get_tweets()[['Author', 'Tweet Date', 'Retweets', 'Tweet Text', 'Profile']]
+    df_twets = df_get_tweets[['Author', 'Tweet Date', 'Retweets', 'Tweet Text', 'Profile']]
     df_twets.sort_values(by=['Retweets'], inplace=True, ascending=False)
     df_twets = df_twets.drop_duplicates()
     return df_twets.head(a)
@@ -40,14 +43,14 @@ def getTopTweets(a=10):
 
 
 def getTopAccount(a=10):
-    df_twets = get_tweets()[['Author', 'Accout Creation', 'Follower Count', 'Profile']]
+    df_twets = df_get_tweets[['Author', 'Accout Creation', 'Follower Count', 'Profile']]
     df_twets.sort_values(by=['Follower Count'], inplace=True, ascending=False)
     df_twets = df_twets.drop_duplicates()
     return df_twets.head(a)
 
 
 def getDevice(a=6):
-    df_location = get_tweets()[['Device']]
+    df_location = df_get_tweets[['Device']]
     df_grouped = df_location.groupby(["Device"]).agg(Total=pd.NamedAgg(column="Device", aggfunc="count")).reset_index(
         "Device")
     df_grouped.sort_values(by=['Total'], inplace=True, ascending=False)
@@ -57,7 +60,7 @@ def getDevice(a=6):
 
 
 def getLocations(a=6):
-    df_location = get_tweets()[['Location']]
+    df_location = df_get_tweets[['Location']]
     df_grouped = df_location.groupby(["Location"]).agg(
         Total=pd.NamedAgg(column="Location", aggfunc="count")).reset_index("Location")
     df_grouped.at[0, 'Location'] = 'No Location'
@@ -72,7 +75,7 @@ def clean_tweet():
     Utility function to clean tweet text by removing links, special characters
     using simple regex statements.
     """
-    df_tweet = get_tweets()[['Tweet Text']]
+    df_tweet = df_get_tweets[['Tweet Text']]
     return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", df_tweet).split())
 
 def remove_pattern(input_txt, pattern):
@@ -81,8 +84,8 @@ def remove_pattern(input_txt, pattern):
         input_txt = re.sub(i, '', input_txt)
     return input_txt
 
-def clean_tweets(a=100000):
-    df_tweet = get_tweets(a)
+def clean_tweets(a=7000):
+    df_tweet = df_get_tweets
     """Remove twitter user handles"""
     df_tweet['df_Tweet'] = np.vectorize(remove_pattern)(df_tweet['Tweet Text'], "@[\w]*")
     """Remove Punctuations and special characters."""
@@ -95,9 +98,11 @@ def clean_tweets(a=100000):
     df_tweet['Interactions'] = df_tweet[['Favorite Count', 'Retweets']].sum(axis=1)
     return df_tweet.head(a)
 
+df_clean_tweets = clean_tweets()
+
 def getSummary(a = 'ttl'):
-    df_total = clean_tweets(10000)
-    df_interactions = clean_tweets(10000)['Interactions']
+    df_total = df_clean_tweets
+    df_interactions = df_clean_tweets['Interactions']
     if a == 'ttl':
         x= df_total.shape[0]
     else:
@@ -110,10 +115,10 @@ def sentiment_calc(text):
     except:
         return None
 
-def get_tweet_sentiment(a=100000):
-    df_twit = clean_tweets(a)
-    df_twit['sentiment'] = round(df_twit['Tweet Text'].apply(sentiment_calc),1)
-    return df_twit.head(a)
+def get_tweet_sentiment(a=7000):
+    # df_twit = clean_tweets(a)
+    df_clean_tweets['sentiment'] = round(df_clean_tweets['Tweet Text'].apply(sentiment_calc),1)
+    return df_clean_tweets.head(a)
 
 def getNegativeTweets(a=10):
     df_twets = get_tweet_sentiment()[['Author','Tweet Date','sentiment','Retweets','Tweet Text','Profile']]

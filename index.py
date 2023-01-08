@@ -2,8 +2,8 @@
 from dash import dash,html, dcc
 from charts import *
 # import dash_admin_components as dac
-import plotly.express as px
-import numpy as np
+# import plotly.express as px
+# import numpy as np
 from _datetime import datetime as dt
 import my_functions as mf
 # from plotly import graph_objects as go
@@ -259,7 +259,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent()['new_cases'].sum() / df_global_data[
+                                                    func_continent()['new_cases'].sum() / df_covid_data[
                                                         'new_cases'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -279,7 +279,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Asia')['new_cases'].sum() / df_global_data[
+                                                    func_continent('Asia')['new_cases'].sum() / df_covid_data[
                                                         'new_cases'].sum(),
                                                     2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
@@ -300,7 +300,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Europe')['new_cases'].sum() / df_global_data[
+                                                    func_continent('Europe')['new_cases'].sum() / df_covid_data[
                                                         'new_cases'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -320,7 +320,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-danger', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('North America')['new_cases'].sum() / df_global_data[
+                                                    func_continent('North America')['new_cases'].sum() / df_covid_data[
                                                         'new_cases'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -375,7 +375,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I(str(
-                                                    (mf.round_up(func_continent()['new_vaccinations'].sum() / df_global_data[
+                                                    (mf.round_up(func_continent()['new_vaccinations'].sum() / df_covid_data[
                                                         'new_vaccinations'].sum(), 2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -397,7 +397,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Asia')['new_vaccinations'].sum() / df_global_data[
+                                                    func_continent('Asia')['new_vaccinations'].sum() / df_covid_data[
                                                         'new_vaccinations'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -419,7 +419,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Europe')['new_vaccinations'].sum() / df_global_data[
+                                                    func_continent('Europe')['new_vaccinations'].sum() / df_covid_data[
                                                         'new_vaccinations'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -442,7 +442,7 @@ covid_page = html.Div([
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent('North America')['new_vaccinations'].sum() /
-                                                    df_global_data['new_vaccinations'].sum(),2)) * 100) + '%',
+                                                    df_covid_data['new_vaccinations'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
                                             html.Span('N. America % of the world', className='text-muted')
@@ -501,7 +501,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-warning', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent()['positive_rate'].sum() / df_global_data[
+                                                    func_continent()['positive_rate'].sum() / df_covid_data[
                                                         'positive_rate'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -531,7 +531,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-warning', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Asia')['positive_rate'].sum() / df_global_data[
+                                                    func_continent('Asia')['positive_rate'].sum() / df_covid_data[
                                                         'positive_rate'].sum(), 2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -561,7 +561,7 @@ covid_page = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-warning', children=[
                                                 html.I(str((mf.round_up(
-                                                    func_continent('Europe')['positive_rate'].sum() / df_global_data[
+                                                    func_continent('Europe')['positive_rate'].sum() / df_covid_data[
                                                         'positive_rate'].sum(), 2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -592,7 +592,7 @@ covid_page = html.Div([
                                             html.Span(className='text-warning', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent('North America')['positive_rate'].sum() /
-                                                    df_global_data[
+                                                    df_covid_data[
                                                         'positive_rate'].sum(), 2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -654,7 +654,7 @@ covid_page = html.Div([
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent()['people_vaccinated_per_hundred'].sum() /
-                                                    df_global_data[
+                                                    df_covid_data[
                                                         'people_vaccinated_per_hundred'].sum(), 2)) * 100) + '%',
                                                        className='fas fa-arrow-down')
                                             ]),
@@ -686,7 +686,7 @@ covid_page = html.Div([
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent('Asia')['people_vaccinated_per_hundred'].sum() /
-                                                    df_global_data[
+                                                    df_covid_data[
                                                         'people_vaccinated_per_hundred'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -717,7 +717,7 @@ covid_page = html.Div([
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent('Europe')['people_vaccinated_per_hundred'].sum() /
-                                                    df_global_data[
+                                                    df_covid_data[
                                                         'people_vaccinated_per_hundred'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
@@ -748,7 +748,7 @@ covid_page = html.Div([
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
                                                     func_continent('North America')[
-                                                        'people_vaccinated_per_hundred'].sum() / df_global_data[
+                                                        'people_vaccinated_per_hundred'].sum() / df_covid_data[
                                                         'people_vaccinated_per_hundred'].sum(),2)) * 100) + '%',
                                                        className='fas fa-arrow-up')
                                             ]),
