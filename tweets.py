@@ -37,6 +37,7 @@ def getTopTweets(a=10):
     df_twets.sort_values(by=['Retweets'], inplace=True, ascending=False)
     df_twets = df_twets.drop_duplicates()
     return df_twets.head(a)
+df_getTopTweets = getTopTweets()
 
 """Fetch users with highest nnumber of followers."""
 
@@ -47,6 +48,8 @@ def getTopAccount(a=10):
     df_twets = df_twets.drop_duplicates()
     return df_twets.head(a)
 
+df_getTopAccount = getTopAccount()
+
 
 def getDevice(a=6):
     df_location = df_get_tweets[['Device']]
@@ -56,6 +59,7 @@ def getDevice(a=6):
     df_grouped = df_grouped.head(a)
     df_grouped['df_pct'] = (round(df_grouped.Total / df_grouped.Total.sum(),2))*100
     return df_grouped.head(a)
+df_getDevice = getDevice()
 
 
 def getLocations(a=6):
@@ -68,7 +72,7 @@ def getLocations(a=6):
     df_grouped['df_pct'] = (round(df_grouped.Total / df_grouped.Total.sum(),2))*100
     return df_grouped.head(a)
 
-
+df_getLocations=getLocations()
 def clean_tweet():
     """
     Utility function to clean tweet text by removing links, special characters
@@ -118,8 +122,10 @@ def get_tweet_sentiment(a=7000):
     # df_twit = clean_tweets(a)
     df_clean_tweets['sentiment'] = round(df_clean_tweets['Tweet Text'].apply(sentiment_calc),1)
     return df_clean_tweets.head(a)
-print(get_tweet_sentiment().head())
+
 def getNegativeTweets(a=10):
     df_twets = get_tweet_sentiment()[['Author','Tweet Date','sentiment','Retweets','Tweet Text','Profile']]
     df_twets.sort_values(by=['sentiment'], inplace=True,ascending=True)
     return df_twets.head(a)
+
+df_getNegativeTweets = getNegativeTweets()

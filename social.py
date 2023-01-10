@@ -1,6 +1,6 @@
 from dash import html
 from _datetime import  datetime as dt,timedelta as td
-from tweets import getTopTweets, getTopAccount,getNegativeTweets,getLocations,getDevice,getSummary
+from tweets import df_getTopTweets, df_getTopAccount,df_getNegativeTweets,df_getLocations,df_getDevice,getSummary
 
 social_page = html.Div([
     html.Section(className='content-header', children=[
@@ -74,62 +74,62 @@ social_page = html.Div([
                         ]),
                         html.Div(className='card-body',children=[
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[0]),
-                                html.Span(getLocations()['df_pct'].iloc[0].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[0]),
+                                html.Span(df_getLocations['df_pct'].iloc[0].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-success',
-                                             style={'width': getLocations()['df_pct'].iloc[0].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[0].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[1]),
-                                html.Span(getLocations()['df_pct'].iloc[1].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[1]),
+                                html.Span(df_getLocations['df_pct'].iloc[1].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-success',
-                                             style={'width': getLocations()['df_pct'].iloc[1].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[1].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[2]),
-                                html.Span(getLocations()['df_pct'].iloc[2].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[2]),
+                                html.Span(df_getLocations['df_pct'].iloc[2].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-olive',
-                                             style={'width': getLocations()['df_pct'].iloc[2].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[2].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[3]),
-                                html.Span(getLocations()['df_pct'].iloc[3].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[3]),
+                                html.Span(df_getLocations['df_pct'].iloc[3].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-olive',
-                                             style={'width': getLocations()['df_pct'].iloc[3].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[3].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[4]),
-                                html.Span(getLocations()['df_pct'].iloc[4].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[4]),
+                                html.Span(df_getLocations['df_pct'].iloc[4].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-lime',
-                                             style={'width': getLocations()['df_pct'].iloc[4].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[4].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getLocations()['Location'].iloc[5]),
-                                html.Span(getLocations()['df_pct'].iloc[5].astype(str) + ' %',
+                                html.Span(df_getLocations['Location'].iloc[5]),
+                                html.Span(df_getLocations['df_pct'].iloc[5].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-lime',
-                                             style={'width': getLocations()['df_pct'].iloc[5].astype(
+                                             style={'width': df_getLocations['df_pct'].iloc[5].astype(
                                                      str) + '%'})
                                 ])
                             ])
@@ -145,62 +145,62 @@ social_page = html.Div([
                         ]),
                         html.Div(className='card-body',children=[
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[0]),
-                                html.Span(getDevice()['df_pct'].iloc[0].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[0]),
+                                html.Span(df_getDevice['df_pct'].iloc[0].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-black',
-                                             style={'width': getDevice()['df_pct'].iloc[0].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[0].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[1]),
-                                html.Span(getDevice()['df_pct'].iloc[1].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[1]),
+                                html.Span(df_getDevice['df_pct'].iloc[1].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-black',
-                                             style={'width': getDevice()['df_pct'].iloc[1].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[1].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[2]),
-                                html.Span(getDevice()['df_pct'].iloc[2].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[2]),
+                                html.Span(df_getDevice['df_pct'].iloc[2].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-gray-dark',
-                                             style={'width': getDevice()['df_pct'].iloc[2].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[2].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[3]),
-                                html.Span(getDevice()['df_pct'].iloc[3].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[3]),
+                                html.Span(df_getDevice['df_pct'].iloc[3].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-gray-dark',
-                                             style={'width': getDevice()['df_pct'].iloc[3].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[3].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[4]),
-                                html.Span(getDevice()['df_pct'].iloc[4].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[4]),
+                                html.Span(df_getDevice['df_pct'].iloc[4].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-gray',
-                                             style={'width': getDevice()['df_pct'].iloc[4].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[4].astype(
                                                      str) + '%'})
                                 ])
                             ]),
                             html.Div(className='progress-group',children=[
-                                html.Span(getDevice()['Device'].iloc[5]),
-                                html.Span(getDevice()['df_pct'].iloc[5].astype(str) + ' %',
+                                html.Span(df_getDevice['Device'].iloc[5]),
+                                html.Span(df_getDevice['df_pct'].iloc[5].astype(str) + ' %',
                                           className='float-right'),
                                 html.Div(className='progress progress-sm', children=[
                                     html.Div(className='progress-bar bg-gray',
-                                             style={'width': getDevice()['df_pct'].iloc[5].astype(
+                                             style={'width': df_getDevice['df_pct'].iloc[5].astype(
                                                      str) + '%'})
                                 ])
                             ])
@@ -231,126 +231,126 @@ social_page = html.Div([
                                     html.Div(className='direct-chat-messages', children=[
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getTopTweets().iloc[0]['Author'],
+                                                html.Span(df_getTopTweets.iloc[0]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getTopTweets().iloc[0]['Tweet Date'],
+                                                html.Span(df_getTopTweets.iloc[0]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getTopTweets().iloc[0]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getTopTweets.iloc[0]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getTopTweets().iloc[0]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getTopTweets().iloc[0]['Retweets'])
+                                            html.Div(df_getTopTweets.iloc[0]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getTopTweets.iloc[0]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg right', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getTopTweets().iloc[1]['Author'],
+                                                html.Span(df_getTopTweets.iloc[1]['Author'],
                                                           className='direct-chat-name float-right'),
-                                                html.Span(getTopTweets().iloc[1]['Tweet Date'],
+                                                html.Span(df_getTopTweets.iloc[1]['Tweet Date'],
                                                           className='direct-chat-timestamp float-left')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getTopTweets().iloc[1]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getTopTweets.iloc[1]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getTopTweets().iloc[1]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getTopTweets().iloc[1]['Retweets'])
+                                            html.Div(df_getTopTweets.iloc[1]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getTopTweets.iloc[1]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getTopTweets().iloc[2]['Author'],
+                                                html.Span(df_getTopTweets.iloc[2]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getTopTweets().iloc[2]['Tweet Date'],
+                                                html.Span(df_getTopTweets.iloc[2]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getTopTweets().iloc[2]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getTopTweets.iloc[2]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getTopTweets().iloc[2]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getTopTweets().iloc[2]['Retweets'])
+                                            html.Div(df_getTopTweets.iloc[2]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getTopTweets.iloc[2]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg right', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getTopTweets().iloc[3]['Author'],
+                                                html.Span(df_getTopTweets.iloc[3]['Author'],
                                                           className='direct-chat-name float-right'),
-                                                html.Span(getTopTweets().iloc[3]['Tweet Date'],
+                                                html.Span(df_getTopTweets.iloc[3]['Tweet Date'],
                                                           className='direct-chat-timestamp float-left')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getTopTweets().iloc[3]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getTopTweets.iloc[3]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getTopTweets().iloc[3]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getTopTweets().iloc[3]['Retweets'])
+                                            html.Div(df_getTopTweets.iloc[3]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getTopTweets.iloc[3]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getTopTweets().iloc[4]['Author'],
+                                                html.Span(df_getTopTweets.iloc[4]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getTopTweets().iloc[4]['Tweet Date'],
+                                                html.Span(df_getTopTweets.iloc[4]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getTopTweets().iloc[4]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getTopTweets.iloc[4]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getTopTweets().iloc[4]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getTopTweets().iloc[4]['Retweets'])
+                                            html.Div(df_getTopTweets.iloc[4]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getTopTweets.iloc[4]['Retweets'])
                                         ])
                                     ])]),
                                 html.Div(className='tab-pane', id='neg5', children=[
                                     html.Div(className='direct-chat-messages', children=[
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getNegativeTweets().iloc[0]['Author'],
+                                                html.Span(df_getNegativeTweets.iloc[0]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getNegativeTweets().iloc[0]['Tweet Date'],
+                                                html.Span(df_getNegativeTweets.iloc[0]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getNegativeTweets().iloc[0]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getNegativeTweets.iloc[0]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getNegativeTweets().iloc[0]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getNegativeTweets().iloc[0]['Retweets'])
+                                            html.Div(df_getNegativeTweets.iloc[0]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getNegativeTweets.iloc[0]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg right', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getNegativeTweets().iloc[1]['Author'],
+                                                html.Span(df_getNegativeTweets.iloc[1]['Author'],
                                                           className='direct-chat-name float-right'),
-                                                html.Span(getNegativeTweets().iloc[1]['Tweet Date'],
+                                                html.Span(df_getNegativeTweets.iloc[1]['Tweet Date'],
                                                           className='direct-chat-timestamp float-left')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getNegativeTweets().iloc[1]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getNegativeTweets.iloc[1]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getNegativeTweets().iloc[1]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getNegativeTweets().iloc[1]['Retweets'])
+                                            html.Div(df_getNegativeTweets.iloc[1]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getNegativeTweets.iloc[1]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getNegativeTweets().iloc[2]['Author'],
+                                                html.Span(df_getNegativeTweets.iloc[2]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getNegativeTweets().iloc[2]['Tweet Date'],
+                                                html.Span(df_getNegativeTweets.iloc[2]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getNegativeTweets().iloc[2]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getNegativeTweets.iloc[2]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getNegativeTweets().iloc[2]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getNegativeTweets().iloc[2]['Retweets'])
+                                            html.Div(df_getNegativeTweets.iloc[2]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getNegativeTweets.iloc[2]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg right', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getNegativeTweets().iloc[3]['Author'],
+                                                html.Span(df_getNegativeTweets.iloc[3]['Author'],
                                                           className='direct-chat-name float-right'),
-                                                html.Span(getNegativeTweets().iloc[3]['Tweet Date'],
+                                                html.Span(df_getNegativeTweets.iloc[3]['Tweet Date'],
                                                           className='direct-chat-timestamp float-left')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getNegativeTweets().iloc[3]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getNegativeTweets.iloc[3]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getNegativeTweets().iloc[3]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getNegativeTweets().iloc[3]['Retweets'])
+                                            html.Div(df_getNegativeTweets.iloc[3]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getNegativeTweets.iloc[3]['Retweets'])
                                         ]),
                                         html.Div(className='direct-chat-msg', children=[
                                             html.Div(className='direct-chat-infos clearfix', children=[
-                                                html.Span(getNegativeTweets().iloc[4]['Author'],
+                                                html.Span(df_getNegativeTweets.iloc[4]['Author'],
                                                           className='direct-chat-name float-left'),
-                                                html.Span(getNegativeTweets().iloc[4]['Tweet Date'],
+                                                html.Span(df_getNegativeTweets.iloc[4]['Tweet Date'],
                                                           className='direct-chat-timestamp float-right')
                                             ]),
-                                            html.Img(className='direct-chat-img', src=getNegativeTweets().iloc[4]['Profile'],
+                                            html.Img(className='direct-chat-img', src=df_getNegativeTweets.iloc[4]['Profile'],
                                                      alt='pic'),
-                                            html.Div(getNegativeTweets().iloc[4]['Tweet Text'], className='direct-chat-text',
-                                                     title='Retweets: %s' % getNegativeTweets().iloc[4]['Retweets'])
+                                            html.Div(df_getNegativeTweets.iloc[4]['Tweet Text'], className='direct-chat-text',
+                                                     title='Retweets: %s' % df_getNegativeTweets.iloc[4]['Retweets'])
                                         ])
                                     ])])
                             ])
@@ -367,67 +367,67 @@ social_page = html.Div([
                         html.Div(className='card-body p-0', children=[
                             html.Ul(className='users-list clearfix', children=[
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[0]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[0][
+                                    html.Img(src=df_getTopAccount.iloc[0]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[0][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[0]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[0]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[0]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[0]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[1]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[1][
+                                    html.Img(src=df_getTopAccount.iloc[1]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[1][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[1]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[1]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[1]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[1]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[2]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[2][
+                                    html.Img(src=df_getTopAccount.iloc[2]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[2][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[2]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[2]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[2]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[2]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[3]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[3][
+                                    html.Img(src=df_getTopAccount.iloc[3]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[3][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[3]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[3]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[3]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[3]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[4]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[4][
+                                    html.Img(src=df_getTopAccount.iloc[4]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[4][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[4]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[4]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[4]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[4]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[5]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[5][
+                                    html.Img(src=df_getTopAccount.iloc[5]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[5][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[5]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[5]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[5]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[5]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[6]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[6][
+                                    html.Img(src=df_getTopAccount.iloc[6]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[6][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[6]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[6]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[6]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[6]['Follower Count'],
                                               className='users-list-date')
                                 ]),
                                 html.Li(children=[
-                                    html.Img(src=getTopAccount().iloc[7]['Profile'], alt='pic',
-                                             title='Joined Twitter on: %s' % getTopAccount().iloc[7][
+                                    html.Img(src=df_getTopAccount.iloc[7]['Profile'], alt='pic',
+                                             title='Joined Twitter on: %s' % df_getTopAccount.iloc[7][
                                                  'Accout Creation']),
-                                    html.Span(getTopAccount().iloc[7]['Author'], className='users-list-name'),
-                                    html.Span('Followers: %s' % getTopAccount().iloc[7]['Follower Count'],
+                                    html.Span(df_getTopAccount.iloc[7]['Author'], className='users-list-name'),
+                                    html.Span('Followers: %s' % df_getTopAccount.iloc[7]['Follower Count'],
                                               className='users-list-date')
                                 ])
                             ])
