@@ -118,7 +118,7 @@ def get_tweet_sentiment(a=7000):
     # df_twit = clean_tweets(a)
     df_clean_tweets['sentiment'] = round(df_clean_tweets['Tweet Text'].apply(sentiment_calc),1)
     return df_clean_tweets.head(a)
-
+print(get_tweet_sentiment().head())
 def getNegativeTweets(a=10):
     df_twets = get_tweet_sentiment()[['Author','Tweet Date','sentiment','Retweets','Tweet Text','Profile']]
     df_twets.sort_values(by=['sentiment'], inplace=True,ascending=True)
