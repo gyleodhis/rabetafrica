@@ -29,7 +29,6 @@ def get_tweets(a=7000):
 
 df_get_tweets = get_tweets()
 
-print('done loading mongo')
 """Fetch top tweets. Most retweeted tweets."""
 
 
