@@ -7,7 +7,7 @@ social_page = html.Div([
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Tweets About: Elon Musk')
+                    html.H1('Tweets About: Mandonga')
                 ]),
                 html.Div(className='col-sm-6', children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
@@ -49,7 +49,7 @@ social_page = html.Div([
                             html.I(className='fa fa-thumbs-down')]),
                         html.Div(className='info-box-content',children=[
                             html.Span('Negative Tweets',className='info-box-text'),
-                            html.Span(57,className='info-box-number')
+                            html.Span(12,className='info-box-number')
                         ])
                     ])
                 ]),
