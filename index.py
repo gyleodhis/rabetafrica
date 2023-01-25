@@ -11,6 +11,7 @@ from about import profile_page
 from covid import covid_vax_page
 from climate import carbon_page
 from social import social_page
+from forest import forest_page
 # import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from climate_data import fig_top_emitter_by_year,emission_by_continent
@@ -19,11 +20,11 @@ app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=devi
 server = app.server
 app.title = 'Rabet'
 
-app.layout = html.Div(className='hold-transition dark-mode sidebar-mini layout-fixed'
-                                'layout-navbar-fixed layout-footer-fixed', children=[
+app.layout = html.Div(className='hold-transition dark-mode sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed',
+                      children=[
     html.Div(className='wrapper',children=[
         dcc.Location(id='url', refresh=False),
-        html.Div(className="main-header navbar navbar-expand navbar-dark",
+        html.Nav(className="main-header navbar navbar-expand navbar-dark",
         # Left navbar links
         children=[
             html.Ul(className="navbar-nav",children=[
@@ -44,31 +45,28 @@ app.layout = html.Div(className='hold-transition dark-mode sidebar-mini layout-f
                                  children=[
                                      html.Button(className='btn btn-navbar', type='submit',
                                                  children=html.I(className='fas fa-search'))
-                                 ])
-                    ])
-            ])])
+                                 ])])])])
         ]),
         # Main Sidebar Container
         html.Aside(className='main-sidebar sidebar-dark-primary elevation-4',
                    # Logo container
                    children=[
-                   # html.A(href='#', className='brand-link',
-                   #        children=[
-                   #            html.Img(className='brand-image img-circle elevation-3', alt='Logo',
-                   #                     src='assets/img/AdminLTELogo.png'),
-                   #            html.Span('Rabet', className='brand-text font-weight-light')
-                   #        ]),
-                   # Sidebar container
-                   html.Div(className='sidebar',children=[
-                                html.Div(className='user-panel mt-3 pb-3 mb-3 d-flex',children=[
-                                             html.Div(className='image',children=[
-                                                          html.Img(className='img-circle elevation-2', alt='Gyleodhis',
-                                                                   src='assets/img/gyle.jpg')]),
-                                             html.Div(className='info',children=[
-                                                          html.A('Rabet', className='d-block',
-                                                                 href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
-                                                                 target='_blank')])
-                                         ]),
+                       html.A(className='brand-link',href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
+                              target='_blank',children=[
+                               html.Img(className='brand-image img-circle elevation-3',src='assets/img/gyle.jpg',alt='Gyleodhis',
+                                        style={'opacity':.8}),
+                               html.Span('Rabet', className='brand-text font-weight-light')
+                           ]),
+                       html.Div(className='sidebar',children=[
+                                # html.Div(className='user-panel mt-3 pb-3 mb-3 d-flex',children=[
+                                #              html.Div(className='image',children=[
+                                #                           html.Img(className='img-circle elevation-2', alt='Gyleodhis',
+                                #                                    src='assets/img/gyle.jpg')]),
+                                #              html.Div(className='info',children=[
+                                #                           html.A('Rabet', className='d-block',
+                                #                                  href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
+                                #                                  target='_blank')])
+                                #          ]),
                                 # Sidebar Menu
                                 html.Div(className='mt-2',children=[
                                              html.Ul(className='nav nav-pills nav-sidebar flex-column', role='menu',
@@ -87,13 +85,18 @@ app.layout = html.Div(className='hold-transition dark-mode sidebar-mini layout-f
                                                      html.Li(className='nav-item',children=[
                                                          html.A(className='nav-link', href='/climate',children=[
                                                              html.I(className='nav-icon fa fa-sun-o'),
-                                                             html.P('Climate'),
-                                                             html.Span('Pre-Release', className='right badge badge-danger')
+                                                             html.P('Climate')
                                                          ])]),
                                                      html.Li(className='nav-item',children=[
                                                          html.A(className='nav-link', href='/social',children=[
                                                              html.I(className='nav-icon fa fa-twitter'),
                                                              html.P('Twitter'),
+                                                             html.Span('Pre-Release',className='right badge badge-danger')
+                                                         ])]),
+                                                     html.Li(className='nav-item',children=[
+                                                         html.A(className='nav-link', href='/forestcover',children=[
+                                                             html.I(className='nav-icon fa fa-tree'),
+                                                             html.P('Forest Cover'),
                                                              html.Span('New',className='right badge badge-success')
                                                          ])])
                                                      ])
@@ -107,7 +110,7 @@ app.layout = html.Div(className='hold-transition dark-mode sidebar-mini layout-f
                  html.Div(id='page-content')
              ]),
     html.Footer(className='main-footer', children=[
-        html.Strong('Rabet | Vincit Omnia Veritas')
+        html.Strong('Rabet© | Visualizing Africa | 2023')
     ])])
 ])
 
@@ -131,55 +134,19 @@ covid_page = html.Div([
     ]),
     html.Section(className='content', children=[
         html.Div(className='container-fluid', children=[
-            # The fow for cumulative figures
             html.Div(className='row', children=[
-                html.Div(className='col-md-3', children=[
-                    # html.Div(className='form-group', children=[
-                    #     html.Label('Selected Countries'),
-                    #     html.Select(className='select2',style={'width': '100%'},multiple='multiple', children=[
-                    #         dcc.Dropdown(id='continent_drop_down',
-                    #                      options=[{'label': i, 'value': i} for i in df_africa['location']],
-                    #                      value=df_africa.iloc[4]['location'], multi=True),
-                    #         html.Div(className='dropdown_item', id='continent_out_put')
-                    #     ])
-                    # ]),
-                    # html.Div(className='card card-primary card-outline', children=[
-                    #     # Country Dropdown menu
-                    #     html.Div(className='dropdown', children=[
-                    #         dcc.Dropdown(id='continent_drop_down', className='dropdown-menu',
-                    #                      options=[{'label': i, 'value': i} for i in df_africa['location']],
-                    #                      value=df_africa.iloc[46]['location'], multi=True),
-                    #         html.Div(id='continent_out_put', className='dropdown_item')
-                    #     ]),
-                    #     # Country Drop Down
-                    #     html.Div(className='dropdown', children=[
-                    #         html.A('Select Country', className='dropdown-toggle', href='#', role='button',
-                    #                **{'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'}),
-                    #         html.Div(className='dropdown-menu', children=[
-                    #             html.A('Kenya123', className='dropdown-item', href='#'),
-                    #             html.A('Uganda255', className='dropdown-item', href='#')
-                    #         ])
-                    #     ])
-                    # ]),
-                ]),
-                html.Div(className='col-md-12', children=[
-                    html.Div(className='row', children=[
                         html.Div(className='col-md-3', children=[
                             html.Div(className='small-box bg-info', children=[
                                 html.Div(className='inner', children=[
-                                    # html.H4(df_covid_data.iloc[46]['location']),
                                     html.H4('New Cases')
                                 ]),
                                 html.A('Africa: %s' % round(func_continent()['new_cases'].sum()), className='small-box-footer', href='#'),
-                                # html.A(func_continent()['new_cases'].sum(), className='small-box-footer', href='#')
                                 html.A('Worldwide: %s' % round(df_covid_data['new_cases'].sum()),className='small-box-footer', href='#')
-                                # html.I(className='fas fa-arrow-circle-right')
                             ])
                         ]),
                         html.Div(className='col-md-3', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
-                                    # html.H4(df_covid_data.iloc[46]['location']),
                                     html.H4('Positivity Rate')
                                 ]),
                                 html.Div(className='icon', children=[
@@ -187,7 +154,6 @@ covid_page = html.Div([
                                 ]),
                                 html.A('Africa: %s' %round(func_continent()['positive_rate'].mean(), 2), className='small-box-footer', href='#'),
                                 html.A('Worldwide: %s' % round(df_covid_data['positive_rate'].mean(),2),className='small-box-footer', href='#')
-                                # html.I(className='fas fa-arrow-circle-right')
                             ])
                         ]),
                         html.Div(className='col-md-3', children=[
@@ -201,26 +167,21 @@ covid_page = html.Div([
                                 ]),
                                 html.A('Africa: %s' %round(func_continent()['new_deaths'].sum()), className='small-box-footer', href='#'),
                                 html.A('Worldwide: %s' % round(df_covid_data['new_deaths'].sum()),className='small-box-footer', href='#')
-                                # html.I(className='fas fa-arrow-circle-right')
                             ])
                         ]),
                         html.Div(className='col-md-3', children=[
                             html.Div(className='small-box bg-warning', children=[
                                 html.Div(className='inner', children=[
-                                    # html.H4(df_covid_data.iloc[46]['location']),
                                     html.H5('Patients in ICU')
                                 ]),
                                 html.Div(className='icon', children=[
                                     html.I(className='ion ion-bag')
                                 ]),
                                 html.A('Africa: %s' %round(func_continent()['icu_patients'].sum()), className='small-box-footer', href='#'),
-                                html.A('Worldwide: %s' % round(df_covid_data['icu_patients'].sum()),className='small-box-footer', href='#'),
-                                # html.I(className='fas fa-arrow-circle-right')
+                                html.A('Worldwide: %s' % round(df_covid_data['icu_patients'].sum()),className='small-box-footer', href='#')
                             ])
                         ])
-                    ])
-                ])
-            ]),
+                    ]),
             # The row for graphs
             html.Div(className='row', children=[
                 html.Div(className='col-md-6', children=[
@@ -331,12 +292,6 @@ covid_page = html.Div([
                                         dcc.Graph(figure=fig_bar('North America'), config=config)
                                     ])])
                             ])
-                            # html.Div(className='d-flex flex-row justify-content-end', children=[
-                            #     html.Span(className='mr-2', children=[
-                            #         html.I(className='fas fa-square text-primary'),' This Month'
-                            #     ]),
-                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            # ])
                         ])
                     ])
                 ]),
@@ -454,12 +409,6 @@ covid_page = html.Div([
                                     ])
                                 ])
                             ])
-                            # html.Div(className='d-flex flex-row justify-content-end', children=[
-                            #     html.Span(className='mr-2', children=[
-                            #         html.I(className='fas fa-square text-primary'),' This Month'
-                            #     ]),
-                            #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                            # ])
                         ])
                     ])
                 ]),
@@ -512,12 +461,6 @@ covid_page = html.Div([
                                         dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel(),
                                                   config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_pst_rate', children=[
                                     html.Div(className='d-flex', children=[
@@ -542,12 +485,6 @@ covid_page = html.Div([
                                         dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Asia'),
                                                   config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_pst_rate', children=[
                                     html.Div(className='d-flex', children=[
@@ -572,12 +509,6 @@ covid_page = html.Div([
                                         dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Europe'),
                                                   config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_pst_rate', children=[
                                     html.Div(className='d-flex', children=[
@@ -604,12 +535,6 @@ covid_page = html.Div([
                                                   figure=fig_funnel('North America'),
                                                   config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                             ])
                         ])
@@ -665,12 +590,6 @@ covid_page = html.Div([
                                         dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine(),
                                                   config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_vax_100', children=[
                                     html.Div(className='d-flex', children=[
@@ -696,12 +615,6 @@ covid_page = html.Div([
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Asia'), config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_vax_100', children=[
                                     html.Div(className='d-flex', children=[
@@ -727,12 +640,6 @@ covid_page = html.Div([
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Europe'), config=config)
                                     ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_vax_100', children=[
                                     html.Div(className='d-flex', children=[
@@ -742,8 +649,7 @@ covid_page = html.Div([
                                                     func_continent('North America')[
                                                         'people_vaccinated_per_hundred'].dropna(how='any').mean(),2),
                                                 className='text-bold text-lg'),
-                                            html.Span('N. America Vaccinations Per 100')
-                                        ]),
+                                            html.Span('N. America Vaccinations Per 100')]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I(str((mf.round_up(
@@ -757,14 +663,7 @@ covid_page = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(className='md-12', figure=fig_funnel_vaccine('North America'),
-                                                  config=config)
-                                    ])
-                                    # html.Div(className='d-flex flex-row justify-content-end', children=[
-                                    #     html.Span(className='mr-2', children=[
-                                    #         html.I(className='fas fa-square text-primary'),' This Month'
-                                    #     ]),
-                                    #     html.Span(children=[html.I(className='fas fa-square text-gray'), ' Last Moth'])
-                                    # ])
+                                                  config=config)])
                                 ])
                             ]),
                         ])
@@ -791,6 +690,8 @@ def display_page(pathname):
         return carbon_page
     elif pathname == '/social':
         return social_page
+    elif pathname =='/forestcover':
+        return forest_page
 
 @app.callback(
     Output('graph', 'figure'),
@@ -801,4 +702,4 @@ def update_area_chart(region):
 
 
 if __name__ == '__main__':
-    app.run_server(port=3000,debug=False)
+    app.run_server(host='0.0.0.0',port=3000,debug=False)

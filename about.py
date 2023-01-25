@@ -89,9 +89,7 @@ profile_page = html.Div([
                                 html.I(className='fas fa-envelope-open-text mr-1'), ' Contact'
                             ]),
                             html.P(className='text-muted', children=[
-                                html.Span('gaylordodhiambo@gmail.com ', className='tag tag-info'),
-                                html.Br(),
-                                html.Span('gyleodhis@outlook.com', className='tag tag-info')
+                                html.Span('gaylordodhiambo@gmail.com ', className='tag tag-info')
                             ])
                         ]) #card-body
                     ]) #Card

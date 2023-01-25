@@ -7,7 +7,7 @@ social_page = html.Div([
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Tweets About: Mandonga')
+                    html.H1('Tweets About: Dolly Parton')
                 ]),
                 html.Div(className='col-sm-6', children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
@@ -69,7 +69,13 @@ social_page = html.Div([
                     html.Div(className='card',children=[
                         html.Div(className='card-header border-0',children=[
                             html.Div(className='d-flex justify-content-between',children=[
-                                html.H3('Major Tweet Locations', className='card-title')
+                                html.H3('Major Tweet Locations', className='card-title'),
+                                html.Div(className='card-tools',children=[
+                                    html.Button(className='btn btn-tool',type='button',
+                                                **{'data-card-widget':'collapse'},children=[
+                                            html.I(className='fas fa-minus')
+                                        ])
+                                ])
                             ])
                         ]),
                         html.Div(className='card-body',children=[
@@ -140,7 +146,13 @@ social_page = html.Div([
                     html.Div(className='card',children=[
                         html.Div(className='card-header border-0',children=[
                             html.Div(className='d-flex justify-content-between',children=[
-                                html.H3('Major Devices', className='card-title')
+                                html.H3('Major Devices', className='card-title'),
+                                html.Div(className='card-tools',children=[
+                                    html.Button(className='btn btn-tool',type='button',
+                                                **{'data-card-widget':'collapse'},children=[
+                                            html.I(className='fas fa-minus')
+                                        ])
+                                ])
                             ])
                         ]),
                         html.Div(className='card-body',children=[
@@ -362,7 +374,11 @@ social_page = html.Div([
                         html.Div(className='card-header', children=[
                             html.Div('Most Influential Members', className='card-title'),
                             html.Div(className='card-tools', children=[
-                                html.Span('10', title='10 Most influential members', className='badge badge-info')])
+                                html.Span('10', title='10 Most influential members', className='badge badge-info'),
+                                html.Button(className='btn btn-tool',type='button',
+                                                **{'data-card-widget':'collapse'},children=[
+                                            html.I(className='fas fa-minus')
+                                        ])])
                         ]),
                         html.Div(className='card-body p-0', children=[
                             html.Ul(className='users-list clearfix', children=[
