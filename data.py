@@ -7,13 +7,13 @@ import pandas as pd
 """Offline Version."""
 # covid_data = 'assets/covid_data.csv'  # offline csv version
 covid_data = 'temp_assets/covid.csv'  # offline csv version
-df_covid_data_v1 = pd.read_csv(covid_data)
-df_covid_data_v1['date'] = pd.to_datetime(df_covid_data_v1['date'])  # converting date column to type date
-df_covid_data = df_covid_data_v1.sort_values('date').groupby(['continent','location']).last().reset_index()
+df_covid_data = pd.read_csv(covid_data)
+# df_covid_data_v1['date'] = pd.to_datetime(df_covid_data_v1['date'])  # converting date column to type date
+# df_covid_data = df_covid_data_v1.sort_values('date').groupby(['continent','location']).last().reset_index()
 
 # df_covid_data.to_csv('temp_assets/covid.csv',index=False)
 
-"""Covicd 19 Daily vaccinations data"""
+"""Covid 19 Daily vaccinations data"""
 # vax_url = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations-by-manufacturer.csv'
 """Offline version"""
 vax_url = 'temp_assets/vaccines.csv'

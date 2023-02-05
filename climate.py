@@ -28,7 +28,7 @@ carbon_page = html.Div([
             html.H5('Highest Carbon Dioxide Emitters', className='mt-4 mb-2'),
             html.Div(className='row',children=[
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-info',children=[
+                    html.Div(className='info-box bg-success',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-cogs')
                         ]),
@@ -44,7 +44,7 @@ carbon_page = html.Div([
                     ])
                 ]),
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-warning',children=[
+                    html.Div(className='info-box bg-success',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-broadcast-tower')
                         ]),
@@ -60,7 +60,7 @@ carbon_page = html.Div([
                     ])
                 ]),
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-success',children=[
+                    html.Div(className='info-box bg-lime',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fa fa-building')
                         ]),
@@ -76,7 +76,7 @@ carbon_page = html.Div([
                     ])
                 ]),
                 html.Div(className='col-md-3 col-sm-6 col-12',children=[
-                    html.Div(className='info-box bg-danger',children=[
+                    html.Div(className='info-box bg-lime',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-industry')
                         ]),

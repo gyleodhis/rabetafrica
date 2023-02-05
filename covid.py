@@ -21,11 +21,11 @@ covid_vax_page = html.Div([
     ]),
     html.Section(className='content', children=[
         html.Div(className='container-fluid', children=[
-            # The row for top 5 months with highest vaccinations
+            # The row for top 4 months with highest vaccinations
             html.Div(className='row', children=[
                 html.Div(className='col-12 col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
-                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                        html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
                         ]),
                         html.Div(className='info-box-content', children=[
@@ -36,7 +36,7 @@ covid_vax_page = html.Div([
                 ]),
                 html.Div(className='col-12 col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
-                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                        html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
                         ]),
                         html.Div(className='info-box-content', children=[
@@ -47,7 +47,7 @@ covid_vax_page = html.Div([
                 ]),
                 html.Div(className='col-12 col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
-                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                        html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
                         ]),
                         html.Div(className='info-box-content', children=[
@@ -58,7 +58,7 @@ covid_vax_page = html.Div([
                 ]),
                 html.Div(className='col-12 col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
-                        html.Span(className='info-box-icon bg-info elevation-1', children=[
+                        html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
                         ]),
                         html.Div(className='info-box-content', children=[
@@ -91,7 +91,7 @@ covid_vax_page = html.Div([
                                         html.Span(df_pct_vaccination['pcnt_vaccination'].iloc[0].astype(str) + ' %',
                                                   className='float-right'),
                                         html.Div(className='progress progress-sm', children=[
-                                            html.Div(className='progress-bar bg-success',
+                                            html.Div(className='progress-bar bg-olive',
                                                      style={
                                                          'width': df_pct_vaccination['pcnt_vaccination'].iloc[0].astype(
                                                              str) + '%'})
@@ -102,7 +102,7 @@ covid_vax_page = html.Div([
                                         html.Span(df_pct_vaccination['pcnt_vaccination'].iloc[1].astype(str) + ' %',
                                                   className='float-right'),
                                         html.Div(className='progress progress-sm', children=[
-                                            html.Div(className='progress-bar bg-primary',
+                                            html.Div(className='progress-bar bg-success',
                                                      style={
                                                          'width': df_pct_vaccination['pcnt_vaccination'].iloc[1].astype(
                                                              str) + '%'})
@@ -113,7 +113,7 @@ covid_vax_page = html.Div([
                                         html.Span(df_pct_vaccination['pcnt_vaccination'].iloc[2].astype(str) + ' %',
                                                   className='float-right'),
                                         html.Div(className='progress progress-sm', children=[
-                                            html.Div(className='progress-bar bg-warning',
+                                            html.Div(className='progress-bar bg-lime',
                                                      style={
                                                          'width': df_pct_vaccination['pcnt_vaccination'].iloc[2].astype(
                                                              str) + '%'})
@@ -124,7 +124,7 @@ covid_vax_page = html.Div([
                                         html.Span(df_pct_vaccination['pcnt_vaccination'].iloc[3].astype(str) + ' %',
                                                   className='float-right'),
                                         html.Div(className='progress progress-sm', children=[
-                                            html.Div(className='progress-bar bg-danger',
+                                            html.Div(className='progress-bar bg-lime',
                                                      style={
                                                          'width': df_pct_vaccination['pcnt_vaccination'].iloc[3].astype(
                                                              str) + '%'})
@@ -135,7 +135,7 @@ covid_vax_page = html.Div([
                                         html.Span(df_pct_vaccination['pcnt_vaccination'].iloc[4].astype(str) + ' %',
                                                   className='float-right'),
                                         html.Div(className='progress progress-sm', children=[
-                                            html.Div(className='progress-bar bg-danger',
+                                            html.Div(className='progress-bar bg-lime',
                                                      style={
                                                          'width': df_pct_vaccination['pcnt_vaccination'].iloc[4].astype(
                                                              str) + '%'})])])
@@ -153,7 +153,7 @@ covid_vax_page = html.Div([
                             # ])
                         ]),
                         html.Div(className='card-footer', children=[
-                            html.P(className='text-center', children=[html.Strong('This Month vs Last Month')]),
+                            html.P(className='text-center', children=[html.Strong('Last Two Months')]),
                             html.Div(className='row', children=[
                                 html.Div(className='col-sm-3 col-6', children=[
                                     html.Div(className='description-block border-right', children=[

@@ -2,7 +2,7 @@ import pandas as pd
 # import numpy as np
 import dash_daq as daq
 import plotly.express as px
-from data import co2_sector,df_covid_data_v1
+from data import co2_sector,df_covid_data
 
 def load_data(a):
     return pd.read_csv(a,index_col=None)
@@ -49,7 +49,7 @@ def fig_corbon_line():
 def emission_with_continent():
     cos_with_continent = load_data(co2_sector).iloc[:,[0,1,2,4,6,8,10,12,14,16]]
     cos_with_continent.rename(columns={'Entity':'location'},inplace = True)
-    df_continent = df_covid_data_v1[['continent','location']]
+    df_continent = df_covid_data[['continent','location']]
     cos_with_continent = cos_with_continent[cos_with_continent['Year']%5==0]
     return pd.merge(df_continent,cos_with_continent)
 
@@ -69,4 +69,5 @@ def emission_by_continent(a='Africa'):
     return round(top_emitter_by_year(a).Energy.sum(),2)
 
 def fig_emission_by_continent(a='Africa'):
-    return daq.Thermometer(min=100,max=2000,value=emission_by_continent(a),showCurrentValue=True,units="Tones")
+    return daq.Thermometer(min=100,max=2000,value=emission_by_continent(a),color = 'green',
+                           showCurrentValue=True,units="Tones")

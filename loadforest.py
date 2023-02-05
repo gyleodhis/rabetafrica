@@ -22,9 +22,9 @@ def percentlost():
 df_percentlost = percentlost()
 
 def get_top_countries():
-    new_df = df_PctForestArea.iloc[[0,1,2,3,4,19,24,30,44,45], 0:19]
+    new_df = df_PctForestArea.iloc[[0,1,2,3,4,20,24,31,44,45], 0:19]
     cols={'index':'Year',0:'Gabon',1:'Equatorial Guinea',2:'Liberia',3:'Seychelles',
-          4:'Guinea-Bissau',24:'Nigeria',44:'Kenya',45:'Tunisia',19:'Africa',30:'S.Africa'}
+          4:'Guinea-Bissau',24:'Nigeria',44:'Kenya',45:'Tunisia',20:'Africa',31:'S.Africa'}
     new_df=new_df.transpose().reset_index()
     new_df.rename(columns=cols,inplace=True)
     new_df = new_df.iloc[1:]

@@ -3,6 +3,7 @@ import plotly.express as px
 # import calendar
 import datetime
 
+cls=['#006400','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000']
 def func_continent(a='Africa'):
     df_covid_cont = df_covid_data['continent'] == a
     df_cont_new = df_covid_data[df_covid_cont]
@@ -12,8 +13,8 @@ def func_continent(a='Africa'):
         df_cont_new.at[101, 'location'] = 'UAE'
     else:
         df_cont_new
-    return df_cont_new[['date', 'location', 'new_cases', 'new_deaths', 'icu_patients', 'hosp_patients',
-                        'new_tests_per_thousand', 'positive_rate', 'new_vaccinations', 'people_vaccinated_per_hundred']]
+    return df_cont_new[['date', 'location', 'total_cases', 'total_deaths', 'icu_patients','people_vaccinated', 'hosp_patients',
+                        'total_tests_per_thousand', 'positive_rate', 'people_vaccinated_per_hundred']]
 
 
 """Below functions return various charts dynamically"""
@@ -23,23 +24,26 @@ config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 
 def fig_funnel(a='Africa'):
     return px.funnel(func_continent(a).nlargest(10, 'positive_rate'), x='positive_rate', y='location',
-                     labels={"positive_rate": "New Positivity Rate", "location": "Country"})
+                     labels={"positive_rate": "New Positivity Rate", "location": "Country"},
+                     color_discrete_sequence=cls)
 
 
 def fig_bar(a='Africa'):
-    return px.bar(func_continent(a).nlargest(10, 'new_cases'), x="location", template="simple_white",
-                  labels={"location": "Country", "new_cases": "New Cases"}, y="new_cases", barmode="group")
+    return px.bar(func_continent(a).nlargest(10, 'total_cases'), x="location", template="simple_white",
+                  labels={"location": "Country", "total_cases": "Total Cases"},
+                  y="total_cases", barmode="group").update_traces(marker_color=cls)
 
 
 def fig_pie(a='Africa'):
-    return px.pie(func_continent(a).nlargest(10, 'new_vaccinations'), names='location', values='new_vaccinations',
-                  labels={"new_vaccinations": "New Vaccinations", "location": "Country"})
+    return px.pie(func_continent(a).nlargest(10, 'people_vaccinated'), names='location', values='people_vaccinated',
+                  labels={"people_vaccinated": "Total Vaccinations", "location": "Country"},
+                  color_discrete_sequence=cls)
 
 
 def fig_funnel_vaccine(a='Africa'):
     return px.funnel(func_continent(a).nlargest(10, 'people_vaccinated_per_hundred'),
                      x='people_vaccinated_per_hundred',
-                     y='location', color='location',
+                     y='location',  color_discrete_sequence=cls,
                      labels={"people_vaccinated_per_hundred": "Vaccination per 100",
                              "location": "Country"}).update_yaxes(showticklabels=False)
 
@@ -100,5 +104,5 @@ def last_two_months_diff(a='Moderna'):
 
 
 def fig_bar_vax():
-    return px.bar(df_pct_vaccination, x='vaccine', y='pcnt_vaccination', color='vaccine', template="simple_white",
-                  labels={'pcnt_vaccination': 'Percentage Vaccinations', 'vaccine': 'Vaccine'})
+    return px.bar(df_pct_vaccination, x='vaccine', y='pcnt_vaccination', template="simple_white",
+                  labels={'pcnt_vaccination': 'Percentage Vaccinations', 'vaccine': 'Vaccine'}).update_traces(marker_color=cls)
