@@ -1,9 +1,12 @@
-from dash import dash,html, dcc
-import my_functions as mf
-from loadforest import df_PctForestArea,df_percentlost,fig_forest_line,fig_forest_bar,fig_forest_gain_bar
+import dash
+from dash import html, dcc
+import controller.my_functions as mf
+from controller.loadforest import df_PctForestArea,df_percentlost,fig_forest_line,fig_forest_bar,fig_forest_gain_bar
 
+dash.register_page(__name__,path='/forestcover',name='Forest Cover',title='Rabet',image='assets/img/site_meta.jpeg',
+                   description='Africa forest cover statistics. This data is directly pulled from world bank')
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
-forest_page = html.Div([
+layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[

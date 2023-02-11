@@ -1,7 +1,10 @@
+import dash
 from dash import html,dcc
-from charts import *
+from controller.charts import *
 
-covid_vax_page = html.Div([
+dash.register_page(__name__,path='/vaccine', name='Covid-19 Vaccine',title='Rabet',image='assets/img/site_meta.jpeg',
+                   description='Covid 19 vaccine statistics.')
+layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[

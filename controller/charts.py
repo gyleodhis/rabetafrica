@@ -1,4 +1,4 @@
-from data import *
+from controller.data import *
 import plotly.express as px
 # import calendar
 import datetime

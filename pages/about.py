@@ -1,7 +1,11 @@
+import dash
 from dash import html
-import os
+# import os
 
-profile_page = html.Div([
+dash.register_page(__name__,path='/profile',name='Profile',title='Rabet | Profile',
+                   image='assets/img/gyle.jpg',
+                   description='Gaylord Odhiambo is a Data Engineer from Kenya.')
+layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
@@ -27,7 +31,7 @@ profile_page = html.Div([
                     html.Div(className='card card-primary card-outline', children=[
                         html.Div(className='card-body box-profile', children=[
                             html.Div(className='text-center', children=[
-                                html.Img(className='profile-user-img img-fluid img-circle', src='assets/img/gyle.jpg',
+                                html.Img(className='profile-user-img img-fluid img-circle', src='../assets/img/gyle.jpg',
                                          alt='Profile picture')
                             ]),
                             html.H3('Gaylord Odhiambo', className='profile-username text-center'),
@@ -112,7 +116,7 @@ profile_page = html.Div([
                                     # Posts
                                     html.Div(className='post', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/kenya.png', alt='image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/kenya.png', alt='image'),
                                             html.Span(className='username', children=[
                                                 html.A('Machine Learning on Kenyan Marriage',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/Modelling-Mariage-Issues-in-Kenya-Using-Random-Forest/blob/master/random-forest.ipynb', target='_blank'),
@@ -127,7 +131,7 @@ profile_page = html.Div([
                                     ]),
                                     html.Div(className='post clearfix', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/movie.jpg', alt='movie image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/movie.jpg', alt='movie image'),
                                             html.Span(className='username', children=[
                                                 html.A('Apache Spark Movie Recommender System',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/apacheSpark-Recommender-System/blob/master/main.ipynb', target='_blank'),
@@ -142,7 +146,7 @@ profile_page = html.Div([
                                     ]),
                                     html.Div(className='post', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/nasa.jpg', alt='nasa image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/nasa.jpg', alt='nasa image'),
                                             html.Span(className='username', children=[
                                                 html.A('Server Log Analysis With Apache Spark',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/log-analysis/blob/master/logs.ipynb', target='_blank'),
@@ -159,7 +163,7 @@ profile_page = html.Div([
                                     ]),
                                     html.Div(className='post', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/loan.jpg', alt='bank image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/loan.jpg', alt='bank image'),
                                             html.Span(className='username', children=[
                                                 html.A('Potential of Defaulting a loan by a customer',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/Loan-defaulting-prediction/blob/master/Predicting%20Loan%20defaulting.ipynb', target='_blank'),
@@ -175,7 +179,7 @@ profile_page = html.Div([
                                     ]),
                                     html.Div(className='post', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/afcon.jpg', alt='afcon image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/afcon.jpg', alt='afcon image'),
                                             html.Span(className='username', children=[
                                                 html.A('2019 African Cup of Nations',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/afcon2019/blob/master/Afcon2019.ipynb', target='_blank'),
@@ -191,7 +195,7 @@ profile_page = html.Div([
                                     ]),
                                     html.Div(className='post', children=[
                                         html.Div(className='user-block', children=[
-                                            html.Img(className='img-circle img-bordered-sm', src='assets/img/kenya.png', alt='image'),
+                                            html.Img(className='img-circle img-bordered-sm', src='../assets/img/kenya.png', alt='image'),
                                             html.Span(className='username', children=[
                                                 html.A('2019 Mental Health Bill',
                                                        href='https://nbviewer.jupyter.org/github/gyleodhis/mental-Health/blob/master/%23MentalHealthBIllKenya.ipynb', target='_blank'),

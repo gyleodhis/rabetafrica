@@ -1,11 +1,15 @@
+import dash
 from dash import html,dcc
 import dash_daq as daq
-from climate_data import emissions_by_sctor as es
-from climate_data import last_two_decades_emissions as ld
-from climate_data import fig_corbon_line,emission_by_continent
+from controller.climate_data import emissions_by_sctor as es
+from controller.climate_data import last_two_decades_emissions as ld
+from controller.climate_data import fig_corbon_line,emission_by_continent
 
+dash.register_page(__name__,path='/climate',name='Climate',title='Rabet',image='assets/img/site_meta.jpeg',
+                   description='Greenhouse gases contibute significantly to global warming.'
+                               'Here I analyze the highest emitters.')
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
-carbon_page = html.Div([
+layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[

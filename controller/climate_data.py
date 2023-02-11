@@ -2,7 +2,7 @@ import pandas as pd
 # import numpy as np
 import dash_daq as daq
 import plotly.express as px
-from data import co2_sector,df_covid_data
+from controller.data import co2_sector,df_covid_data
 
 def load_data(a):
     return pd.read_csv(a,index_col=None)

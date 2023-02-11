@@ -1,8 +1,10 @@
+import dash
 from dash import html
 from _datetime import  datetime as dt,timedelta as td
-from tweets import df_getTopTweets, df_getTopAccount,df_getNegativeTweets,df_getLocations,df_getDevice,getSummary
+from controller.tweets import df_getTopTweets, df_getTopAccount,df_getNegativeTweets,df_getLocations,df_getDevice,getSummary
 
-social_page = html.Div([
+dash.register_page(__name__,path='/social',name='Twitter',title='Rabet',image='assets/img/site_meta.jpeg')
+layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
