@@ -4,7 +4,7 @@ from controller.charts import *
 import controller.my_functions as mf
 
 dash.register_page(__name__,path='/',name='Home',title='Rabet',image_url='assets/img/site_meta.jpeg',
-                   description='Visualizing and Analyzing Africa.')
+                   description='Insights, facts and analytics across the African continent. World Bank Statistics. Visualizing Africa. Data Analytics and Reports on Africa ')
 layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[

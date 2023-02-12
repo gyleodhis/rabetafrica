@@ -2,6 +2,7 @@ import dash
 from dash import html, dcc
 import controller.my_functions as mf
 from controller.loadforest import df_PctForestArea,df_percentlost,fig_forest_line,fig_forest_bar,fig_forest_gain_bar
+from controller.forest_ag import forest_table
 
 dash.register_page(__name__,path='/forestcover',name='Forest Cover',title='Rabet',image_url='assets/img/site_meta.jpeg',
                    description='Africa forest cover statistics. This data is directly pulled from world bank')
@@ -84,9 +85,9 @@ layout = html.Div([
                                 html.Div(className='card-tools', children=[
                                     html.Ul(className='nav nav-pills ml-auto', children=[
                                         html.Li(className='nav-item',
-                                                children=html.A('Average', className='nav-link active',
+                                                children=html.A('Average', className='nav-link',
                                                                 href='#avg', **{'data-toggle': 'tab'})),
-                                        html.Li(className='nav-item', children=html.A('Losers', className='nav-link',
+                                        html.Li(className='nav-item', children=html.A('Losers', className='nav-link active',
                                                                                       href='#topl',
                                                                                       **{'data-toggle': 'tab'})),
                                         html.Li(className='nav-item', children=html.A('Gainers', className='nav-link',
@@ -98,7 +99,7 @@ layout = html.Div([
                         ]),
                         html.Div(className='card-body', children=[
                             html.Div(className='tab-content p-0', children=[
-                                html.Div(className='active tab-pane', id='avg', children=[
+                                html.Div(className='tab-pane', id='avg', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span('18 Year Progression',className='text-bold text-lg')
@@ -113,7 +114,7 @@ layout = html.Div([
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(figure=fig_forest_line(), config=config)
                                     ])]),
-                                html.Div(className='tab-pane', id='topl', children=[
+                                html.Div(className='active tab-pane', id='topl', children=[
                                     html.Div(className='d-flex', children=[
                                         html.P(className='d-flex flex-column', children=[
                                             html.Span('2003 - 2020 Comparison',
@@ -147,6 +148,26 @@ layout = html.Div([
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Graph(figure=fig_forest_gain_bar(), config=config)
                                     ])])
+                            ])
+                        ])
+                    ])
+                ])
+            ]),
+            #Forest land table
+            html.Div(className='row', children=[
+                html.Div(className='col-md-12', children=[
+                    html.Div(className='card', children=[
+                        html.Div(className='card-header border-0', children=[
+                            html.Div(className='d-flex justify-content-between', children=[
+                                html.H3('Percentage Cover Year on Year', className='card-title')
+                            ])
+                        ]),
+                        html.Div(className='card-body', children=[
+                            html.Div(className='tab-content p-0', children=[
+                                html.Div(className='active tab-pane', children=[
+                                    html.Div(className='position-relative mb-4', children=[
+                                        html.Div(forest_table)
+                                    ])] )
                             ])
                         ])
                     ])

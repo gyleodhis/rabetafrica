@@ -14,6 +14,30 @@ def getPctForestArea():
 
 df_PctForestArea = getPctForestArea()
 
+# I have seen no need to load forest area hence using percentages
+# def getLandForestArea():
+#     df_income = wb.data.DataFrame('AG.LND.FRST.K2',
+#                                     economy=wb.region.members('AFR'),labels=True)
+#     df_income = df_income.reset_index(drop=True).set_index('Country')
+#     df_income = df_income.iloc[1:,-19:-1].reset_index()
+#     df_income.loc[60] = df_income.sum(numeric_only=True)
+#     df_income['Country'] = df_income['Country'].fillna('Africa')
+#     df_income['Land_Lost'] = df_income['YR2003']-df_income['YR2020']
+#     df_income.sort_values(by='YR2020', inplace=True,ascending=False)
+#     df_income = df_income.reset_index(drop=True)
+#     return df_income.iloc[:, [0,1,3,7,11,15,17,19]]
+
+# df_LandForestArea = getLandForestArea()
+
+def land_ag():
+    df_land_ag = df_PctForestArea.copy()
+    df_land_ag.sort_values(by='Country', inplace=True,ascending=True)
+    df_land_ag=df_land_ag.iloc[:, [0,1,3,7,11,15,17,19]]
+    df_land_ag=df_land_ag.round(2)
+    return df_land_ag
+
+df_land_ag =land_ag()
+
 def percentlost():
     df_percent = df_PctForestArea.copy()
     df_percent.sort_values(by='Pct_Lost', inplace=True,ascending=False)
