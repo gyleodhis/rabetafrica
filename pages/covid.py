@@ -2,7 +2,7 @@ import dash
 from dash import html,dcc
 from controller.charts import *
 
-dash.register_page(__name__,path='/vaccine', name='Covid-19 Vaccine',title='Rabet',image='assets/img/site_meta.jpeg',
+dash.register_page(__name__,path='/vaccine', name='Covid-19 Vaccine',title='Rabet',image_url='assets/img/site_meta.jpeg',
                    description='Covid 19 vaccine statistics.')
 layout = html.Div([
     html.Section(className='content-header', children=[

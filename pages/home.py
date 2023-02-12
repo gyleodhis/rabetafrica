@@ -3,7 +3,7 @@ from dash import html, dcc
 from controller.charts import *
 import controller.my_functions as mf
 
-dash.register_page(__name__,path='/',name='Home',title='Rabet',image='assets/img/site_meta.jpeg',
+dash.register_page(__name__,path='/',name='Home',title='Rabet',image_url='assets/img/site_meta.jpeg',
                    description='Visualizing and Analyzing Africa.')
 layout = html.Div([
     html.Section(className='content-header', children=[

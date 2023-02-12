@@ -11,7 +11,7 @@ from controller.climate_data import fig_top_emitter_by_year, emission_by_contine
 
 app = Dash(__name__,use_pages=True)
 server = app.server
-# app.title = 'Rabet'
+app.title = 'Rabet'
 
 app.layout = html.Div(
     className='hold-transition dark-mode sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed',
