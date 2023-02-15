@@ -3,13 +3,14 @@ from dash import html
 from _datetime import  datetime as dt,timedelta as td
 from controller.tweets import df_getTopTweets, df_getTopAccount,df_getNegativeTweets,df_getLocations,df_getDevice,getSummary
 
-dash.register_page(__name__,path='/social',name='Twitter',title='Rabet',image_url='assets/img/site_meta.jpeg')
+dash.register_page(__name__,path='/social',name='Twitter',title='Rabet',image_url='assets/img/site_meta.jpeg',
+                   description='Social media analytics with Rabet Africa')
 layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Tweets About: Dolly Parton')
+                    html.H1('Tweets About: #OhioTrainDisaster')
                 ]),
                 html.Div(className='col-sm-6', children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
@@ -51,7 +52,7 @@ layout = html.Div([
                             html.I(className='fa fa-thumbs-down')]),
                         html.Div(className='info-box-content',children=[
                             html.Span('Negative Tweets',className='info-box-text'),
-                            html.Span(12,className='info-box-number')
+                            html.Span(20,className='info-box-number')
                         ])
                     ])
                 ]),
@@ -60,8 +61,8 @@ layout = html.Div([
                         html.Span(className='info-box-icon bg-warning elevation-1',children=[
                             html.I(className='fa fa-spinner fa-spin fa-pulse')]),
                         html.Div(className='info-box-content',children=[
-                            html.Span('Next Live Stream',className='info-box-text'),
-                            html.Span(dt.date(dt.now())+td(1),className='info-box-number')
+                            html.Span('Last Live Stream',className='info-box-text'),
+                            html.Span('2023-02-16',className='info-box-number')
                         ])
                     ])
                 ])

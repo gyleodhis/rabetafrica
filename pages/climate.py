@@ -6,8 +6,8 @@ from controller.climate_data import last_two_decades_emissions as ld
 from controller.climate_data import fig_corbon_line,emission_by_continent
 
 dash.register_page(__name__,path='/climate',name='Climate',title='Rabet',image_url='assets/img/site_meta.jpeg',
-                   description='Greenhouse gases contibute significantly to global warming.'
-                               'Here I analyze the highest emitters.')
+                   description='Greenhouse gases contribute significantly to global warming.'
+                               'Here I analyze the highest emitters. Climate analytics with Rabet Africa')
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 layout = html.Div([
     html.Section(className='content-header', children=[

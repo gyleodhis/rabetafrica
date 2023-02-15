@@ -88,7 +88,7 @@ app.layout = html.Div(
                                                html.A(className='nav-link', href=dash.page_registry['pages.social']['path'], children=[
                                                    html.I(className='nav-icon fa fa-twitter'),
                                                    html.P('Twitter'),
-                                                   html.Span('Pre-Release', className='right badge badge-danger')
+                                                   html.Span('Discontinued', className='right badge badge-danger')
                                                ])]),
                                            html.Li(className='nav-item menu-open', children=[
                                                html.A(className='nav-link', href='#', children=[

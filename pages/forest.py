@@ -5,7 +5,7 @@ from controller.loadforest import df_PctForestArea,df_percentlost,fig_forest_lin
 from controller.forest_ag import forest_table
 
 dash.register_page(__name__,path='/forestcover',name='Forest Cover',title='Rabet',image_url='assets/img/site_meta.jpeg',
-                   description='Africa forest cover statistics. This data is directly pulled from world bank')
+                   description='Africa forest cover statistics. As directly reported world bank. Rabet Analytics platform')
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 layout = html.Div([
     html.Section(className='content-header', children=[

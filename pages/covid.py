@@ -3,7 +3,7 @@ from dash import html,dcc
 from controller.charts import *
 
 dash.register_page(__name__,path='/vaccine', name='Covid-19 Vaccine',title='Rabet',image_url='assets/img/site_meta.jpeg',
-                   description='Covid 19 vaccine statistics.')
+                   description='Covid 19 vaccine statistics. Covid analytics with Rabet Africa')
 layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[

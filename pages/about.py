@@ -3,8 +3,8 @@ from dash import html
 # import os
 
 dash.register_page(__name__,path='/profile',name='Profile',title='Rabet | Profile',
-                   image='assets/img/gyle.jpg',
-                   description='Gaylord Odhiambo is a Data Engineer from Kenya.')
+                   image_url='assets/img/gyle.jpg',
+                   description='It matters to me that I use data in as the new frontier in discovering new insights right here at Rabet Africa')
 layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
