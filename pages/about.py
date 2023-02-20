@@ -4,7 +4,7 @@ from dash import html
 
 dash.register_page(__name__,path='/profile',name='Profile',title='Rabet | Profile',
                    image_url='assets/img/gyle.jpg',
-                   description='It matters to me that I use data in as the new frontier in discovering new insights right here at Rabet Africa')
+                   description='It matters to me that I use data as the new frontier in discovering new insights right here at Rabet Africa')
 layout = html.Div([
     html.Section(className='content-header', children=[
         html.Div(className='container-fluid', children=[
