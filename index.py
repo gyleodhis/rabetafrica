@@ -104,6 +104,13 @@ app.layout = html.Div(
                                                            html.I(className='nav-icon fa fa-tree'),
                                                            html.P('Forest Cover'),
                                                            html.Span('New', className='right badge badge-success')
+                                                       ])]),
+                                                   html.Li(className='nav-item', children=[
+                                                       html.A(className='nav-link', href=dash.page_registry['pages.forest']['path'],
+                                                              children=[
+                                                           html.I(className='nav-icon fa fa-industry'),
+                                                           html.P('Carbon Emissions'),
+                                                           html.Span('New', className='right badge badge-success')
                                                        ])])
                                                ])])
                                        ])
