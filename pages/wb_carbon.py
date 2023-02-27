@@ -41,7 +41,7 @@ layout = html.Div([
                         html.Div(className='col-md-3', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
-                                    html.H4(df_getCo2Emission['Country'].iloc[0]),
+                                    html.H4(df_getCo2Emission['Country'].iloc[1]),
                                     html.P('%s %s'%(df_getCo2Emission['YR2019'].iloc[1],'Tones'))
                                 ]),
                                 html.A('Highest Emitter',className='small-box-footer', href='#')
@@ -56,7 +56,7 @@ layout = html.Div([
                                 # html.Div(className='icon',children=[
                                 #     html.Img(className='ion ion-bag',src='https://flagcdn.com/w40/ga.png')
                                 # ]),
-                                html.A('Highest Emitter',className='small-box-footer', href='#')
+                                html.A('Least Emitter',className='small-box-footer', href='#')
                             ])
                         ]),
                         html.Div(className='col-md-3', children=[
