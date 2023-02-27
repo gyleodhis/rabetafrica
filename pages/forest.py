@@ -112,7 +112,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(figure=fig_forest_line(), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_forest_line(), config=config))
                                     ])]),
                                 html.Div(className='active tab-pane', id='topl', children=[
                                     html.Div(className='d-flex', children=[
