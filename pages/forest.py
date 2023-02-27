@@ -129,7 +129,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(figure=fig_forest_bar(), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_forest_bar(), config=config))
                                     ])]),
                                 html.Div(className='tab-pane', id='topg', children=[
                                     html.Div(className='d-flex', children=[
@@ -146,7 +146,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(figure=fig_forest_gain_bar(), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_forest_gain_bar(), config=config))
                                     ])])
                             ])
                         ])
@@ -166,7 +166,7 @@ layout = html.Div([
                             html.Div(className='tab-content p-0', children=[
                                 html.Div(className='active tab-pane', children=[
                                     html.Div(className='position-relative mb-4', children=[
-                                        html.Div(forest_table)
+                                        dcc.Loading(type='circle',color='#006400',children=html.Div(forest_table))
                                     ])] )
                             ])
                         ])
