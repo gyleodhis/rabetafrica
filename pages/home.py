@@ -247,8 +247,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie(),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_pie(),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_vax', children=[
@@ -270,8 +270,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Asia'),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Asia'),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_vax', children=[
@@ -293,8 +293,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Europe'),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_pie('Europe'),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_vax', children=[
@@ -317,8 +317,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph',
-                                                  figure=fig_pie('North America'), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph',
+                                                  figure=fig_pie('North America'), config=config))
                                     ])
                                 ])
                             ])
@@ -371,8 +371,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel(),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel(),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_pst_rate', children=[
@@ -395,8 +395,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Asia'),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Asia'),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_pst_rate', children=[
@@ -419,8 +419,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Europe'),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel('Europe'),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_pst_rate', children=[
@@ -444,9 +444,9 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph',
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph',
                                                   figure=fig_funnel('North America'),
-                                                  config=config)
+                                                  config=config))
                                     ])
                                 ]),
                             ])
@@ -500,8 +500,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine(),
-                                                  config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', id='example_graph', figure=fig_funnel_vaccine(),
+                                                  config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_vax_100', children=[
@@ -526,7 +526,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Asia'), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Asia'), config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_vax_100', children=[
@@ -551,7 +551,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Europe'), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', figure=fig_funnel_vaccine('Europe'), config=config))
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_vax_100', children=[
@@ -575,8 +575,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Graph(className='md-12', figure=fig_funnel_vaccine('North America'),
-                                                  config=config)])
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(className='md-12', figure=fig_funnel_vaccine('North America'),
+                                                  config=config))])
                                 ])
                             ]),
                         ])

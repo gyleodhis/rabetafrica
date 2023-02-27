@@ -116,7 +116,7 @@ layout = html.Div([
                                 html.Div(className='col-md-12',children=[
                                     html.Div(className='tab-content',children=[
                                         html.Div(className='active tab-pane', id='emission',children=[
-                                            dcc.Graph(figure=fig_corbon_line(), config=config)
+                                            dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_corbon_line(), config=config))
                                         ]),
                                         html.Div(className='tab-pane',id='keyemissions',children=[
                                                 html.Div(className='timeline timeline-inverse',children=[
@@ -131,7 +131,7 @@ layout = html.Div([
                                                             ]),
                                                             html.H3('Emissions of 25 years',className='timeline-header'),
                                                             html.Div(className='timeline-body',children=[
-                                                                dcc.Graph(id='graph', config=config),
+                                                                dcc.Loading(type='circle',color='#006400',children=dcc.Graph(id='graph', config=config))
                                                                 # dcc.RadioItems(['Africa','Asia','Europe','North America','Oceania','South America'],
                                                                 #                value='Africa',id='region',className='custom-radio')
                                                             ])

@@ -84,7 +84,7 @@ layout = html.Div([
                                     html.P(className='text-center',
                                            children=[html.Strong('Vaccine Administration by Percentage')]),
                                     html.Div(className='position-relative', children=[
-                                        dcc.Graph(figure=fig_bar_vax(), config=config)
+                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_bar_vax(), config=config))
                                     ])
                                 ]),
                                 html.Div(className='col-md-4', children=[
