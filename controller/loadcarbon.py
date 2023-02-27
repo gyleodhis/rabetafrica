@@ -38,7 +38,7 @@ def fig_carbon_line():
 
 def fig_c02_bar():
     cls=['#006400','#008000','#228B22','#2E8B57','#3CB371','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F']
-    return px.bar(new_c02increase.iloc[0:10, [0,1,17]], x='Country', template="simple_white",
+    return px.bar(new_c02increase.iloc[1:11, [0,1,17]], x='Country', template="simple_white",
                   labels={'Country': 'Country','variable':'Year','value':'Emissions in Tonnes'}, y=['YR2003','YR2019'],
                    barmode='group').update_traces(marker_color=cls, showlegend=True)
 
