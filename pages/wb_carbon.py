@@ -62,8 +62,8 @@ layout = html.Div([
                         html.Div(className='col-md-3', children=[
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
-                                    html.H4(new_c02increase['Country'].iloc[0]),
-                                    html.P('%s %s'%(abs(new_c02increase['Diff_Gain'].iloc[0]),'Tones'))
+                                    html.H4(new_c02increase['Country'].iloc[1]),
+                                    html.P('%s %s'%(new_c02increase['Diff_Gain'].iloc[1],'Tones'))
                                 ]),
                                 # html.Div(className='icon',children=[
                                 #     html.Img(className='ion ion-bag',src='https://flagcdn.com/w40/ga.png')
@@ -139,7 +139,7 @@ layout = html.Div([
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
                                                 html.I('%s %s' %(new_c02increase['Diff_Gain'].iloc[-1]*-1,'Tones'),
-                                                       className='fas fa-arrow-up')
+                                                       className='fas fa-arrow-down')
                                             ]),
                                             html.Span('Highest Reducer', className='text-muted')
                                         ])
