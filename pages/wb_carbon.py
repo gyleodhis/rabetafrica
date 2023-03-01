@@ -63,7 +63,7 @@ layout = html.Div([
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(new_c02increase['Country'].iloc[1]),
-                                    html.P('%s %s'%(new_c02increase['Diff_Gain'].iloc[1],'Tones'))
+                                    html.P('%s %s'%(abs(new_c02increase['Diff_Gain'].iloc[1]),'Tones'))
                                 ]),
                                 # html.Div(className='icon',children=[
                                 #     html.Img(className='ion ion-bag',src='https://flagcdn.com/w40/ga.png')

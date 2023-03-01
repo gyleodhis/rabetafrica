@@ -3,7 +3,7 @@ import plotly.express as px
 # import calendar
 import datetime
 
-cls=['#006400','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000']
+cls=['#006400','#008000','#228B22','#2E8B57','#3CB371','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F']
 def func_continent(a='Africa'):
     df_covid_cont = df_covid_data['continent'] == a
     df_cont_new = df_covid_data[df_covid_cont]
