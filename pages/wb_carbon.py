@@ -104,10 +104,10 @@ layout = html.Div([
                                             html.Span('18 Year Progression',className='text-bold text-lg')
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
-                                            html.Span(className='text-success', children=[
-                                                html.I('%s %s'%(df_getCo2Emission['Diff_Gain'].iloc[0],'Tones'), className='fas fa-arrow-down')
+                                            html.Span(className='text-danger', children=[
+                                                html.I('%s %s'%(df_getCo2Emission['Diff_Gain'].iloc[0],'Tones'), className='fas fa-arrow-up')
                                             ]),
-                                            html.Span('Total Decrease', className='text-muted')
+                                            html.Span('18 Yrs Increase', className='text-muted')
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
@@ -138,7 +138,7 @@ layout = html.Div([
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
-                                                html.I('%s %s' %(new_c02increase['Diff_Gain'].iloc[-1]*-1,'Tones'),
+                                                html.I('%s %s' %(new_c02increase['Diff_Gain'].iloc[-1],'Tones'),
                                                        className='fas fa-arrow-down')
                                             ]),
                                             html.Span('Highest Reducer', className='text-muted')

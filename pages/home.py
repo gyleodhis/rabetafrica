@@ -128,8 +128,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_bar(),config=config)])
+                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar(),config=config)],
+                                                    type='circle',color='#006400')
                                     ])]),
                                 html.Div(className='tab-pane', id='asia', children=[
                                     html.Div(className='d-flex', children=[
@@ -152,8 +152,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_bar('Asia'),config=config)])
+                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('Asia'),config=config)],
+                                                    type='circle',color='#006400')
                                     ])]),
                                 html.Div(className='tab-pane', id='europe', children=[
                                     html.Div(className='d-flex', children=[
@@ -175,8 +175,8 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_bar('Europe'),config=config)])
+                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('Europe'),config=config)],
+                                                    type='circle',color='#006400',)
                                     ])]),
                                 html.Div(className='tab-pane', id='namerica', children=[
                                     html.Div(className='d-flex', children=[
@@ -199,8 +199,8 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_bar('North America'), config=config)),
-                                        dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_bar('North America'),config=config)])
+                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('North America'),config=config)],
+                                                    type='circle',color='#006400',)
                                     ])])
                             ])
                         ])
