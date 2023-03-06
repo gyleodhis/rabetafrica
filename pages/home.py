@@ -128,7 +128,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar(),config=config)],
+                                        dcc.Loading(children=[dcc.Graph(figure=fig_bar(),config=config)],
                                                     type='circle',color='#006400')
                                     ])]),
                                 html.Div(className='tab-pane', id='asia', children=[
@@ -152,7 +152,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('Asia'),config=config)],
+                                        dcc.Loading(children=[dcc.Graph(figure=fig_bar('Asia'),config=config)],
                                                     type='circle',color='#006400')
                                     ])]),
                                 html.Div(className='tab-pane', id='europe', children=[
@@ -175,7 +175,7 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('Europe'),config=config)],
+                                        dcc.Loading(children=[dcc.Graph(figure=fig_bar('Europe'),config=config)],
                                                     type='circle',color='#006400',)
                                     ])]),
                                 html.Div(className='tab-pane', id='namerica', children=[
@@ -199,7 +199,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_bar('North America'), config=config)),
-                                        dcc.Loading(children=[dcc.Graph(className='md-12', figure=fig_bar('North America'),config=config)],
+                                        dcc.Loading(children=[dcc.Graph(figure=fig_bar('North America'),config=config)],
                                                     type='circle',color='#006400',)
                                     ])])
                             ])
@@ -253,7 +253,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_pie(),config=config)])
+                                                    children=[dcc.Graph(figure=fig_pie(),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_vax', children=[
@@ -276,7 +276,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_pie('Asia'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_pie('Asia'),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_vax', children=[
@@ -299,7 +299,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_pie('Europe'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_pie('Europe'),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_vax', children=[
@@ -323,7 +323,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_pie('North America'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_pie('North America'),config=config)])
                                     ])
                                 ])
                             ])
@@ -377,7 +377,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_funnel(),config=config)])
+                                                    children=[dcc.Graph(figure=fig_funnel(),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='asia_pst_rate', children=[
@@ -401,7 +401,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_funnel('Asia'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_funnel('Asia'),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='europe_pst_rate', children=[
@@ -425,7 +425,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_funnel('Europe'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_funnel('Europe'),config=config)])
                                     ])
                                 ]),
                                 html.Div(className='tab-pane', id='namerica_pst_rate', children=[
@@ -450,7 +450,7 @@ layout = html.Div([
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
                                         dcc.Loading(type='circle',color='#006400',
-                                                    children=[dcc.Graph(className='md-12', figure=fig_funnel('North America'),config=config)])
+                                                    children=[dcc.Graph(figure=fig_funnel('North America'),config=config)])
                                     ])
                                 ]),
                             ])
