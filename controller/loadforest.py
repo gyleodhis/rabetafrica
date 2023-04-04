@@ -1,6 +1,9 @@
 import wbgapi as wb
 import plotly.express as px
 
+
+theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
+
 def getPctForestArea():
     df_income = wb.data.DataFrame('AG.LND.FRST.ZS',
                                   economy=wb.region.members('AFR'),labels=True)
@@ -57,17 +60,17 @@ def get_top_countries():
 def fig_forest_line():
     new_df=get_top_countries()
     return px.line(new_df, y=new_df.columns, x='Year',
-                  markers=True,template="simple_white",
+                  markers=True,template=theme_color[2],
                   labels={'value':'Percentage Cover','variable':'Country'})
 
 def fig_forest_bar():
     cls=['#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000','#006400']
-    return px.bar(df_percentlost.iloc[0:10, [0,1,18]], x='Country', template="simple_white",
+    return px.bar(df_percentlost.iloc[0:10, [0,1,18]], x='Country', template=theme_color[2],
                   labels={'Country': 'Country','variable':'Year','value':'Pct Cover'}, y=['YR2003','YR2020'],
                    barmode='group').update_traces(marker_color=cls, showlegend=True)
 
 def fig_forest_gain_bar():
     cls=['#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000','#006400']
-    return px.bar(df_percentlost.iloc[-11:-1, [0,1,18]], x="Country", template="simple_white",
+    return px.bar(df_percentlost.iloc[-11:-1, [0,1,18]], x="Country", template=theme_color[2],
                   labels={"Country": "Country",'variable':'Year','value':'Pct Cover'}, y=['YR2003','YR2020'],
                    barmode="group").update_traces(marker_color=cls, showlegend=True)

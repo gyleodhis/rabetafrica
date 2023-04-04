@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
+
 # myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 # myclient = pymongo.MongoClient("mongodb+srv://" + os.getenv('DBUSER') + ":" + os.getenv('DBPASS') + "@cluster0.3vutd3c.mongodb.net/test")
 myclient = pymongo.MongoClient('mongodb://' + os.environ.get('DBUSER') + ':' + os.environ.get('DBPASS') + '@ac-o877xyo-shard-00-00.3vutd3c.mongodb.net:27017,ac-o877xyo-shard-00-01.3vutd3c.mongodb.net:27017,ac-o877xyo-shard-00-02.3vutd3c.mongodb.net:27017/?ssl=true&replicaSet=atlas-8u5z2a-shard-0&authSource=admin&retryWrites=true&w=majority')

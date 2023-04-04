@@ -198,7 +198,6 @@ layout = html.Div([
                                         ])
                                     ]),
                                     html.Div(className='position-relative mb-4', children=[
-                                        dcc.Loading(type='circle',color='#006400',children=dcc.Graph(figure=fig_bar('North America'), config=config)),
                                         dcc.Loading(children=[dcc.Graph(figure=fig_bar('North America'),config=config)],
                                                     type='circle',color='#006400',)
                                     ])])
