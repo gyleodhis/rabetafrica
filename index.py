@@ -115,9 +115,9 @@ app.layout = html.Div(
                                                    html.Li(className='nav-item', children=[
                                                        html.A(className='nav-link', href=dash.page_registry['pages.cereals']['path'],
                                                               children=[
-                                                           html.I(className='nav-icon fa fa-industry'),
+                                                           html.I(className='nav-icon fa fa-diamond'),
                                                            html.P('Cereal Production'),
-                                                           html.Span('New', className='right badge badge-success')
+                                                           html.Span('Beta', className='right badge badge-warning')
                                                        ])])
                                                ])])
                                        ])
