@@ -10,7 +10,7 @@ layout = html.Div([
         html.Div(className='container-fluid', children=[
             html.Div(className='row mb-2', children=[
                 html.Div(className='col-sm-6', children=[
-                    html.H1('Tweets About: MetGala2023')
+                    html.H1('Tweets About: King Charles III Coronation')
                 ]),
                 html.Div(className='col-sm-6', children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
