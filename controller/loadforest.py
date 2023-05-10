@@ -1,14 +1,12 @@
 import wbgapi as wb
 import plotly.express as px
-
-
-theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
+from utils.config import Rabet_bg_color,Rabet_color_palette
 
 def getPctForestArea():
     df_income = wb.data.DataFrame('AG.LND.FRST.ZS',
                                   economy=wb.region.members('AFR'),labels=True)
     df_income = df_income.reset_index(drop=True).set_index('Country')
-    df_income = df_income.iloc[1:,-19:-1].reset_index()
+    df_income = df_income.iloc[1:,-20:-2].reset_index()
     df_income['Pct_Lost'] = df_income['YR2003']-df_income['YR2020']
     df_income.loc[60] = df_income.mean(numeric_only=True)
     df_income['Country'] = df_income['Country'].fillna('Africa')
@@ -17,20 +15,6 @@ def getPctForestArea():
 
 df_PctForestArea = getPctForestArea()
 
-# I have seen no need to load forest area hence using percentages
-# def getLandForestArea():
-#     df_income = wb.data.DataFrame('AG.LND.FRST.K2',
-#                                     economy=wb.region.members('AFR'),labels=True)
-#     df_income = df_income.reset_index(drop=True).set_index('Country')
-#     df_income = df_income.iloc[1:,-19:-1].reset_index()
-#     df_income.loc[60] = df_income.sum(numeric_only=True)
-#     df_income['Country'] = df_income['Country'].fillna('Africa')
-#     df_income['Land_Lost'] = df_income['YR2003']-df_income['YR2020']
-#     df_income.sort_values(by='YR2020', inplace=True,ascending=False)
-#     df_income = df_income.reset_index(drop=True)
-#     return df_income.iloc[:, [0,1,3,7,11,15,17,19]]
-
-# df_LandForestArea = getLandForestArea()
 
 def land_ag():
     df_land_ag = df_PctForestArea.copy()
@@ -60,17 +44,15 @@ def get_top_countries():
 def fig_forest_line():
     new_df=get_top_countries()
     return px.line(new_df, y=new_df.columns, x='Year',
-                  markers=True,template=theme_color[2],
+                  markers=True,template=Rabet_bg_color,
                   labels={'value':'Percentage Cover','variable':'Country'})
 
 def fig_forest_bar():
-    cls=['#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000','#006400']
-    return px.bar(df_percentlost.iloc[0:10, [0,1,18]], x='Country', template=theme_color[2],
+    return px.bar(df_percentlost.iloc[0:10, [0,1,18]], x='Country', template=Rabet_bg_color,
                   labels={'Country': 'Country','variable':'Year','value':'Pct Cover'}, y=['YR2003','YR2020'],
-                   barmode='group').update_traces(marker_color=cls, showlegend=True)
+                   barmode='group').update_traces(marker_color=Rabet_color_palette, showlegend=True)
 
 def fig_forest_gain_bar():
-    cls=['#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000','#006400']
-    return px.bar(df_percentlost.iloc[-11:-1, [0,1,18]], x="Country", template=theme_color[2],
+    return px.bar(df_percentlost.iloc[-11:-1, [0,1,18]], x="Country", template=Rabet_bg_color,
                   labels={"Country": "Country",'variable':'Year','value':'Pct Cover'}, y=['YR2003','YR2020'],
-                   barmode="group").update_traces(marker_color=cls, showlegend=True)
+                   barmode="group").update_traces(marker_color=Rabet_color_palette, showlegend=True)

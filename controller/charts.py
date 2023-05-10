@@ -2,9 +2,8 @@ from controller.data import *
 import plotly.express as px
 # import calendar
 import datetime
+from utils.config import Rabet_bg_color,Rabet_color_palette
 
-cls=['#006400','#008000','#228B22','#2E8B57','#3CB371','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F']
-theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
 def func_continent(a='Africa'):
     df_covid_cont = df_covid_data['continent'] == a
     df_cont_new = df_covid_data[df_covid_cont]
@@ -26,25 +25,25 @@ config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
 def fig_funnel(a='Africa'):
     return px.funnel(func_continent(a).nlargest(10, 'positive_rate'), x='positive_rate', y='location',
                      labels={"positive_rate": "New Positivity Rate", "location": "Country"},
-                     template=theme_color[2],color_discrete_sequence=cls)
+                     template=Rabet_bg_color,color_discrete_sequence=Rabet_color_palette)
 
 
 def fig_bar(a='Africa'):
-    return px.bar(func_continent(a).nlargest(10, 'total_cases'), x="location", template=theme_color[2],
+    return px.bar(func_continent(a).nlargest(10, 'total_cases'), x="location", template=Rabet_bg_color,
                   labels={"location": "Country", "total_cases": "Total Cases"},
-                  y="total_cases", barmode="group").update_traces(marker_color=cls)
+                  y="total_cases", barmode="group").update_traces(marker_color=Rabet_color_palette)
 
 
 def fig_pie(a='Africa'):
     return px.pie(func_continent(a).nlargest(10, 'people_vaccinated'), names='location', values='people_vaccinated',
-                  labels={"people_vaccinated": "Total Vaccinations", "location": "Country"},template=theme_color[2],
-                  color_discrete_sequence=cls)
+                  labels={"people_vaccinated": "Total Vaccinations", "location": "Country"},template=Rabet_bg_color,
+                  color_discrete_sequence=Rabet_color_palette)
 
 
 def fig_funnel_vaccine(a='Africa'):
     return px.funnel(func_continent(a).nlargest(10, 'people_vaccinated_per_hundred'),
                      x='people_vaccinated_per_hundred',
-                     y='location',  color_discrete_sequence=cls,template=theme_color[2],
+                     y='location',  color_discrete_sequence=Rabet_color_palette,template=Rabet_bg_color,
                      labels={"people_vaccinated_per_hundred": "Vaccination per 100",
                              "location": "Country"}).update_yaxes(showticklabels=False)
 
@@ -105,5 +104,5 @@ def last_two_months_diff(a='Moderna'):
 
 
 def fig_bar_vax():
-    return px.bar(df_pct_vaccination, x='vaccine', y='pcnt_vaccination', template=theme_color[2],
-                  labels={'pcnt_vaccination': 'Percentage Vaccinations', 'vaccine': 'Vaccine'}).update_traces(marker_color=cls)
+    return px.bar(df_pct_vaccination, x='vaccine', y='pcnt_vaccination', template=Rabet_bg_color,
+                  labels={'pcnt_vaccination': 'Percentage Vaccinations', 'vaccine': 'Vaccine'}).update_traces(marker_color=Rabet_color_palette)

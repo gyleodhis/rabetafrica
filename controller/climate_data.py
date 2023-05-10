@@ -3,8 +3,7 @@ import pandas as pd
 import dash_daq as daq
 import plotly.express as px
 from controller.data import co2_sector,df_covid_data
-
-theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
+from utils.config import Rabet_bg_color
 
 def load_data(a):
     return pd.read_csv(a,index_col=None)
@@ -45,7 +44,7 @@ df_top_emitters_by_year = top_emitters_by_year()
 
 def fig_corbon_line():
     return px.line(df_top_emitters_by_year, x='Year', y=top_emitters_by_year().columns,
-                  markers=True,template=theme_color[2],
+                  markers=True,template=Rabet_bg_color,
                   labels={'value':'Amt in Tonnes','variable':'Sector'})
 
 def emission_with_continent():
@@ -65,7 +64,7 @@ def top_emitter_by_year(a='Africa'):
 
 def fig_top_emitter_by_year(a='Africa'):
     return px.area(top_emitter_by_year(a), x='Year', y="Energy", color="continent",
-                   markers=True,template=theme_color[2],labels={'Energy':'Amt in Tonnes'})
+                   markers=True,template=Rabet_bg_color,labels={'Energy':'Amt in Tonnes'})
 
 def emission_by_continent(a='Africa'):
     return round(top_emitter_by_year(a).Energy.sum(),2)

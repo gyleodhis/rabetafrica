@@ -1,17 +1,12 @@
 import dash
 from dash import Dash, html, dcc
-# from pages.home import covid_page
-# from pages.about import profile_page
-# from pages.covid import covid_vax_page
-# from pages.climate import carbon_page
-# from pages.social import social_page
-# from pages.forest import forest_page
 from dash.dependencies import Input, Output
 from controller.climate_data import fig_top_emitter_by_year, emission_by_continent
+from utils.config import Rabet_port,Rabet_name,Rabet_creator_url
 
 app = Dash(__name__,use_pages=True)
 server = app.server
-app.title = 'Rabet'
+app.title = Rabet_name
 
 app.layout = html.Div(
     className='hold-transition dark-mode sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed',
@@ -46,7 +41,7 @@ app.layout = html.Div(
                        # Logo container
                        children=[
                            html.A(className='brand-link',
-                                  href='https://www.linkedin.com/in/gaylord-odhiambo-992990150/',
+                                  href=Rabet_creator_url,
                                   target='_blank', children=[
                                    html.Img(className='brand-image img-circle elevation-3', src='assets/img/gyle.jpg',
                                             alt='Gyleodhis',
@@ -136,24 +131,6 @@ app.layout = html.Div(
             ])])
     ])
 
-
-# @app.callback(Output('page-content', 'children'),
-#               Input('url', 'pathname'))
-# def display_page(pathname):
-#     if pathname == '/':
-#         return covid_page
-#     elif pathname == '/profile':
-#         return profile_page
-#     elif pathname == '/vaccine':
-#         return covid_vax_page
-#     elif pathname == '/climate':
-#         return carbon_page
-#     elif pathname == '/social':
-#         return social_page
-#     elif pathname == '/forestcover':
-#         return forest_page
-
-
 @app.callback(
     Output('graph', 'figure'),
     Output('thermo', 'value'),
@@ -163,4 +140,4 @@ def update_area_chart(region):
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=3000, debug=False)
+    app.run_server(host='0.0.0.0', port=Rabet_port, debug=False)
