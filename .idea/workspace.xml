@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="44c1dbfb-e8a9-4864-a7ab-94ca21b31e43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Rabet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rabet.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/charts.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/charts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/climate_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/climate_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadcarbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcarbon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadcereal.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcereal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadforest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/tweets.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/tweets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,15 +54,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../predictive/twitter" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "D:/anaconda3/condabin/conda.bat",
+    "settings.editor.selected.configurable": "terminal"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\goodhiambo\PycharmProjects\charming_data" />

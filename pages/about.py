@@ -35,7 +35,7 @@ layout = html.Div([
                                          alt='Profile picture')
                             ]),
                             html.H3('Gaylord Odhiambo', className='profile-username text-center'),
-                            html.P('Data Engineer - Wizeline Inc', className='text-muted text-center'),
+                            html.P('Data Engineer', className='text-muted text-center'),
                             html.Ul(className='list-group list-group-unbordered mb-3', children=[
                                 html.Li(className='list-group-item', children=[
                                     html.B('Twitter'),
@@ -86,7 +86,11 @@ layout = html.Div([
                                 html.Span('ETL ', className='tag tag-info'),
                                 html.Span('Big Data ', className='tag tag-success'),
                                 html.Span('Python ', className='tag tag-info'),
-                                html.Span('Qlik Sense ', className='tag tag-info')
+                                html.Span('Qlik Sense ', className='tag tag-info'),
+                                html.Span('Synapse Analytics ', className='tag tag-info'),
+                                html.Span('Microsoft Azure ', className='tag tag-info'),
+                                html.Span('Databricks ', className='tag tag-info'),
+                                html.Span('MongoDB ', className='tag tag-info')
                             ]),
                             html.Hr(),
                             html.Strong(children=[
