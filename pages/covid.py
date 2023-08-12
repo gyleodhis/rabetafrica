@@ -26,7 +26,7 @@ layout = html.Div([
         html.Div(className='container-fluid', children=[
             # The row for top 4 months with highest vaccinations
             html.Div(className='row', children=[
-                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                html.Div(className='col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
                         html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
@@ -37,7 +37,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                html.Div(className='col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
                         html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
@@ -48,7 +48,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                html.Div(className='col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
                         html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')
@@ -59,7 +59,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3', children=[
+                html.Div(className='col-sm-6 col-md-3', children=[
                     html.Div(className='info-box', children=[
                         html.Span(className='info-box-icon bg-success elevation-1', children=[
                             html.I(className='fas fa-users')

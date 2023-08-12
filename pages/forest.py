@@ -30,7 +30,7 @@ layout = html.Div([
             html.Div(className='row', children=[
                 html.Div(className='col-md-12', children=[
                     html.Div(className='row', children=[
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
                                     html.H4('Entire Continent'),
@@ -39,7 +39,7 @@ layout = html.Div([
                                 html.A('Current Forest cover',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(df_PctForestArea['Country'].iloc[0]),
@@ -48,7 +48,7 @@ layout = html.Div([
                                 html.A('Most Covered Country',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(df_PctForestArea['Country'].iloc[-1]),
@@ -60,7 +60,7 @@ layout = html.Div([
                                 html.A('Least Covered Country',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(df_percentlost['Country'].iloc[0]),

@@ -36,7 +36,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3',children=[
+                html.Div(className='col-sm-6 col-md-3',children=[
                     html.Div(className='info-box',children=[
                         html.Span(className='info-box-icon bg-success elevation-1',children=[
                             html.I(className='fa fa-eye')]),
@@ -46,7 +46,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3',children=[
+                html.Div(className='col-sm-6 col-md-3',children=[
                     html.Div(className='info-box',children=[
                         html.Span(className='info-box-icon bg-danger elevation-1',children=[
                             html.I(className='fa fa-thumbs-down')]),
@@ -56,7 +56,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-12 col-sm-6 col-md-3',children=[
+                html.Div(className='col-sm-6 col-md-3',children=[
                     html.Div(className='info-box',children=[
                         html.Span(className='info-box-icon bg-warning elevation-1',children=[
                             html.I(className='fa fa-spinner fa-spin fa-pulse')]),

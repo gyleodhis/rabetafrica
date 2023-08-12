@@ -29,7 +29,7 @@ layout = html.Div([
             html.Div(className='row', children=[
                 html.Div(className='col-md-12', children=[
                     html.Div(className='row', children=[
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
                                     html.H4('Entire Continent'),
@@ -38,7 +38,7 @@ layout = html.Div([
                                 html.A('Emissions in 2019',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-success', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(df_getCo2Emission['Country'].iloc[1]),
@@ -47,7 +47,7 @@ layout = html.Div([
                                 html.A('Highest Emitter',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(df_getCo2Emission['Country'].iloc[-1]),
@@ -59,7 +59,7 @@ layout = html.Div([
                                 html.A('Least Emitter',className='small-box-footer', href='#')
                             ])
                         ]),
-                        html.Div(className='col-md-3', children=[
+                        html.Div(className='col-md-3 col-sm-6', children=[
                             html.Div(className='small-box bg-lime', children=[
                                 html.Div(className='inner', children=[
                                     html.H4(new_c02increase['Country'].iloc[1]),

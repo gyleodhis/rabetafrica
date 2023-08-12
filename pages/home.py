@@ -26,7 +26,7 @@ layout = html.Div([
     html.Section(className='content', children=[
         html.Div(className='container-fluid', children=[
             html.Div(className='row', children=[
-                html.Div(className='col-md-3', children=[
+                html.Div(className='col-md-3 col-sm-6', children=[
                     html.Div(className='small-box bg-success', children=[
                         html.Div(className='inner', children=[
                             html.H4('Total Cases')
@@ -37,7 +37,7 @@ layout = html.Div([
                                className='small-box-footer', href='#')
                     ])
                 ]),
-                html.Div(className='col-md-3', children=[
+                html.Div(className='col-md-3 col-sm-6', children=[
                     html.Div(className='small-box bg-success', children=[
                         html.Div(className='inner', children=[
                             html.H4('Positivity Rate')
@@ -51,7 +51,7 @@ layout = html.Div([
                                className='small-box-footer', href='#')
                     ])
                 ]),
-                html.Div(className='col-md-3', children=[
+                html.Div(className='col-md-3 col-sm-6', children=[
                     html.Div(className='small-box bg-lime', children=[
                         html.Div(className='inner', children=[
                             # html.H4(df_covid_data.iloc[46]['location']),
@@ -66,7 +66,7 @@ layout = html.Div([
                                className='small-box-footer', href='#')
                     ])
                 ]),
-                html.Div(className='col-md-3', children=[
+                html.Div(className='col-md-3 col-sm-6', children=[
                     html.Div(className='small-box bg-lime', children=[
                         html.Div(className='inner', children=[
                             html.H5('Total Vaccinations')

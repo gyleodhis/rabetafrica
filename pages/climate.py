@@ -31,7 +31,7 @@ layout = html.Div([
         html.Div(className='container-fluid', children=[
             html.H5('Highest Carbon Dioxide Emitters', className='mt-4 mb-2'),
             html.Div(className='row',children=[
-                html.Div(className='col-md-3 col-sm-6 col-12',children=[
+                html.Div(className='col-md-3 col-sm-6',children=[
                     html.Div(className='info-box bg-success',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-cogs')
@@ -47,7 +47,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-md-3 col-sm-6 col-12',children=[
+                html.Div(className='col-md-3 col-sm-6',children=[
                     html.Div(className='info-box bg-success',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-broadcast-tower')
@@ -63,7 +63,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-md-3 col-sm-6 col-12',children=[
+                html.Div(className='col-md-3 col-sm-6',children=[
                     html.Div(className='info-box bg-lime',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fa fa-building')
@@ -79,7 +79,7 @@ layout = html.Div([
                         ])
                     ])
                 ]),
-                html.Div(className='col-md-3 col-sm-6 col-12',children=[
+                html.Div(className='col-md-3 col-sm-6',children=[
                     html.Div(className='info-box bg-lime',children=[
                         html.Span(className='info-box-icon',children=[
                             html.I(className='fas fa-industry')
