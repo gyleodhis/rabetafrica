@@ -87,7 +87,8 @@ def df_this_month():
 df_df_this_month = df_this_month()
 
 def last_two_months():
-    df_last_60_days_vax = df_covid_vaccine[df_covid_vaccine.date > datetime.datetime.now() - pd.to_timedelta("50day")]
+    df_last_60_days_vax = covid_vaccine()[covid_vaccine()['date'].between('2022-11-08','2023-01-07')]
+    # df_last_60_days_vax = df_covid_vaccine[df_covid_vaccine.date > datetime.datetime.now() - pd.to_timedelta("50day")]
     df_last_60_days_vax = df_last_60_days_vax[['Month', 'vaccine', 'total_vaccinations']].groupby(
         ['vaccine', 'Month']).sum().reset_index()
     df_last_60_days_vax['pcnt_vaccination'] = round(
