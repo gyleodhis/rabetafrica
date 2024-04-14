@@ -8,13 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/Rabet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rabet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/climate.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/climate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/covid.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/covid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/forest.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/forest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/social.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/social.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/wb_carbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/wb_carbon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/loadcarbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcarbon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/loadforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadforest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obesity.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/obesity.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +61,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "D:/anaconda3/condabin/conda.bat",
-    "settings.editor.selected.configurable": "terminal"
+    "last_opened_file_path": "/Users/gaylord/Documents/rabetafrica",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
