@@ -1,6 +1,6 @@
 """CREATED BY:
     NAME: GAYLORD ODHIAMBO
-    EMAIL: gaylordodhiambo@gmail.com
+    EMAIL:
     TWITTER: @gyleodhis
 """
 

@@ -14,12 +14,8 @@
       <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter3.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter4.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WORLD BANK.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Rabet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rabet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadcarbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcarbon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
