@@ -6,6 +6,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10 (mydev)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Development" />
+    <orderEntry type="module" module-name="langchain" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="pytest" />

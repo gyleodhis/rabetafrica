@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Development/.idea/Development.iml" filepath="$PROJECT_DIR$/../Development/.idea/Development.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Rabet.iml" filepath="$PROJECT_DIR$/.idea/Rabet.iml" />
       <module fileurl="file://$USER_HOME$/PycharmProjects/charming_data/.idea/charming_data.iml" filepath="$USER_HOME$/PycharmProjects/charming_data/.idea/charming_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Development/langchain/.idea/langchain.iml" filepath="$PROJECT_DIR$/../Development/langchain/.idea/langchain.iml" />
     </modules>
   </component>
 </project>

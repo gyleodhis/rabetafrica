@@ -5,7 +5,8 @@ from utils.config import Rabet_bg_color,Rabet_color_palette
 theme_color = ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]
 
 def getCo2Emission():
-    df_income = wb.data.DataFrame('EN.ATM.CO2E.PC',
+    # DEBUG AND RETURN 'E   N.ATM.CO2E.PC'
+    df_income = wb.data.DataFrame('EN.GHG.CH4.WA.MT.CE.AR5',
                                     economy=wb.region.members('AFR'),labels=True)
     df_income = df_income.reset_index(drop=True).set_index('Country')
     df_income = df_income.iloc[1:,-20:-3].reset_index()
