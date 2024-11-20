@@ -127,7 +127,7 @@ app.layout = html.Div(
                          # html.Div(id='page-content')
                      ]),
             html.Footer(className='main-footer', children=[
-                html.Strong('Rabet© | Visualizing Africa | 2023')
+                html.Strong('Rabet© | Visualizing Africa | 2024')
             ])])
     ])
 
