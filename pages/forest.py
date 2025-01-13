@@ -139,7 +139,8 @@ layout = html.Div([
                                         ]),
                                         html.P(className='ml-auto d-flex flex-column text-right', children=[
                                             html.Span(className='text-success', children=[
-                                                html.I('%s%%'%mf.round_up(df_percentlost['Pct_Lost'].iloc[-2]*-1,2),
+                                                # html.I('%s%%'%mf.round_up(df_percentlost['Pct_Lost'].iloc[-2]*-1,2),
+                                                html.I('%s%%'%round(df_percentlost['Pct_Lost'].iloc[-2]*-1,2),
                                                        className='fas fa-arrow-up')
                                             ]),
                                             html.Span('Highest Gainer', className='text-muted')
