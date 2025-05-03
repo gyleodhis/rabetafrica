@@ -15,10 +15,7 @@
       <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter4.pdf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WORLD BANK.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/WORLD BANK.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadcarbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcarbon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadforest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_book.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dev_book.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/social.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/social.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

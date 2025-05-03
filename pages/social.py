@@ -62,7 +62,7 @@ layout = html.Div([
                             html.I(className='fa fa-spinner fa-spin fa-pulse')]),
                         html.Div(className='info-box-content',children=[
                             html.Span('Last Live Stream',className='info-box-text'),
-                            html.Span( dt.today(),className='info-box-number')
+                            html.Span( '2023-09-25',className='info-box-number')
                         ])
                     ])
                 ])
