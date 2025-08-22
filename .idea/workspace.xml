@@ -15,11 +15,10 @@
       <change afterPath="$PROJECT_DIR$/../Development/langchain/markets_info.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/mongodb:::cosmos-fo-mongo:2IXSozqVpUeteCI21ZA4vAUA" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/nasdaq.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime_old.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Development/langchain/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Development/langchain/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
