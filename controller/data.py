@@ -8,6 +8,7 @@ import pandas as pd
 # covid_data = 'assets/covid_data.csv'  # offline csv version
 covid_data = './temp_assets/covid.csv'  # offline csv version
 df_covid_data = pd.read_csv(covid_data)
+print(df_covid_data.head(30))
 # df_covid_data_v1['date'] = pd.to_datetime(df_covid_data_v1['date'])  # converting date column to type date
 # df_covid_data = df_covid_data_v1.sort_values('date').groupby(['continent','location']).last().reset_index()
 
