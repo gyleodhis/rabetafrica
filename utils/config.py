@@ -8,7 +8,7 @@
 PLEASE NOTE ANY CHANGE IN THIS FILE WILL MOSTLY AFFECT THE ENTIRE APPLICATION."""
 
 """This is the default port. You are free to change this."""
-Rabet_port=5050
+Rabet_port=5051
 
 """Change this to the name of the application you are building. For example your name"""
 Rabet_name='Rabet'

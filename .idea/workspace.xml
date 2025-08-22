@@ -9,13 +9,16 @@
       <change afterPath="$PROJECT_DIR$/../Development/langchain/.idea/langchain.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Development/langchain/MAIN.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter3.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/chapter4.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/OTHERS.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/YAHOO_FINANCE.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/genai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/markets_info.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/mongodb:::cosmos-fo-mongo:2IXSozqVpUeteCI21ZA4vAUA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Development/langchain/nasdaq.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Development/langchain/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Development/langchain/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/social.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/social.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
