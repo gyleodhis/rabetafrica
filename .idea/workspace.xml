@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44c1dbfb-e8a9-4864-a7ab-94ca21b31e43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/.idea/langchain.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/MAIN.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/OTHERS.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/YAHOO_FINANCE.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/genai" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/markets_info.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/mongodb:::cosmos-fo-mongo:2IXSozqVpUeteCI21ZA4vAUA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Development/langchain/nasdaq.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Development/langchain/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Development/langchain/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/charts.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/charts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_book.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dev_book.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

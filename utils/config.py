@@ -18,7 +18,7 @@ Rabet_graph_config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot'
 
 """The color palettes to be applied to the graphs. The one below is a green color pellete. Change this
 to whatever color palette you may wish"""
-Rabet_color_palette = ['#98FB98', '#7FFF00', '#00FF00', '#32CD32', '#00FF7F', '#3CB371', '#2E8B57', '#228B22', '#008000', '#006400']
+Rabet_color_palette = ['#006400','#98FB98','#7FFF00','#00FF00','#32CD32','#00FF7F','#3CB371','#2E8B57','#228B22','#008000']
 
 """The graphs  background colors as defined by plotly. This is a list hence will be referenced as a list"""
 
