@@ -16,7 +16,7 @@ def func_continent(a='Africa'):
     return df_cont_new[['date', 'location', 'total_cases', 'total_deaths', 'icu_patients','people_vaccinated', 'hosp_patients',
                         'total_tests_per_thousand', 'positive_rate', 'people_vaccinated_per_hundred']]
 
-
+print(func_continent().head())
 """Below functions return various charts dynamically"""
 
 config = {'displayModeBar': False, 'scrollZoom': False, 'staticPlot': False}
