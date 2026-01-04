@@ -21,9 +21,9 @@ app.layout = html.Div(
                                  html.A(className='nav-link', href='#', **{'data-widget': 'pushmenu'}, role='button',
                                         children=[html.I(className='fas fa-bars')])]),
                              html.Li(className='nav-item d-sm-inline-block', children=[
-                                 html.A('Home', className='nav-link', href=dash.page_registry['pages.home']['path'])]),
+                                 dcc.Link('Home', className='nav-link', href='/')]),
                              html.Li(className='nav-item d-sm-inline-block', children=[
-                                 html.A('Profile', className='nav-link', href=dash.page_registry['pages.about']['path'])])
+                                 dcc.Link('Profile', className='nav-link', href='/profile')])
                          ]),
                          html.Ul(className='navbar-nav ml-auto', children=[
                              html.Form(className='form-inline ml-3', children=[
@@ -63,24 +63,24 @@ app.layout = html.Div(
                                    html.Ul(className='nav nav-pills nav-sidebar flex-column',**{'data-widget': 'treeview', 'data-accordion': 'false'},
                                            role='menu',children=[
                                            html.Li(className='nav-item active', children=[
-                                               html.A(className='nav-link', href=dash.page_registry['pages.home']['path'], children=[
+                                               dcc.Link(className='nav-link', href='/', children=[
                                                    html.I(className='nav-icon fas fa-globe-africa text-success'),
                                                    html.P(children=['Home'])])
                                            ]),
                                            html.Li(className='nav-item', children=[
-                                               html.A(className='nav-link', href=dash.page_registry['pages.covid']['path'],
+                                               dcc.Link(className='nav-link', href='/vaccine',
                                                       children=[
                                                    html.I(className='nav-icon fa fa-syringe'),
                                                    html.P('Covid-19 Vaccine')
                                                    # html.Span('New',className='right badge badge-success')
                                                ])]),
                                            html.Li(className='nav-item', children=[
-                                               html.A(className='nav-link', href=dash.page_registry['pages.climate']['path'], children=[
+                                               dcc.Link(className='nav-link', href='/climate', children=[
                                                    html.I(className='nav-icon fa fa-sun-o'),
                                                    html.P('Climate')
                                                ])]),
                                            html.Li(className='nav-item', children=[
-                                               html.A(className='nav-link', href=dash.page_registry['pages.social']['path'], children=[
+                                               dcc.Link(className='nav-link', href='/social', children=[
                                                    html.I(className='nav-icon fa fa-twitter'),
                                                    html.P('Twitter'),
                                                    html.Span('Discontinued', className='right badge badge-danger')
@@ -94,21 +94,21 @@ app.layout = html.Div(
                                                ]),
                                                html.Ul(className='nav nav-treeview', children=[
                                                    html.Li(className='nav-item', children=[
-                                                       html.A(className='nav-link', href=dash.page_registry['pages.forest']['path'],
+                                                       dcc.Link(className='nav-link', href='/forestcover',
                                                               children=[
                                                            html.I(className='nav-icon fa fa-tree'),
                                                            html.P('Forest Cover'),
                                                            html.Span('New', className='right badge badge-success')
                                                        ])]),
                                                    html.Li(className='nav-item', children=[
-                                                       html.A(className='nav-link', href=dash.page_registry['pages.wb_carbon']['path'],
+                                                       dcc.Link(className='nav-link', href='/carbon',
                                                               children=[
                                                            html.I(className='nav-icon fa fa-industry'),
                                                            html.P('Carbon Emissions'),
                                                            html.Span('Beta', className='right badge badge-warning')
                                                        ])]),
                                                    html.Li(className='nav-item', children=[
-                                                       html.A(className='nav-link', href=dash.page_registry['pages.cereals']['path'],
+                                                       dcc.Link(className='nav-link', href='/cereals',
                                                               children=[
                                                            html.I(className='nav-icon fa fa-diamond'),
                                                            html.P('Cereal Production'),
@@ -127,7 +127,7 @@ app.layout = html.Div(
                          # html.Div(id='page-content')
                      ]),
             html.Footer(className='main-footer', children=[
-                html.Strong('Rabet© | Visualizing Africa | 2025')
+                html.Strong('Rabet© | Visualizing Africa | 2026')
             ])])
     ])
 

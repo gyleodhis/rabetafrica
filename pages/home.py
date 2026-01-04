@@ -1,6 +1,6 @@
 import dash
 from dash import html, dcc
-from controller.charts import *
+from controller.charts import   *
 import controller.my_functions as mf
 
 dash.register_page(__name__,path='/',name='Home',title='Rabet',image_url='assets/img/site_meta.jpeg',
@@ -14,9 +14,7 @@ layout = html.Div([
                 ]),
                 html.Div(className='col-sm-6', children=[
                     html.Ol(className='breadcrumb float-sm-right', children=[
-                        html.Li(className='breadcrumb-item', children=[
-                            html.A('Home', href='/')
-                        ]),
+                        dcc.Link('HOME',className='breadcrumb-item',href='/'),
                         html.Li('Covid', className='breadcrumb-item active')
                     ])
                 ])
