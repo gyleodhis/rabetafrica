@@ -12,8 +12,8 @@ def getCo2Emission():
     df_income = df_income.iloc[1:,-20:-3].reset_index()
     df_income.loc[60] = df_income.sum(numeric_only=True)
     df_income['Country'] = df_income['Country'].fillna('Africa')
-    df_income['Diff_Gain'] = df_income['YR2005']-df_income['YR2021']
-    df_income.sort_values(by='YR2020', inplace=True,ascending=False)
+    df_income['Diff_Gain'] = df_income['YR2006']-df_income['YR2022']
+    df_income.sort_values(by='YR2022', inplace=True,ascending=False)
     df_income = df_income.round(2)
     return df_income.reset_index(drop=True)
 df_getCo2Emission=getCo2Emission()
@@ -42,10 +42,10 @@ def fig_carbon_line():
 
 def fig_c02_bar():
     return px.bar(new_c02increase.iloc[1:11, [0,1,17]], x='Country', template=Rabet_bg_color,
-                  labels={'Country': 'Country','variable':'Year','value':'Emissions in Tonnes'}, y=['YR2005','YR2021'],
+                  labels={'Country': 'Country','variable':'Year','value':'Emissions in Tonnes'}, y=['YR2006','YR2022'],
                    barmode='group').update_traces(marker_color=Rabet_color_palette, showlegend=True)
 
 def fig_c02_gain_bar():
     return px.bar(new_c02increase.iloc[-11:-1, [0,1,17]], x="Country", template=Rabet_bg_color,
-                  labels={"Country": "Country",'variable':'Year','value':'Emissions in Tonnes'}, y=['YR2005','YR2021'],
+                  labels={"Country": "Country",'variable':'Year','value':'Emissions in Tonnes'}, y=['YR2006','YR2022'],
                    barmode="group").update_traces(marker_color=Rabet_color_palette, showlegend=True)

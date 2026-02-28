@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/../Development/langchain/YAHOO_FINANCE.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Development/langchain/YAHOO_FINANCE.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WORLD BANK.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/WORLD BANK.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/loadforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadforest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_book.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/dev_book.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/loadcarbon.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loadcarbon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,15 +54,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/gaylord/Documents/rabetafrica&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "full.screen.before.presentation.mode": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/Users/gaylord/Documents/rabetafrica",
+    "settings.editor.selected.configurable": "copyright"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\goodhiambo\PycharmProjects\charming_data" />
