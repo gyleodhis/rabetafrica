@@ -7,10 +7,10 @@ def getPctForestArea():
                                   economy=wb.region.members('AFR'),labels=True)
     df_income = df_income.reset_index(drop=True).set_index('Country')
     df_income = df_income.iloc[1:,-20:-2].reset_index()
-    df_income['Pct_Lost'] = df_income['YR2005']-df_income['YR2022']
+    df_income['Pct_Lost'] = df_income['YR2006']-df_income['YR2023']
     df_income.loc[60] = df_income.mean(numeric_only=True)
     df_income['Country'] = df_income['Country'].fillna('Africa')
-    df_income.sort_values(by='YR2022', inplace=True,ascending=False)
+    df_income.sort_values(by='YR2023', inplace=True,ascending=False)
     return df_income.reset_index(drop=True)
 
 df_PctForestArea = getPctForestArea()
@@ -49,10 +49,10 @@ def fig_forest_line():
 
 def fig_forest_bar():
     return px.bar(df_percentlost.iloc[0:10, [0,1,18]], x='Country', template=Rabet_bg_color,
-                  labels={'Country': 'Country','variable':'Year','value':'Pct Cover'}, y=['YR2005','YR2022'],
+                  labels={'Country': 'Country','variable':'Year','value':'Pct Cover'}, y=['YR2006','YR2023'],
                    barmode='group').update_traces(marker_color=Rabet_color_palette, showlegend=True)
 
 def fig_forest_gain_bar():
     return px.bar(df_percentlost.iloc[-11:-1, [0,1,18]], x="Country", template=Rabet_bg_color,
-                  labels={"Country": "Country",'variable':'Year','value':'Pct Cover'}, y=['YR2005','YR2022'],
+                  labels={"Country": "Country",'variable':'Year','value':'Pct Cover'}, y=['YR2006','YR2023'],
                    barmode="group").update_traces(marker_color=Rabet_color_palette, showlegend=True)
